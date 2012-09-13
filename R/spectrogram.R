@@ -1,8 +1,8 @@
 spectrogram = function (sound, fs = 22050, windowlength = 5, freqres, timestep = 3, 
     preemphasis = 50, maxfreq = 5000, gridlines = FALSE, colors = TRUE, 
-    dynamicrange = 40, nlevels = dynamicrange, maintitle = "", 
-    show = TRUE, output = FALSE, chooseslices = 0, indicateslices = TRUE, 
-    zoom = FALSE, indicatezoom = TRUE, alpha = 4, pause = TRUE) 
+    dynamicrange = 40, nlevels = dynamicrange, maintitle = "", show = TRUE,
+    output = FALSE, chooseslices = 0, indicateslices = TRUE, zoom = FALSE, 
+    indicatezoom = TRUE, window = 'kaiser', windowparameter = 4, pause = TRUE) 
 {
     if (class(sound) == "sound") {
         fs = sound$fs
@@ -34,8 +34,7 @@ spectrogram = function (sound, fs = 22050, windowlength = 5, freqres, timestep =
     for (i in 1:maxsteps) {
         current = first + (timestep) * (i - 1) - (n/2)
         snip = sound[current:(current + n - 1)]
-        snip = snip * besselI(pi * alpha * sqrt(1 - (2 * (0:(n - 
-            1))/n - 1)^2), 0)/besselI(alpha * pi, 0)
+        snip = snip * windowfunc (n, window, windowparameter)
         snip = c(snip, rep(0, padding))
         power = abs(fft(snip)^2)
         power = power[1:(N/2 + 1)]

@@ -9,11 +9,11 @@ Create Spectrograms
 Create and display spectrograms.
 }
 \usage{
-spectrogram(sound, fs = 22050, windowlength = 5, freqres, timestep = 3, 
+spectrogram (sound, fs = 22050, windowlength = 5, freqres, timestep = 3, 
 preemphasis = 50, maxfreq = 5000, gridlines = FALSE, colors = TRUE, 
-dynamicrange = 40, nlevels = dynamicrange, maintitle = "", show = TRUE, 
+dynamicrange = 40, nlevels = dynamicrange, maintitle = "", show = TRUE,
 output = FALSE, chooseslices = 0, indicateslices = TRUE, zoom = FALSE, 
-indicatezoom = TRUE, alpha = 4, pause = TRUE)
+indicatezoom = TRUE, window = 'kaiser', windowparameter = 4, pause = TRUE) 
 }
 \arguments{
   \item{sound}{either a numeric vector representing a sequence of samples taken from a sound wave or a sound object created with the loadsound() function.}
@@ -34,7 +34,8 @@ indicatezoom = TRUE, alpha = 4, pause = TRUE)
   \item{indicateslices}{if TRUE, lines on the spectrogram will indicate where the user selected slices.}
   \item{zoom}{if TRUE, the user may indicate a subsection of the spectrogram by clicking on two points on a spectrogram plot. The spectrogram between these two points is then presented in a new plot.}
   \item{indicatezoom}{if TRUE, the points between the zoom was selected are displayed with vertical lines.}
-  \item{alpha}{the alpha parameter for the kaiser window to be applied to the signal.}
+  \item{window}{the window to be applied to the signal, applied by the windowfunc function in this package.}
+  \item{windowparameter}{the parameter for the window to be applied to the signal, if appropriate.}
   \item{pause}{boolean, If TRUE, the console waits until enter is hit before plotting the spectrogram so that the dimensions can be determined. Resizing spectograms that have already been plotted can be slow, especially with R-Studio.}
 }
 \details{This function is used to create and plot spectrograms. The user may specify all analysis parameters, in addition to the colors used to display the spectrogram. Resizing spectrograms after plotting may be slow (especially with RStudio). If you find this is the case, take advantage of the PAUSE parameter which lets the user set their plotting window size before displaying the spectrogram.

@@ -1,7 +1,7 @@
 spectralslice <-
 function (sound, padding = length(sound)*4, fs = 22050, output = FALSE, 
-show = TRUE, color = 1, add = FALSE, xlim, ylim, alpha = 4, zeromax = TRUE, 
-preemphasis = 50, type, ...)
+show = TRUE, color = 1, add = FALSE, xlim, ylim, window = 'kaiser', 
+windowparameter = 4, zeromax = TRUE, preemphasis = 50000, type, ...)
 {
   if (preemphasis < 1) preemphasis = 50000
   alpha = exp(-2*pi*preemphasis/fs)
@@ -10,11 +10,11 @@ preemphasis = 50, type, ...)
   sound = tmp
   
   n = length (sound);
-  sound = sound * besselI (pi*alpha * sqrt (1 - (2*(0:(n-1))/n - 1)^2), 0) / besselI(alpha*pi, 0) 
-  
+  sound = sound * windowfunc(n, window, windowparameter)   
     
   N = n + padding;
   sound = c(sound, rep (0, padding))
+  
   if ((length(sound) %% 2) == 1) sound = c(sound, 0)
    
   power = abs (fft(sound)^2)    ## find stdft                        

@@ -8,8 +8,8 @@ A function to plot the power spectrum of a vector representing a sound wave.
 }
 \usage{
 spectralslice (sound, padding = length(sound)*4, fs = 22050, output = FALSE, 
-show = TRUE, color = 1, add = FALSE, xlim, ylim, alpha = 4, zeromax = TRUE, 
-preemphasis = 50, type, ...)
+show = TRUE, color = 1, add = FALSE, xlim, ylim, window = 'kaiser', 
+windowparameter = 4, zeromax = TRUE, preemphasis = 50000, type, ...)
 }
 \arguments{
   \item{sound}{a vector representing a sequence of samples taken at equal time intervals. Each sample should indicate the amplitude of the wave at that time interval.}
@@ -21,7 +21,8 @@ preemphasis = 50, type, ...)
   \item{add}{if TRUE, the spectrum is added to an existing plot. If FALSE a new one is created.}
   \item{xlim}{the range of frequencies to be plotted. By default the function will plot from 0 Hz to fs/2 Hz.}
   \item{ylim}{The y axis (power) range to plot.}
-  \item{alpha}{the alpha parameter for the kaiser window applied to the signal.}
+  \item{window}{the window to be applied to the signal, applied by the windowfunc function in this package.}
+  \item{windowparameter}{the parameter for the window to be applied to the signal, if appropriate.}
   \item{zeromax}{boolean. If TRUE, the maximum dB is set to 0.}
   \item{type}{the line type to be used for plotting, passes its value to the 'lty' parameter.}
   \item{preemphasis}{preemphasis of 6 dB per octave is added to frequencies above the specified frequency. For no preemphasis, set to a frequency higher than the samplling frequency.}
