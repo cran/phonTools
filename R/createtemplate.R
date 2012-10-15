@@ -8,5 +8,6 @@ function (formants, vowels){
   colnames (means) = paste ('f',1:ncol(formants),sep='')
   covariance = var (formants)
   output = list (means = means, covariance = covariance)
+  class (output) = 'template'
   return (output)
 }

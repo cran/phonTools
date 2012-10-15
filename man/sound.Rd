@@ -5,7 +5,7 @@
 Sound object
 }
 \description{
-An example of a sound object representing an /e/ produced by the author of this package. This sound object may be inspected with spectrogram() and plotted with plot(). Sections of the individual samples representing the waveform (found in the "sound" element of a sound object) can be passed to spectralslice() to see a spectral slice.
+An example of a sound object, the phrase 'this is a spectrogram', produced by the author of this package. This sound object may be inspected with spectrogram() and plotted with plot(). Sections of the individual samples representing the waveform (found in the "sound" element of a sound object) can be passed to spectralslice() to see a spectral slice.
 }
 \usage{data (sound)}
 \format{

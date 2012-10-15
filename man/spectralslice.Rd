@@ -7,9 +7,9 @@ Plot the Spectrum of a Vector
 A function to plot the power spectrum of a vector representing a sound wave. 
 }
 \usage{
-spectralslice (sound, padding = length(sound)*4, fs = 22050, output = FALSE, 
+spectralslice (sound, padding = length(sound)*2, fs = 22050, output = FALSE, 
 show = TRUE, color = 1, add = FALSE, xlim, ylim, window = 'kaiser', 
-windowparameter = 4, zeromax = TRUE, preemphasis = 50000, type, ...)
+windowparameter = 4, zeromax = TRUE, preemphasis = 50000, type, xlab, ...)
 }
 \arguments{
   \item{sound}{a vector representing a sequence of samples taken at equal time intervals. Each sample should indicate the amplitude of the wave at that time interval.}
@@ -26,6 +26,7 @@ windowparameter = 4, zeromax = TRUE, preemphasis = 50000, type, ...)
   \item{zeromax}{boolean. If TRUE, the maximum dB is set to 0.}
   \item{type}{the line type to be used for plotting, passes its value to the 'lty' parameter.}
   \item{preemphasis}{preemphasis of 6 dB per octave is added to frequencies above the specified frequency. For no preemphasis, set to a frequency higher than the samplling frequency.}
+  \item{xlab}{the x-axis label may be specified if desired.}
   \item{\dots}{any additional arguments will be passed to the internal calls of 'plot' or 'lines'.}
 }
 \details{

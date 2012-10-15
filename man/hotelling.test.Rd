@@ -39,13 +39,13 @@ Santiago Barreda <sbarreda@ualberta.ca>
 
 \examples{
 ## load Peterson & Barney data
-data (pbvowels)
+data (pb52)
 
 ## separate the Peterson & Barney vowels by speaker gender and age (child vs. adult)
-men = pbvowels[pbvowels$sex == 'm' & pbvowels$type == 'm',]
-women = pbvowels[pbvowels$sex == 'f' & pbvowels$type == 'w',]
-boys = pbvowels[pbvowels$sex == 'm' & pbvowels$type == 'c',]
-girls = pbvowels[pbvowels$sex == 'f' & pbvowels$type == 'c',]
+men = pb52[pb52$sex == 'm' & pb52$type == 'm',]
+women = pb52[pb52$sex == 'f' & pb52$type == 'w',]
+boys = pb52[pb52$sex == 'm' & pb52$type == 'c',]
+girls = pb52[pb52$sex == 'f' & pb52$type == 'c',]
 
 ## fit 4 separate models which predict F1 frequency on the basis of vowel category. 
 men = rcr (f1 ~ vowel, men$speaker, men)

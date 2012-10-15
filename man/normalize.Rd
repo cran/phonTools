@@ -36,8 +36,8 @@ Santiago Barreda <sbarreda@ualberta.ca>
 \examples{
 ## normalize all Peterson & Barney (1952) vowels based
 ## on the first three formant frequencies.
-data (pbvowels)
-normalized = normalize (pbvowels[,7:8], pbvowels$speaker, pbvowels$vowel)
+data (pb52)
+normalized = normalize (pb52[,7:8], pb52$speaker, pb52$vowel)
 
 ## the benefits of normalizing vowels can be seen by
 ## using vowel.plot (included in this package)
@@ -46,15 +46,15 @@ normalized = normalize (pbvowels[,7:8], pbvowels$speaker, pbvowels$vowel)
 ## the bottom row presents normalized vowels. 
 ## Normalization greatly reduces between-category overlap. 
 par (mfrow = c(2,2), mar = c(3,3,1,1))
-vowelplot (pbvowels$f1, pbvowels$f2, pbvowels$vowel, 
+vowelplot (pb52$f1, pb52$f2, pb52$vowel, 
            pointType = 16, logaxes = 'xy')
-vowelplot (pbvowels$f1, pbvowels$f2, pbvowels$vowel, 
+vowelplot (pb52$f1, pb52$f2, pb52$vowel, 
            meansOnly = TRUE, ellipses = TRUE, logaxes = 'xy')
 
 vowelplot (normalized$formants$f1, normalized$formants$f2, 
-           pbvowels$vowel, pointType = 16)
+           pb52$vowel, pointType = 16)
 vowelplot (normalized$formants$f1, normalized$formants$f2, 
-           pbvowels$vowel, meansOnly = TRUE, ellipses = TRUE)
+           pb52$vowel, meansOnly = TRUE, ellipses = TRUE)
 }
 
 

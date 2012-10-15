@@ -4,7 +4,7 @@
 Plot Vowels
 }
 \description{
-vowelplot is a flexible function which can be used to create a wide variety of vowel plots.  
+A flexible function which can be used to create a wide variety of vowel plots.  
 }
 \usage{
 vowelplot(f1s, f2s, labels = 0, xrange = NULL, yrange = NULL, meansOnly = FALSE,
@@ -36,7 +36,7 @@ gridStart = c(0, 0), defaultPlot = TRUE, alternateAxes = FALSE, ...)
 Santiago Barreda <sbarreda@ualberta.ca>
 }
 \examples{
-data (pbvowels)
+data (pb52)
 
 ## the top row of the figure created with the following code highlights differences
 ## in general layout. The bottom row highlights differences in presentation of data points
@@ -44,28 +44,28 @@ data (pbvowels)
 par (mfrow = c(2,4), mar = c(4.2,4.2,1,1))
 
 ## standard layout with linear axes
-vowelplot (pbvowels$f1, pbvowels$f2, pbvowels$vowel)
+vowelplot (pb52$f1, pb52$f2, pb52$vowel)
 
 ## standard layout with log axes
-vowelplot (pbvowels$f1, pbvowels$f2, pbvowels$vowel, logaxes = 'xy')
+vowelplot (pb52$f1, pb52$f2, pb52$vowel, logaxes = 'xy')
 
 ## alternate layout with log axes
-vowelplot (pbvowels$f1, pbvowels$f2, pbvowels$vowel, logaxes = 'xy', alternateAxes = TRUE)
+vowelplot (pb52$f1, pb52$f2, pb52$vowel, logaxes = 'xy', alternateAxes = TRUE)
 
 ## standard layout with log axes and grid lines
-vowelplot (pbvowels$f1, pbvowels$f2, pbvowels$vowel, logaxes = 'xy', grid = TRUE)
+vowelplot (pb52$f1, pb52$f2, pb52$vowel, logaxes = 'xy', grid = TRUE)
 
 ## points rather than text labels for vowels
-vowelplot (pbvowels$f1, pbvowels$f2, pbvowels$vowel, logaxes = 'xy', pointType = 16)
+vowelplot (pb52$f1, pb52$f2, pb52$vowel, logaxes = 'xy', pointType = 16)
 
 ## points with standard deviation ellipses
-vowelplot (pbvowels$f1, pbvowels$f2, pbvowels$vowel, logaxes = 'xy', pointType = 16,
+vowelplot (pb52$f1, pb52$f2, pb52$vowel, logaxes = 'xy', pointType = 16,
            ellipses = TRUE)
 
 ## category means only 
-vowelplot (pbvowels$f1, pbvowels$f2, pbvowels$vowel, logaxes = 'xy', meansOnly = TRUE)
+vowelplot (pb52$f1, pb52$f2, pb52$vowel, logaxes = 'xy', meansOnly = TRUE)
 
 ## category means only with standard deviation ellipses
-vowelplot (pbvowels$f1, pbvowels$f2, pbvowels$vowel, logaxes = 'xy', meansOnly = TRUE,
+vowelplot (pb52$f1, pb52$f2, pb52$vowel, logaxes = 'xy', meansOnly = TRUE,
            ellipses = TRUE)
 }

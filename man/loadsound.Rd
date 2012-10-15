@@ -17,6 +17,9 @@ loadsound (filename)
 \details{
 The function is only compatible with WAV files of 8 and 16 bits. Only mono WAV files are supported. The function returns a sound object. The functions plot() and print() are defined for sound objects. 
 }
+\references{
+https://ccrma.stanford.edu/courses/422/projects/WaveFormat/
+}
 \value{
 An object of class 'sound', a list containing the elements:
 

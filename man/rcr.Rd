@@ -63,18 +63,18 @@ Santiago Barreda <sbarreda@ualberta.ca>
 }
 
 \examples{
-data (pbvowels)
+data (pb52)
 
 ## runs an rcr model on the Peterson & Barney (1952) vowels to test 
 ## for the predictive value of the speaker's f0 and F3
-rcr.model = rcr (f1 ~ f0 * f3, pbvowels$speaker, pbvowels)
+rcr.model = rcr (f1 ~ f0 * f3, pb52$speaker, pb52)
 rcr.model
 
 ## test for the significance of each individual coefficient 
 summary (rcr.model)
 
 ## a similar analysis can be run using vowel category as the predictor
-rcr.model = rcr (f1 ~ vowel, pbvowels$speaker, pbvowels)
+rcr.model = rcr (f1 ~ vowel, pb52$speaker, pb52)
 rcr.model
 
 ## here, summary() tests each coefficient individually
