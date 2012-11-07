@@ -1,4 +1,8 @@
 FIRfilter = function (sound, fir, output = TRUE, verify = FALSE){
+  if (class(sound) == "sound") {
+    fs = sound$fs
+    sound = sound$sound
+  }
   if (!is.numeric(sound)) stop ('Non-numeric filter sample values.')
   if (!is.numeric(fir)) stop ('Non-numeric filter impulse response.')
 

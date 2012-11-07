@@ -69,8 +69,7 @@ spectrogram = function (sound, fs = 22050, windowlength = 5, freqres, timestep =
         times = times[touse]
         if (indicatezoom == TRUE) 
             abline(v = edges, lwd = 4)
-        plot(zoomspecobject, ylim = c(0, maxfreq), show = TRUE, 
-            pause = wait)
+        plot(zoomspecobject, ylim = c(0, maxfreq), pause = wait)
     }
     if (chooseslices > 0) {
         hz = as.numeric(colnames(spect))

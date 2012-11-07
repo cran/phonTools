@@ -10,16 +10,16 @@ Draw vectors from a multivariate normal distribution.
 rmvtnorm (n = 1, k = 2, means = rep (0, k), sigma = diag (k))
 }
 \arguments{
-  \item{n }{ the number of vectors to be drawn.} 
-  \item{k }{ the dimension of the vectors to be drawn.} 
-  \item{means }{ a vector of means, one for each dimension.} 
-  \item{sigma }{ the covariance matrix of the distribution. If a number between 0 and 1 is provided, this is assumed to be the correlation parameter for a bivariate standard normal distribution.} 
+  \item{n}{The number of vectors to be drawn.} 
+  \item{k}{The dimension of the vectors to be drawn.} 
+  \item{means}{A vector of means, one for each dimension.} 
+  \item{sigma}{The covariance matrix of the distribution. If a number between 0 and 1 is provided, this is assumed to be the correlation parameter for a bivariate standard normal distribution.} 
 }
 \details{
-If means and sigma are not specified, a standard normal distribution is assumed along every dimensions, and dimensions are assumed to be uncorrelated. 
+If means and sigma are not specified, a standard normal distribution is assumed along every dimensions, and dimensions are assumed to be uncorrelated. If the number of dimensions is not specified, a bivariate distribution is assumed. 
 }
 \value{
-A matrix with rows equal to n and columns equal to k, where each row indicates a single observation.
+A matrix with rows equal to n and columns equal to k, where each row indicates a single observation, and each column represents a different dimension.
 }
 \author{
 Santiago Barreda <sbarreda@ualberta.ca>

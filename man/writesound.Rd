@@ -4,18 +4,18 @@
 Write out a WAV file
 }
 \description{
-Generate a WAV file from a numeric vector.
+Generate a WAV file from a numeric vector or 'sound' object.
 }
 \usage{
 writesound (samples, filename = '', fs = 22050)
 }
 \arguments{
-  \item{samples }{ a numeric vector representing samples values of the sound wave.} 
-  \item{filename }{ a string indicating the desired output file name.} 
-  \item{fs }{ the desired output sampling frequency.} 
+  \item{samples}{A numeric vector representing a sound wave.} 
+  \item{filename}{A string indicating the desired output file name.} 
+  \item{fs}{The desired output sampling frequency.} 
 }
 \details{
-This function generates single channel (mono), 16-bit WAV sound files at a desired sampling frequency. If a 'sound' object is passed, the filename and sampling frequency do not need to be set. If a filename is not set, the sound created is called 'sound.wav' by default.
+This function generates single channel (mono), 16-bit WAV sound files at a desired sampling frequency. If a 'sound' object is passed, the filename and sampling frequency do not need to be set. If a filename is not set, the filename defaults to 'samples.wav' where 'samples' indicates the name of the samples variable that was passed to the function.
 }
 \references{
 https://ccrma.stanford.edu/courses/422/projects/WaveFormat/
@@ -33,6 +33,9 @@ plot (snd[1:100], type = 'b')
 
 ## write out sine wave as a WAV file
 writesound (snd, filename = '1khz.wav', fs = 10000)
+
+## if no filename is provided, this sound will be called 'snd.wav'
+writesound (snd, fs = 10000)
 
 }
 

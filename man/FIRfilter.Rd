@@ -10,10 +10,10 @@ Finite Impulse Response (FIR) filtering of vectors.
 FIRfilter (sound, fir, output = TRUE, verify = FALSE)
 }
 \arguments{
-  \item{sound}{ a vector representing the sound to be filtered.} 
-  \item{fir}{ an impulse response representing the digital filter.} 
-  \item{output}{ if TRUE, the filtered sound is returned.} 
-  \item{verify}{ if TRUE a series of plots are created which allow the user to verify the input and outputs of the function.} 
+  \item{sound}{A numeric vector representing a waveform, or a 'sound' object created with the loadsound() or makesound() functions.} 
+  \item{fir}{An impulse response representing the digital filter.} 
+  \item{output}{If TRUE, the filtered sound is returned.} 
+  \item{verify}{If TRUE a series of plots are created which allow the user to verify the input and outputs of the function.} 
 }
 \details{
 This function performs FIR filtering by convolving the signal and the impulse response of the filter, returning only the relevant samples. The particular sampling frequency of the signal does not affect the output sound, but must be taken account of when creating the impulse response of the filter. An appropriate FIR impulse response can be created with the createFIR() function included in this package.

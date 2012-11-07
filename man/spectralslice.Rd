@@ -4,39 +4,40 @@
 Plot the Spectrum of a Vector
 }
 \description{
-A function to plot the power spectrum of a vector representing a sound wave. 
+A function to plot the magnitude spectrum of a vector representing a sound wave. 
 }
 \usage{
 spectralslice (sound, padding = length(sound)*2, fs = 22050, output = FALSE, 
 show = TRUE, color = 1, add = FALSE, xlim, ylim, window = 'kaiser', 
-windowparameter = 4, zeromax = TRUE, preemphasis = 50000, type, xlab, ...)
+windowparameter = 4, zeromax = TRUE, preemphasis = 50000, type, xlab, pwr = TRUE, ...)
 }
 \arguments{
-  \item{sound}{a vector representing a sequence of samples taken at equal time intervals. Each sample should indicate the amplitude of the wave at that time interval.}
-  \item{padding}{the amount of zero-padding desired for the analysis.}
-  \item{fs}{the sampling frequency of the sound.}
-  \item{output}{boolean. If TRUE, the frequency of bin centers and power at those centers is returned.}
-  \item{show}{boolean. If FALSE, no plot is created.}
-  \item{color}{set the color used for plotting the spectrum.}
-  \item{add}{if TRUE, the spectrum is added to an existing plot. If FALSE a new one is created.}
-  \item{xlim}{the range of frequencies to be plotted. By default the function will plot from 0 Hz to fs/2 Hz.}
-  \item{ylim}{The y axis (power) range to plot.}
-  \item{window}{the window to be applied to the signal, applied by the windowfunc function in this package.}
-  \item{windowparameter}{the parameter for the window to be applied to the signal, if appropriate.}
-  \item{zeromax}{boolean. If TRUE, the maximum dB is set to 0.}
-  \item{type}{the line type to be used for plotting, passes its value to the 'lty' parameter.}
-  \item{preemphasis}{preemphasis of 6 dB per octave is added to frequencies above the specified frequency. For no preemphasis, set to a frequency higher than the samplling frequency.}
+  \item{sound}{A vector representing a sequence of samples taken at equal time intervals. Each sample should indicate the amplitude of the wave at that time interval.}
+  \item{padding}{The amount of zero-padding desired for the analysis.}
+  \item{fs}{The sampling frequency of the sound.}
+  \item{output}{If TRUE, the frequency of bin centers and power at those centers is returned.}
+  \item{show}{If FALSE, no plot is created.}
+  \item{color}{Set the color used for plotting the spectrum.}
+  \item{add}{If TRUE, the spectrum is added to an existing plot. If FALSE a new one is created.}
+  \item{xlim}{The range of frequencies to be plotted. By default the function will plot from 0 Hz to fs/2 Hz.}
+  \item{ylim}{The y axis (power/magnitude) range to plot.}
+  \item{window}{The window to be applied to the signal, applied by windowfunc(), provided in this package.}
+  \item{windowparameter}{The parameter for the window to be applied to the signal, if appropriate. Passed to windowfunc().}
+  \item{zeromax}{If TRUE, the maximum dB is set to 0.}
+  \item{type}{The line type to be used for plotting, passes its value to the 'lty' parameter.}
+  \item{preemphasis}{Preemphasis of 6 dB per octave is added to frequencies above the specified frequency. For no preemphasis, set to a frequency higher than the sampling frequency.}
   \item{xlab}{the x-axis label may be specified if desired.}
+  \item{pwr}{If TRUE, a power spectrum is calculated, if FALSE, a magnitude spectrum is calculated.}
   \item{\dots}{any additional arguments will be passed to the internal calls of 'plot' or 'lines'.}
 }
 \details{
-This function can be used to create spectral slices.  
+This function can be used to calculate and plot short-time frequency spectra for sections of signals.  
 }
 \value{
 If output is set to TRUE, a dataframe with the following elements is returned:
 
-\item{hz}{the center frequency of the analysis bins.}
-\item{amp}{the dB amplitude for the analysis bin.}
+\item{hz}{The center frequency of the analysis bins.}
+\item{amp}{The dB amplitude for the analysis bin.}
 
 }
 \author{

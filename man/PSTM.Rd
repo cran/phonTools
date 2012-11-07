@@ -7,16 +7,18 @@ Probabilistic Sliding Template Model
 Classify Vowels Using the Probabilistic Sliding Template Model
 }
 \usage{
-PSTM (x, f0, template, winner = TRUE)
+PSTM (ffs, f0, template, winner = TRUE)
 }
 \arguments{
-  \item{x}{ a matrix of formant frequencies in which each row represents a single vowel token, and each column represents a formant frequency of that vowel. At least 3 formants need to be specified for every vowel.} 
-  \item{f0}{ a vector containing the average f0 measured for each vowel to be classified. The length of this vector must equal the number of rows in x.}
-  \item{template}{ a 'template' object created with the createtemplate() function provided in this package. If no template is specified, vowels are classified relative to vowels from Edmonton English.}
-  \item{winner}{ if TRUE, only the winner of each classification is returned. If FALSE, information regarding all candidate vowels are returned. See 'value' subsection for details.}
+  \item{ffs}{A matrix of formant frequencies in which each row represents a single vowel token, and each column represents a formant frequency. At least 3 formants need to be specified for every vowel.} 
+  \item{f0}{A vector containing the average f0 measured for each vowel to be classified. The length of this vector must equal the number of rows in ffs.}
+  \item{template}{A 'template' object created with the createtemplate() function provided in this package. If no template is specified, vowels are classified relative to vowels from Edmonton English.}
+  \item{winner}{If TRUE, only the winner of each classification is returned. If FALSE, information regarding all candidate vowels is returned. See 'value' subsection for details.}
 }
 \details{
-The Probabilistic Sliding Template Model (PSTM) is an explicit model of extrinsic vowel normalization. Whereas classic normalization methods, such as Nearey (1978), find a speaker-specific reference parameter based on the speaker's entire vowel system, the PSTM 'guesses' this reference parameter. This function uses 'Method 6' of the PSTM as described in Nearey & Assmann (2007). In this method, the 'guess' is carried out on the basis of the vowel f0, the prior distribution of this parameter across the human population, and the parameter that would be required to make the observed formants a good fit for each candidate vowel category. This method estimates an optimal speaker-specific parameter (equivalent to the log-mean formant frequency produced by the speaker) for each candidate vowel category. The posterior probability that the observed vowel (specified by a row in x) belongs to each candidate category is then determined with reference to the multivariate normal distribution specified by the means and covariance parameters given to the function by the template parameter. 
+The Probabilistic Sliding Template Model (PSTM) is an explicit model of vowel normalization. The classic log-mean normalization method of Nearey (1978), finds a speaker-specific reference parameter based on the speaker's entire vowel system. This parameter is related to the range of formant frequencies that a speaker can be expected to produce. The PSTM works by normalizing the formant frequencies of a vowel based on a speaker-specific fisplacement parameter (psi) and then classifying the vowel relative to a normalized vowel space. The 'template' object given to this vowel indicates the average formant frequencies expected for each vowel category, as well information regarding the covariances of these distributions. Using this information, a normalized vowel can be classified by selecting the category with the highest likelihood given the expected mean for that vowel category (Nearey & Assmann, 2007).
+
+'Method 6' of the PSTM (described in Nearey & Assmann, 2007) 'guesses' the speaker-specific reference parameter (psi) for each vowel token. The method guesses a different psi for each candidate vowel category using information regarindg vowel f0, the prior distribution of psi across the human population, and the psi that would be required to make the observed formants a good fit for the candidate vowel category. Each vowel vowel is normalized by its specific psi, and the posterior probability of observing the vowel given the formants is found (based on the information provided in the 'template' object). 
 
 If no template is passed, the model identifies vowels relative to the vowel system of Edmonton English speakers. For in-depth details regarding the specifics of this model, please see Nearey & Assmann (2007).
 }
@@ -25,13 +27,18 @@ If winner = TRUE:
 
 A dataframe with the following columns:
 
-\item{vowel}{ the winning vowel category for each vowel token.}
-\item{psi}{ the optimal psi determined for each winning vowel category.}
-\item{postprob}{ the posterior probability of the winning vowel category.}
+\item{vowel}{The label for each winning vowel.}
+\item{psi}{The optimal psi determined for the winning vowel.}
+\item{postprob}{The posterior probability of observing the winning vowel, given the formants and the psi.}
 
 If winner = FALSE:
 
-A list of dataframes, each of which contains information for every candidate vowel category for each token to be classified, where the columns contain the same information as above.
+A list of dataframes, each of which contains information for every candidate vowel category for each token to be classified. Each dataframe has the following columns:
+
+\item{vowel}{The label for each candidate vowel category.}
+\item{psi}{The optimal psi determined for each vowel category.}
+\item{postprob}{The posterior probability of observing each vowel category, given the formants and the psi.}
+
 }
 \references{
 Nearey, T. M. (1978). Phonetic Feature Systems for Vowels. PhD thesis, Indiana University Linguistics Club. 
@@ -43,6 +50,7 @@ Nearey, T. M. & P. F. Assmann. (2007). Pobabilistic 'sliding template' models fo
 Santiago Barreda <sbarreda@ualberta.ca>
 }
 \examples{
+
 ## load Peterson & Barney vowel data
 data (pb52)
 
@@ -55,19 +63,20 @@ vowels = pb52$vowel
 template = createtemplate (formants, vowels) 
 
 ## first classify only the first three vowels
-x = pb52[1:3,c(7:9)] 
+ffs = pb52[1:3,c(7:9)] 
 f0 = pb52[1:3,6]
 
 ## outputting only the winners, and then the full posterior probabilities
-PSTM (x, f0, template)
-PSTM (x, f0, template, winner = FALSE)
+PSTM (ffs, f0, template)
+PSTM (ffs, f0, template, winner = FALSE)
 
 ## now classify all vowels
-x = pb52[,c(7:9)] 
+ffs = pb52[,c(7:9)] 
 f0 = pb52[,6]  
-winner = PSTM (x, f0, template)
+winner = PSTM (ffs, f0, template)
 ## with a good degree of accuracy
 table (winner$vowel, pb52$vowel)
+
 }
 
 

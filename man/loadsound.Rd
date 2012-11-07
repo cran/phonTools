@@ -1,7 +1,7 @@
-\name{ loadsound}
-\alias{ loadsound }
-\alias{ print.sound }
-\alias{ plot.sound }
+\name{loadsound}
+\alias{loadsound }
+\alias{print.sound}
+\alias{plot.sound}
 \title{
 Load WAV files into R
 }
@@ -12,10 +12,29 @@ A function which allows WAV files to be loaded into R.
 loadsound (filename)
 }
 \arguments{
-  \item{ filename }{ a string indicating the name of the WAV file to be loaded. }
+  \item{filename}{A string indicating the file name of the WAV file to be loaded. If no filename is provided, a dialog box will open allowing the user to select a file.}
 }
 \details{
-The function is only compatible with WAV files of 8 and 16 bits. Only mono WAV files are supported. The function returns a sound object. The functions plot() and print() are defined for sound objects. 
+The function is only compatible with 8 and 16 bit WAV files. Only mono WAV files are supported. The function returns a 'sound object'. The following functions interact with 'sound' objects:
+
+
+Ffilter()
+
+FIRfilter()
+
+loadsound()
+
+makesound()
+
+plot()
+
+powertrack()
+
+spectrogram()
+
+vowelsynth()
+
+writesound()
 }
 \references{
 https://ccrma.stanford.edu/courses/422/projects/WaveFormat/

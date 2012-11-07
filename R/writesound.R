@@ -5,7 +5,8 @@ writesound = function (samples, filename = '', fs = 22050){
     samples = samples$sound
   }
   if (!is.numeric(samples)) stop("Non-numeric sample values given.")
-  if (filename == '') filename = 'sound.wav'
+  if (filename == '') filename = paste (deparse(substitute(samples)), '.wav', sep='')
+
   
   maxamp = max(abs(samples))
   sound = round((samples/maxamp) * 32767)

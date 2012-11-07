@@ -13,24 +13,24 @@ colors = NULL, logaxes = "", grid = FALSE, gridInterval = c(200, 500),
 gridStart = c(0, 0), defaultPlot = TRUE, alternateAxes = FALSE, ...)
 }
 \arguments{
-  \item{f1s}{a numeric vector indicating vowel F1 frequencies.}
-  \item{f2s}{a numeric vector indicating vowel F1 frequencies.}
-  \item{labels}{a vector with labels for vowels. Must be provided for any category-dependent differences in plotting.}
-  \item{xrange}{allows the user to set the x axis range for the plot.}
-  \item{yrange}{allows the user to set the y axis range for the plot.}
-  \item{meansOnly}{boolean. If TRUE only category means are plotted (labels must be provided).}
-  \item{ellipses}{boolena. If TRUE standard deviation ellipses are drawn (one per category as indicated by label vector).}
-  \item{ellipsesd}{a number indicating the number of standard deviations ellipses will enclose.}
-  \item{add}{boolean. If TRUE vowels are plotted on existing figure, if FALSE a new one is created.}
-  \item{pointType}{kinds of points to use determined by 'pch' value. If specified it overrides text labels. It cycles through the list given if number of point types are less than number of categories.}
-  \item{colors}{colors to use for different categories. If specified this overrides automatic colors. It cycles through the list given if number of colors are less than number of categories.}
-  \item{logaxes}{by default linear axes are used. For log axes set to 'xy'.}
-  \item{grid}{boolean. If TRUE a grid is drawn on the plot.}
-  \item{gridInterval}{2-tuple. Determines the spacing between grid lines. The first number determines the x-axis spacing, the second determines the y-axis spacing.}
-  \item{gridStart}{2-tuple. Determines where the grid lines begin. The first number determines x-axis start, the second determines the y-axis start.}
-  \item{defaultPlot}{boolean. If this is set to true, the function plots using pre-determined values. If FALSE, the user has almost complete control over the internal call of 'plot'.}
-  \item{alternateAxes}{boolean. If TRUE, F1 is plotted on the y axis and F2 on the x axis with the origin in the top right corner. By default F1 is plotted on the x axis and F2 on the y axis with the origin in the bottom left corner.}
-  \item{\dots}{additional arguments are passed to the internal call of 'plot'.}
+  \item{f1s}{A numeric vector indicating vowel F1 frequencies.}
+  \item{f2s}{A numeric vector indicating vowel F1 frequencies.}
+  \item{labels}{A vector with labels for vowels. Must be provided for any category-dependent differences in plotting.}
+  \item{xrange}{Allows the user to set the x axis range for the plot.}
+  \item{yrange}{Allows the user to set the y axis range for the plot.}
+  \item{meansOnly}{If TRUE, only category means are plotted (labels must be provided).}
+  \item{ellipses}{If TRUE, standard deviation ellipses are drawn (one per category as indicated by label vector).}
+  \item{ellipsesd}{A number indicating the number of standard deviations ellipses will enclose.}
+  \item{add}{If TRUE, vowels are plotted on existing figure. If FALSE, a new one is created.}
+  \item{pointType}{Kinds of points to use determined by 'pch' value. If specified it overrides text labels. It cycles through the list given if number of point types are less than number of categories.}
+  \item{colors}{Colors to use for different categories. If specified this overrides automatic colors. It cycles through the list given if number of colors are less than number of categories.}
+  \item{logaxes}{Linear axes are used by default. For log axes set to 'xy'.}
+  \item{grid}{If TRUE, a grid is drawn on the plot.}
+  \item{gridInterval}{A 2-tuple. Determines the spacing between grid lines. The first number determines the x-axis spacing, the second determines the y-axis spacing.}
+  \item{gridStart}{A 2-tuple. Determines where the grid lines begin. The first number determines x-axis start, the second determines the y-axis start.}
+  \item{defaultPlot}{If TRUE, the function plots using pre-determined values. If FALSE, the user has almost complete control over the internal call of 'plot'.}
+  \item{alternateAxes}{If TRUE, F1 is plotted on the y axis and F2 on the x axis with the origin in the top right corner. By default F1 is plotted on the x axis and F2 on the y axis with the origin in the bottom left corner.}
+  \item{\dots}{Additional arguments are passed to the internal call of 'plot'.}
 }
 \author{
 Santiago Barreda <sbarreda@ualberta.ca>

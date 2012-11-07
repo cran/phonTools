@@ -10,33 +10,26 @@
 Random Coefficients Regression
 }
 \description{
-rcr carries out a random coefficients regression (rcr) using repeated calls to glm, individually for the data from each participant/data cluster. 
+Carry out a random coefficients regression (rcr) using repeated calls to glm, individually for the data from each participant/data cluster. 
 }
 \usage{
 rcr(formula, participants, dataframe, ...)
 }
 \arguments{
-  \item{formula}{
-A symbolic description of the model to be fitted.
-}
-  \item{participants}{
-A vector indicating which row in the dataframe belongs to which participant. Must be of same length as the dataframe.
-}
-  \item{dataframe}{
-The dataframe containing the data for the model.
-}
-  \item{...}{
-Additional arguments to be passed to the internal glm function call. For example, family, if not 'gaussian', should be specified.
+  \item{formula}{A symbolic description of the model to be fitted.}
+  \item{participants}{A vector indicating which row in the dataframe belongs to which participant. Length must equal the number of rows in the dataframe.}
+  \item{dataframe}{The dataframe containing the data for the model.}
+  \item{...}{Additional arguments to be passed to the internal glm() function call. For example, family, if not 'gaussian', should be specified.
 }
 }
 \details{
-rcr fits a model to the data from each participant individually using repeated calls to glm. Significance testing is then carried out on the coefficients fit for each participant using the methods established in Gumpertz & Pantula (1989) and Lorch & Myers (1990).
+This function fits a model to the data from each participant individually using repeated calls to glm(). Significance testing is then carried out on the coefficients fit for each participant using the methods established in Gumpertz & Pantula (1989) and Lorch & Myers (1990).
 
 In perceptual experiments there is frequently a high number of data points collected from each participant, and the data collected from each participant is balanced by design. In these situations rcr performs comparably to mixed-effects models. In the event that only a small number of observations are made from each listener, or the data is not balanced, rcr may not be appropriate.
 
 A call to summary() on an rcr object performs a one-sample t-test on each coefficient to test whether it is significantly different from zero.
 
-A call to anova() on an rcr object performs a one-sample t-test in the case of single coefficients, and a one-sample Hotelling T2 test in the event that multiple coefficients are associated with a single factor to test that they are not all equal to zero. 
+A call to anova() on an rcr object performs a one-sample t-test in the case of single coefficients, and a one-sample Hotelling T2 test in the event that multiple coefficients are associated with a single factor, to test that they are not all equal to zero. 
 
 A call to plot() on an rcr object displays the density corresponding to the distribution of all fitted coefficients. These are compared to a normal distribution with the same mean and standard deviation.
 }
@@ -44,14 +37,14 @@ A call to plot() on an rcr object displays the density corresponding to the dist
 An object of class 'rcr', a list containing the elements:
 
 \item{formula}{The formula used to call and create the rcr object.}
-\item{call}{the exact call used to create the rcr object.}
-\item{participants}{a vector indicating the labels used to identify each individual participant as indicated in the specified column.}
-\item{factors}{a vector indicating the grouping of the explanatory variables.}
-\item{factor.names}{a vector containing the names of each group of coefficients.}
-\item{coefficients}{a dataframe containing the coefficients fit individually for each participant.}
-\item{coefficient.means}{the mean value of each coefficient across all participants.}
-\item{coefficient.names}{the name of each individual coefficient.}
-\item{varExp}{the percent of variance or deviance explained by the model for each participant.}
+\item{call}{The exact call used to create the rcr object.}
+\item{participants}{A vector indicating the labels used to identify each individual participant as indicated by 'participants'.}
+\item{factors}{A vector indicating the grouping of the explanatory variables.}
+\item{factor.names}{A vector containing the names of each group of coefficients.}
+\item{coefficients}{A dataframe containing the coefficients fit individually for each participant.}
+\item{coefficient.means}{The mean value of each coefficient across all participants.}
+\item{coefficient.names}{The name of each individual coefficient.}
+\item{varExp}{The percent of variance or deviance explained by the model for each participant.}
 }
 \references{
 Gumpertz, M., & Pantula, S. G. (1989). A Simple Approach to Inference in Random Coefficient Models. The American Statistician, 43(4), 203-210.

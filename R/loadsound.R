@@ -1,6 +1,6 @@
 loadsound <-
-function (filename){
-  if (mode(filename)!="character") stop ("Error: filename must be a string.")
+function (filename=0){
+  if (mode(filename)!="character") filename = file.choose()
 
   soundfile = file(filename,"rb")
   readChar(soundfile, nchars = 8)        ## ChunkId and ChunkSize (4,4)
@@ -13,14 +13,14 @@ function (filename){
   
   numChannels = readBin(soundfile, "integer", n = 1, size = 2)
   if (numChannels > 1){
-   stop ("Error: this function only handles mono (single-channel) WAV files.")
+   stop ("This function only loads mono (single-channel) WAV files.")
   }
   sampleRate = readBin(soundfile,"integer", n = 1, size = 4)
 
   readBin(soundfile,"integer",n= 6,size=1)   ## ByteRate, BlockAlign (4,2)         
 
   bitsPerSample = readBin(soundfile, "integer", size = 2)
-  if (bitsPerSample > 16) stop ("Error: this function only 8 and 16 bit WAV files.")
+  if (bitsPerSample > 16) stop ("This function only loads 8 and 16 bit WAV files.")
 
   readBin(soundfile,"integer",n= 4,size=1)  ## Subchunk2ID
   subchunk2Size = readBin(soundfile,"integer", size=4)
