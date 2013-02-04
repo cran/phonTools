@@ -34,6 +34,7 @@ spectrogram = function (sound, fs = 22050, windowlength = 5, freqres, timestep =
     for (i in 1:maxsteps) {
         current = first + (timestep) * (i - 1) - (n/2)
         snip = sound[current:(current + n - 1)]
+        snip = snip - mean(snip)
         snip = snip * windowfunc (n, window, windowparameter)
         snip = c(snip, rep(0, padding))
         power = abs(fft(snip)^2)

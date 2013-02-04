@@ -56,7 +56,7 @@ data (pb52)
 
 ## normalize vowel formant frequencies
 normdvowels = normalize (pb52[,7:9], pb52$speaker, pb52$vowel)
-formants = normdvowels$formants
+formants = normdvowels[,1:3]
 vowels = pb52$vowel
 
 ## make a vowel template based on these frequencies

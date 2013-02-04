@@ -1,12 +1,13 @@
 spectralslice = function (sound, padding = length(sound) * 2, fs = 22050, output = FALSE, 
     show = TRUE, color = 1, add = FALSE, xlim, ylim, window = "kaiser", 
-    windowparameter = 4, zeromax = TRUE, preemphasis = 50000, type, xlab, pwr = TRUE, ...){
+    windowparameter = 4, zeromax = TRUE, preemphasis = 50000, type, xlab, pwr = FALSE, ...){
 
   if (preemphasis < 1) preemphasis = 50000
   alpha = exp(-2 * pi * preemphasis/fs)
   tmp = sound
   for (i in 2:length(tmp)) tmp[i] = sound[i] - sound[i - 1] * alpha
   sound = tmp
+  sound = sound - mean(sound)
   n = length(sound)
   sound = sound * windowfunc(n, window, windowparameter)
   N = n + padding

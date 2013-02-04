@@ -18,15 +18,15 @@ function (f1s, f2s, labels = 0, xrange = NULL, yrange = NULL, meansOnly = FALSE,
   if (length (pointType) < length (vlevels)) pointType = rep (pointType, 100)
 
   ## if ranges arent set, automatically set them at 5% greater/less than vector ranges
-  if (is.null(xrange)) xrange = c(range(f1s)[1]*.95, range(f1s)[2]*1.05)
-  if (is.null(yrange)) yrange = c(range(f2s)[1]*.95, range(f2s)[2]*1.05)
+  if (is.null(xrange)) xrange = range(f1s)
+  if (is.null(yrange)) yrange = range(f2s)
 
   if (alternateAxes == TRUE){ temp = f1s; f1s = f2s; f2s = temp;}
   
   # calls initial blank plot function  
-  if (add == FALSE & defaultPlot == TRUE & alternateAxes == FALSE) plot (0.1,0.1, type = 'n', xlim = xrange, ylim = yrange, xlab = 'F1', ylab = 'F2', main = '', cex.lab=1.2, cex.axis=1.2, log = logaxes)
+  if (add == FALSE & defaultPlot == TRUE & alternateAxes == FALSE) plot (0.1,0.1, type = 'n', xlim = xrange, ylim = yrange, xlab = 'F1', ylab = 'F2', cex.lab=1.2, cex.axis=1.2, log = logaxes,...)
   if (add == FALSE & defaultPlot == FALSE & alternateAxes == FALSE) plot (0.1,0.1, type = 'n', log = logaxes, xlim = xrange, ylim = yrange, ...)
-  if (add == FALSE & defaultPlot == TRUE & alternateAxes == TRUE) plot (0.1,0.1, type = 'n', xlim = rev(yrange), ylim = rev(xrange), xlab = 'F2', ylab = 'F1', main = '', cex.lab=1.2, cex.axis=1.2, log = logaxes)
+  if (add == FALSE & defaultPlot == TRUE & alternateAxes == TRUE) plot (0.1,0.1, type = 'n', xlim = rev(yrange), ylim = rev(xrange), xlab = 'F2', ylab = 'F1', cex.lab=1.2, cex.axis=1.2, log = logaxes,...)
 
   if (grid == TRUE) abline (v = seq (gridStart[1],5000, gridInterval[1]), h = seq (gridStart[2],5000, gridInterval[2]), lwd = .5, lty = 'dotted')
  

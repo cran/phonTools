@@ -9,7 +9,7 @@ A function to plot the magnitude spectrum of a vector representing a sound wave.
 \usage{
 spectralslice (sound, padding = length(sound)*2, fs = 22050, output = FALSE, 
 show = TRUE, color = 1, add = FALSE, xlim, ylim, window = 'kaiser', 
-windowparameter = 4, zeromax = TRUE, preemphasis = 50000, type, xlab, pwr = TRUE, ...)
+windowparameter = 4, zeromax = TRUE, preemphasis = 50000, type, xlab, pwr = FALSE, ...)
 }
 \arguments{
   \item{sound}{A vector representing a sequence of samples taken at equal time intervals. Each sample should indicate the amplitude of the wave at that time interval.}

@@ -1,4 +1,4 @@
-sdellipse = function(points, stdev = 1.96, density = .1, output = FALSE, ...){
+sdellipse = function (points, stdev = 1.96, density = .1, output = FALSE, add = TRUE, show = TRUE, ...){
   if (ncol (points) != 2) stop ('Points input must have exactly two columns.')
 
   t = seq (0,6.3,density)  
@@ -8,7 +8,8 @@ sdellipse = function(points, stdev = 1.96, density = .1, output = FALSE, ...){
   A = eigen(sigma)$vectors %*% (diag(sqrt(eigen(sigma)$values)) * stdev)
   points = t(colMeans(points) + A%*%x)
   
-  lines (points, ...)
+  if (add == TRUE & show == TRUE) lines (points, ...)
+  if (add == FALSE & show == TRUE) plot (points, ...)
   if (output == TRUE) return (points)
 }
 

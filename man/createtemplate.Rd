@@ -1,5 +1,6 @@
 \name{createtemplate}
 \alias{createtemplate}
+\alias{plot.template}
 \title{
 Create a Vowel Template
 }
@@ -14,7 +15,7 @@ createtemplate (formants, vowels)
   \item{vowels}{A vector indicating the vowel category of each vowel in 'formants'. The length of this vector must equal the number of rows in 'formants'.}
 }
 \details{
-This function finds the location of the mean of each vowel category in an n-dimensional, normalized formant-space, where each dimension corresponds to a normalized formant frequency. The pooled, within-category covariance matrix for the formant frequencies is also found. This information is meant to be used in conjunction with the PSTM() function, included in this package. The means and covariance matrix are calculated as described in Nearey & Assmann (2007). The name for each vowel category is stored as the rownames of the 'means' element. These are determined by treating the elements of 'vowels' as a factor and finding the levels of the factor. 
+This function finds the location of the mean of each vowel category in an n-dimensional, normalized formant-space, where each dimension corresponds to a normalized formant frequency. The pooled, within-category covariance matrix for the formant frequencies is also found. This information is meant to be used in conjunction with the PSTM() function, included in this package. The means and covariance matrix are calculated as described in Nearey & Assmann (2007). The name for each vowel category is stored as the rownames of the 'means' element. These are determined by treating the elements of 'vowels' as a factor and finding the levels of the factor. The function plot() is defined for template objects and allows the user to view the template in a normalized vowel-space.
 }
 \value{
 A 'template' object, a list containing the elements:
@@ -35,13 +36,15 @@ Santiago Barreda <sbarreda@ualberta.ca>
 data (pb52)            ## load the Peterson and Barney vowels.
 ## normalize them.
 normdvowels = normalize (pb52[,7:9], pb52$speaker, pb52$vowel)  
-formants = normdvowels$formants    
+formants = normdvowels[,1:3]
 vowels = pb52$vowel
 
 ## create a vowel template with the normalized formant frequencies
 ## and information about the vowel category.
-createtemplate (formants, vowels)
+template = createtemplate (formants, vowels)
 
+## and inspect with plot()
+plot (template)
 }
 
 

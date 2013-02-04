@@ -13,8 +13,7 @@ powertrack = function (sound, timestep = 2, windowlength = timestep, fs = 22050,
   
   power = rep (0, length (time))
   sound = c(rep(0, windowlength), sound, rep(0, windowlength))
-  for (i in 1:length(time))  power[i] = mean (sound[(time[i]):(time[i]+(windowlength*2))]^2)
-  
+  for (i in 1:length(time)) power[i] = mean (sound[(time[i]):(time[i]+(windowlength*2))]^2)
   power = power + abs(rnorm(length(power), 0, .00001))
   power = log(power, 10) * 10
   if (smoothing > 0)power = lowess (time, power, f = smoothing)$y
@@ -26,4 +25,3 @@ powertrack = function (sound, timestep = 2, windowlength = timestep, fs = 22050,
   if (show == TRUE) plot(tmp$time, tmp$power, xlab = 'Time (ms)', ylab = 'Power (dB)', type = 'l', xaxs = "i", ylim = c(min(power)-1, 2), lwd = 2, col = 4, ...) 
   if (output == TRUE) return (tmp)
 }
-
