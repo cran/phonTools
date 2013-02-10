@@ -18,10 +18,9 @@ fs = 10000, verify = FALSE, returnsound = TRUE){
     vsource = c(vsource, tmp)
     spot = spot + cycle/5
   }
-  filt = makeFIR (c(0,(fs/2)-50,(fs/2)), c(0,0,-90))
-  vsource = FIRfilter (vsource, filt)
-  vsource = vsource[seq(1, n*5, 5)]
-  vsource = jitter (vsource)
+  vsource = FIRfilter(vsource, to = (fs/2)-20, fs = fs*5)
+  vsource = vsource[seq(1, n * 5, 5)]
+  vsource = jitter(vsource)
   
   x = round (seq (1, n, length.out = 13))
   power = interpolate (x, y = c(0,7.5,9.5,10.5, 11, 11, 11, 11,11,10.5,9.5,7.5,0)/13, increment = 1)[,2]

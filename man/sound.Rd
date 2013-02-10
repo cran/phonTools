@@ -36,11 +36,11 @@ This sound object has the same properties as all sound objects. These may be ins
 
 data (sound)
 
-par (mar = c(4,4,1,1))
-multiplot (n = 3, sizes = c(.25, .5, .25))  
+#par (mar = c(4,4,1,1))
+#multiplot (n = 3, sizes = c(.25, .5, .25))  
 
-plot (sound)
-spectrogram (sound, pause = FALSE, dynamicrange = 50, maxfreq = 7000)
-powertrack (sound)
+#plot (sound)
+#spectrogram (sound, pause = FALSE, dynamicrange = 50, maxfreq = 7000)
+#powertrack (sound)
 
 }

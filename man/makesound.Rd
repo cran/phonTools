@@ -52,9 +52,9 @@ tmp = makesound (tmp, fs = 22050)
 tmp
 
 ## get ready to make two plots with thin margins
-multiplot (2); par (mar = c(4,4,1,1));
-spectrogram (sound, pause = FALSE)       ## and show a spectrogram of the original
-spectrogram (tmp, pause = FALSE)         ## and the new, truncated version
+#multiplot (2); par (mar = c(4,4,1,1));
+#spectrogram (sound, pause = FALSE)       ## and show a spectrogram of the original
+#spectrogram (tmp, pause = FALSE)         ## and the new, truncated version
 
 }
 

@@ -9,7 +9,7 @@ Create Spectrograms
 Create and display spectrograms.
 }
 \usage{
-spectrogram (sound, fs = 22050, windowlength = 5, freqres, timestep = 3, 
+spectrogram (sound, fs = 22050, windowlength = 5, freqres, timestep = -1, 
 preemphasis = 50, maxfreq = 5000, gridlines = FALSE, colors = TRUE, 
 dynamicrange = 40, nlevels = dynamicrange, maintitle = "", show = TRUE,
 output = FALSE, chooseslices = 0, indicateslices = TRUE, zoom = FALSE, 
@@ -20,8 +20,8 @@ indicatezoom = TRUE, window = 'kaiser', windowparameter = 4, pause = TRUE)
   \item{fs}{The sampling frequency in Hz. This is set to 22050 Hz by default. If a sound object is passed this does not need to be specificed.}
   \item{windowlength}{The desired analysis windowlength in milliseconds.}
   \item{freqres}{The desired frequency resolution. By default this is set to 1/4 the analysis bandwidth as determined by the actual (not effective) analysis window length.}
-  \item{timestep}{How far a window will be moved for each adjacent analysis, in milliseconds. By default this is set to 3 ms.}
-  \item{preemphasis}{Preemphasis of 6 dB per octave is added to frequencies above the specified frequency. For no preemphasis, set to a frequency higher than the samplling frequency.}
+  \item{timestep}{How far the window will be moved for each adjacent analysis, in milliseconds. By default this is set so that 400 timesteps will be calculated.}
+  \item{preemphasis}{Preemphasis of 6 dB per octave is added to frequencies above the specified frequency. For no preemphasis, set to a frequency higher than the sampling frequency.}
   \item{maxfreq}{the maximum frequency to be displayed for the spectrogram up to a maximum of fs/2. This is set to 5000 Hz by default.}
   \item{gridlines}{If TRUE, gridlines are drawn where horizontal lines are drawn every 500 Hz and vertical lines are drawn every 25 ms.}
   \item{colors}{If TRUE, a color spectrogram will be displayed. If FALSE, greyscale is used. If a vector of colors is provided, these colors are used to create the spectrogram.}

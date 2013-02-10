@@ -22,7 +22,7 @@ fs = 10000, verify = FALSE, returnsound = TRUE)
 \details{
 **Please note this function is at an early stage of development. Extended functionality will come in the near future.**
 
-This function is a relatively bare-bones Klatt-style cascade formant synthesizer. The voice source is generated using the KLGLOTT88 method described in Klatt 1988.
+This function is a relatively bare-bones Klatt-style cascade formant synthesizer that is intended to create synthetic vowel sounds. The voice source is generated using the KLGLOTT88 method described in Klatt (1988).
 
 If the vowels sound too 'robotic', there may be formants too close to the Nyquist frequency. Conversely, if the vowels sound too 'muffled', you may need to add more formants, and make sure they extend closer to the Nyquist frequency. 
 }
@@ -41,22 +41,22 @@ Santiago Barreda <sbarreda@ualberta.ca>
 \examples{
 
 ## The following examples are based on my vowels 
-i = vowelsynth (returnsound = FALSE, f0 = c(125,105))
-a = vowelsynth (ffs = c(700, 1300, 2300, 3400, 4400), returnsound = FALSE, f0 = c(125,105))
-e = vowelsynth (ffs = c(400, 2000, 2600, 3400, 4400), returnsound = FALSE, f0 = c(125,105))
-o = vowelsynth (ffs = c(400, 900, 2300, 3400, 4400), returnsound = FALSE, f0 = c(125,105))
-u = vowelsynth (ffs = c(300, 750, 2300, 3400, 4400), returnsound = FALSE, f0 = c(125,105))
+#i = vowelsynth (returnsound = FALSE, f0 = c(125,105))
+#a = vowelsynth (ffs = c(700, 1300, 2300, 3400, 4400), returnsound = FALSE, f0 = c(125,105))
+#e = vowelsynth (ffs = c(400, 2000, 2600, 3400, 4400), returnsound = FALSE, f0 = c(125,105))
+#o = vowelsynth (ffs = c(400, 900, 2300, 3400, 4400), returnsound = FALSE, f0 = c(125,105))
+#u = vowelsynth (ffs = c(300, 750, 2300, 3400, 4400), returnsound = FALSE, f0 = c(125,105))
 
-silence = rep(0, 1000)
-vowels = c(a, silence, e, silence, i, silence, o, silence, u)
+#silence = rep(0, 1000)
+#vowels = c(a, silence, e, silence, i, silence, o, silence, u)
 
-writesound (vowels, filename = 'vowels.wav', fs = 10000)
+#writesound (vowels, filename = 'vowels.wav', fs = 10000)
 
 ## an example of a synthetic diphthong
 
-ei = vowelsynth (ffs = list(c(400, 2000, 2600, 3400, 4400), c(270, 2200, 2800, 3400, 4400)), returnsound = FALSE, f0 = c(125,105))
+#ei = vowelsynth (ffs = list(c(400, 2000, 2600, 3400, 4400), c(270, 2200, 2800, 3400, 4400)), #returnsound = FALSE, f0 = c(125,105))
 
-writesound (ei, fs = 10000)
+#writesound (ei, fs = 10000)
 }
 
 

@@ -1,9 +1,8 @@
-spectrogram = function (sound, fs = 22050, windowlength = 5, freqres, timestep = 3, 
+spectrogram = function (sound, fs = 22050, windowlength = 5, freqres, timestep = -1, 
     preemphasis = 50, maxfreq = 5000, gridlines = FALSE, colors = TRUE, 
     dynamicrange = 40, nlevels = dynamicrange, maintitle = "", show = TRUE,
     output = FALSE, chooseslices = 0, indicateslices = TRUE, zoom = FALSE, 
-    indicatezoom = TRUE, window = 'kaiser', windowparameter = 4, pause = TRUE) 
-{
+    indicatezoom = TRUE, window = 'kaiser', windowparameter = 4, pause = TRUE){
     if (class(sound) == "sound") {
         fs = sound$fs
         sound = sound$sound
@@ -14,6 +13,8 @@ spectrogram = function (sound, fs = 22050, windowlength = 5, freqres, timestep =
     first = n + 1
     last = n + length(sound)
 
+    if (timestep == -1) timestep = (length(sound) * (1000/fs)) / 400
+    
     if (preemphasis < 1) preemphasis = 50000
     alpha = exp(-2*pi*preemphasis/fs)
     tmp = sound

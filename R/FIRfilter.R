@@ -1,22 +1,47 @@
-FIRfilter = function (sound, fir, output = TRUE, verify = FALSE){
+FIRfilter = function (sound, from = 0, to = fs/2, fs = 22050, order = 500, verify = FALSE){
+  soundout = 0
   if (class(sound) == "sound") {
+    soundout = 1
+    tmp = sound
     fs = sound$fs
     sound = sound$sound
   }
-  if (!is.numeric(sound)) stop ('Non-numeric filter sample values.')
-  if (!is.numeric(fir)) stop ('Non-numeric filter impulse response.')
-
-  ly = length(fir) / 2 - .5
-  filtered = convolve (sound, rev(fir), type = 'open')[ly:(ly + length(sound) - 1)]
+  if (order > length (sound)) order = length(sound)
+  if (order < 100) order = 100
+  if (from < 0) stop ('Low cutoff must be above 0 Hz.')
+  if (from > fs/2) stop ('High cutoff must be below the Nyquist frequency.')
+ 
+  spots = c(0,1,3,5,7)
+  for (i in 1:5){    
+  maxamp = max(sound)
+  M = order - spots[i]
+  n = seq(0,M-1,1)
+  Mi = (M-1) / 2  
+  fromrads = (((fs/2)-from) / fs) * pi
+  torads = (to / fs) * pi
+  fromrads2 = (from / fs) * pi
+    
+  fromh = (-1)^(n)*2*fromrads*sinc((2*fromrads)*(n-Mi))  ##min freq passed
+  toh = 2*torads*sinc(2*torads*(n-Mi))  ##max freq passed
+  fromh2 = 2*fromrads2*sinc(2*fromrads2*(n-Mi))  
+    
+  fromh = fromh * windowfunc(length(fromh), type ='hamming')
+  toh = toh * windowfunc(length(toh), type ='hamming')
+  fromh2 = fromh2 * windowfunc(length(fromh2), type ='hamming')
   
-  if (verify == TRUE){
-    par (mfrow = c(2,2), mar = c(4.5,4.5,3,1))
-    spectralslice (sound, main = 'Input Sound', fs = 1, ylim = c(-100,0), padding = 20000, xlab = 'Frequency / Sampling Frequency')
-    spectralslice (fir, main='Filter', fs = 1, ylim = c(-100,0), padding = 20000, xlab = 'Frequency / Sampling Frequency')
-    spectralslice (filtered, main='Output Sound', fs = 1, ylim = c(-100,0), padding = 20000, xlab = 'Frequency / Sampling Frequency')
-    spectralslice (filtered, main='Output + Filter', fs = 1, ylim = c(-100,0), padding = 20000, xlab = 'Frequency / Sampling Frequency')
-    spectralslice (fir, lwd = 2, fs = 1, ylim = c(-100,0), padding = 20000, add = TRUE, color = 2)
+  if (i == 1) output = sound
+  if (from!=0 & to==fs/2) output = filter (output, fromh, method = 'convolution', circular = TRUE)
+  if (from==0 & to!=fs/2) output = filter (output, toh, method = 'convolution', circular = TRUE)
+  if (from!=0 & to!=fs/2) output = filter (output, fromh2-toh, method = 'convolution', circular = TRUE)
   }
-  if (output == TRUE) return (filtered)
+  if (verify == TRUE){
+    spectralslice (sound, fs = fs, color = 3, lty = 'dashed', ylim = c(-110,0), padding = 5000, window = 'kaiser')  
+    spectralslice (output, fs = fs, add = TRUE, padding = 5000, window = 'kaiser') 
+    abline (v = c(from,to), lwd = 2, col = 2)
+  }  
+  if (soundout == 1){
+    tmp$sound = output
+    return (tmp)
+  }
+  return (output)
 }
-

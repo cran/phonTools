@@ -12,9 +12,9 @@ show = TRUE, color = 1, add = FALSE, xlim, ylim, window = 'kaiser',
 windowparameter = 4, zeromax = TRUE, preemphasis = 50000, type, xlab, pwr = FALSE, ...)
 }
 \arguments{
-  \item{sound}{A vector representing a sequence of samples taken at equal time intervals. Each sample should indicate the amplitude of the wave at that time interval.}
+  \item{sound}{A vector representing a sound wave, or a 'sound' object.}
   \item{padding}{The amount of zero-padding desired for the analysis.}
-  \item{fs}{The sampling frequency of the sound.}
+  \item{fs}{The sampling frequency of the sound. If a 'sound' object is passed this does not need to be specified.}
   \item{output}{If TRUE, the frequency of bin centers and power at those centers is returned.}
   \item{show}{If FALSE, no plot is created.}
   \item{color}{Set the color used for plotting the spectrum.}

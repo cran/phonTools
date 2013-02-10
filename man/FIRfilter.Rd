@@ -7,31 +7,30 @@ Perform Digital Filtering
 Finite Impulse Response (FIR) filtering of vectors.
 }
 \usage{
-FIRfilter (sound, fir, output = TRUE, verify = FALSE)
+FIRfilter (sound, from = 0, to = fs/2, fs = 22050, order = 500, verify = FALSE)
 }
 \arguments{
   \item{sound}{A numeric vector representing a waveform, or a 'sound' object created with the loadsound() or makesound() functions.} 
-  \item{fir}{An impulse response representing the digital filter.} 
-  \item{output}{If TRUE, the filtered sound is returned.} 
-  \item{verify}{If TRUE a series of plots are created which allow the user to verify the input and outputs of the function.} 
+  \item{from}{The low cutoff point for the filter. Frequencies higher than this are not attenuated. Minimum allowed value is 0 Hz.} 
+  \item{to}{The high cutoff point for the filter. Frequencies lower than this are not attenuated. Maximum allowed value is fs/2 Hz.} 
+  \item{fs}{The sampling frequency of the sound. If a 'sound' object is passed, this does not need to be specified.} 
+  \item{order}{The number of taps included in the filter. The order of the filter may not exceed the number of samples that make up the sound.} 
+  \item{verify}{If TRUE, a plot comparing the spectrum of the input sound is compared the the filtered sound.} 
 }
 \details{
-This function performs FIR filtering by convolving the signal and the impulse response of the filter, returning only the relevant samples. The particular sampling frequency of the signal does not affect the output sound, but must be taken account of when creating the impulse response of the filter. An appropriate FIR impulse response can be created with the createFIR() function included in this package.
+This function performs lowpass, highpass and bandpass filtering using a windowed-sinc filter. Increasing the filter order decreases the transition region between the passband and the stopband. The sound is passed through the filter 5 times to maximize stopband attenuation. The magnitude of frequencies in the stopband is usually attenuated by about 80 dB.
 
-If verify is TRUE, a plot is created which allows the user to inspect the performance of the function. The panels correspond to the following information:
+If verify is TRUE, a plot is created which allows the user to inspect the performance of the function. The original sound is shown in green, the filtered sound is shown in black, and the boundaries between stop and passbands are indicated by vertical red lines. 
 
-Top left: The original sound.
-
-Top right: The frequency response of the filter.
-
-Bottom left: The filtered sound.
-
-Bottom right: An overlay of the filtered sound and the frequency response of the filter.
 }
 \value{
-If output = TRUE, the filtered vector is returned.
+If a vector is given, the filtered vector is returned.
+
+If a 'sound' object is given, a sound object containing the filtered sound is returned. 
 }
 \references{
+http://en.wikipedia.org/wiki/Sinc_filter
+
 Lyons, R. G. (2004). Understanding Digital Signal Processing (2nd ed.). Prentice Hall.
 }
 \author{
@@ -39,19 +38,20 @@ Santiago Barreda <sbarreda@ualberta.ca>
 }
 \examples{
 
-## specify a filter with an arbitrary response
-frequency = c(0, 500, 502.5, 5000, 5002.5, 7000, 7002.5, 11025)
-power =     c(0, 0,   -50, -50, -10, -10, -70, -70)
+## generate random noise
+#sound = rnorm (5000, 0, 100)
 
-## create the filter and verify that the frequency response is as desired
-testfilter = makeFIR (frequency, power, verify = TRUE)
+## implement low, high and band-pass filters
+#par (mfrow = c(3,1), mar = c(4,4,1,1))
+#snd1 = FIRfilter (sound, from = 400, fs = 1000, verify = TRUE)
+#snd2 = FIRfilter (sound, to = 400, fs = 1000, verify = TRUE)
+#snd3 = FIRfilter (sound, from = 400, to = 100, fs = 1000, verify = TRUE)
 
-## create a vector of random noise
-noise = rnorm (2000, 0, 200)
-
-## filter the sound using the verify parameter in order to 
-## verify that the filtered sound has the desired spectral envelope
-snd = FIRfilter (noise, testfilter, verify = TRUE)
+## use filters of different orders (i.e., differing number of taps)
+#par (mfrow = c(2,1), mar = c(4,4,1,1))
+#snd1 = FIRfilter (sound, to = 400, fs = 1000, order = 100, verify = TRUE)
+## higher order filters lead to narrower transition regions
+#snd2 = FIRfilter (sound, to = 400, fs = 1000, order = 2000, verify = TRUE)
 
 }
 

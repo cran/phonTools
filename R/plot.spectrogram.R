@@ -17,7 +17,7 @@ function (x, y, ylim, pause = TRUE, ...){
   if (!exists ("xlim")) xlim = range (times)
 
   plot.new()
-  if (pause) readline("   \nResizing figure after plotting may be slow.\n  Please resize plot window now and press <Enter> when ready.\n  To disable this warning set pause parameter to FALSE.\n")
+  if (pause) readline("\n  Resizing figure after plotting may be slow.\n  Please resize plot window now and press <Enter> when ready.\n  To disable this warning set pause parameter to FALSE.\n")
   plot.window(ylim = ylim, xlim = xlim, xaxs = 'i', yaxs = 'i', ...)
   .filled.contour(as.double(times), as.double(hz), x$spectrogram, as.double(levels), 
   col = zcolors)
