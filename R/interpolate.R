@@ -1,4 +1,7 @@
-interpolate = function (y, x = 1:length(y), steps = 20, increment = -1, show = FALSE, output = TRUE, type = 'cubic', ...){
+# Copyright (c) 2013 Santiago Barreda
+# All rights reserved.
+
+interpolate = function (y, x = 1:length(y), steps = 20, increment = -1, show = FALSE, type = 'cubic', ...){
   if (length (y) < 3) stop ('Interpolation requires at least three points.')
   if (!is.numeric (y) | !is.numeric (x)) stop ('Non-numeric arguments provided')
 
@@ -52,13 +55,8 @@ interpolate = function (y, x = 1:length(y), steps = 20, increment = -1, show = F
     plot(xinterp, yinterp, type = "l")
     points(x, y)
   }
-  if (output == TRUE){
-    output = data.frame(x = xinterp, y = yinterp)
-    output = output[output[,1] != c(output[-1,1], 'q'),]
-    rownames(output) = 1:nrow(output)
-    return(output)
-  }
+  output = data.frame(x = xinterp, y = yinterp)
+  output = output[output[,1] != c(output[-1,1], 'q'),]
+  rownames(output) = 1:nrow(output)
+  invisible (output)
 }
-
-
-

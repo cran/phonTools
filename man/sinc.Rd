@@ -10,7 +10,7 @@ Sample the sinc function at gvien points
 sinc (x, normalized = FALSE)
 }
 \arguments{
-  \item{x}{A vector of points at which the sinc function will be calculated.} 
+  \item{x}{A vector of x-axis points at which the sinc function will be sampled.} 
   \item{normalized}{If TRUE, a normalized sinc function is returned.} 
 }
 \details{
@@ -30,7 +30,6 @@ Lyons, R. G. (2004). Understanding Digital Signal Processing (2nd ed.). Prentice
 Santiago Barreda <sbarreda@ualberta.ca>
 }
 \examples{
-
 x = seq(-20,20,.1)
 ## generate both forms of the sinc function between -20 and 20
 y1 = sinc (x)
@@ -40,10 +39,4 @@ plot (x,y1, type = 'b')
 ## the normalized sinc function has zero crossing at integers
 lines (x,y2, type = 'b', col = 4)
 abline (h = 0)
-
 }
-
-
-
-
-

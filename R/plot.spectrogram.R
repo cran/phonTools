@@ -1,7 +1,10 @@
-plot.spectrogram <-
-function (x, y, ylim, pause = TRUE, ...){
+# Copyright (c) 2013 Santiago Barreda
+# All rights reserved.
+
+plot.spectrogram <-function (x, y, ylim, pause = TRUE, ...){
   if (x$colors[1] == TRUE)
-    zcolors = colorRampPalette (c('blue','cyan','yellow','orange','red', 'brown'))
+    zcolors = colorRampPalette (c('dark blue','blue','cyan','yellow',
+                                  'orange','red', 'brown'))
   if (x$colors[1] == FALSE) zcolors = colorRampPalette (c('white','black'))
   if (length(x$colors) > 1) zcolors = colorRampPalette (x$colors)
 

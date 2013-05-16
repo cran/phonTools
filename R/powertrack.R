@@ -1,4 +1,7 @@
-powertrack = function (sound, timestep = 2, windowlength = timestep, fs = 22050, smoothing = .03, show = TRUE, output = FALSE, ...){
+# Copyright (c) 2013 Santiago Barreda
+# All rights reserved.
+
+powertrack = function (sound, timestep = 2, windowlength = timestep, fs = 22050, smoothing = .03, show = TRUE, ...){
   if (class(sound) == "sound") {
     fs = sound$fs
     sound = sound$sound
@@ -15,7 +18,7 @@ powertrack = function (sound, timestep = 2, windowlength = timestep, fs = 22050,
   sound = c(rep(0, windowlength), sound, rep(0, windowlength))
   for (i in 1:length(time)) power[i] = mean (sound[(time[i]):(time[i]+(windowlength*2))]^2)
   power = power + abs(rnorm(length(power), 0, .00001))
-  power = log(power, 10) * 10
+  power = log(power, 10) * 20
   if (smoothing > 0)power = lowess (time, power, f = smoothing)$y
   power = power - max(power)
   
@@ -23,5 +26,5 @@ powertrack = function (sound, timestep = 2, windowlength = timestep, fs = 22050,
   tmp = data.frame (time = time, power = power)
   
   if (show == TRUE) plot(tmp$time, tmp$power, xlab = 'Time (ms)', ylab = 'Power (dB)', type = 'l', xaxs = "i", ylim = c(min(power)-1, 2), lwd = 2, col = 4, ...) 
-  if (output == TRUE) return (tmp)
+  invisible (tmp)
 }

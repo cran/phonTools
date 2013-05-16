@@ -4,7 +4,7 @@
 Write out a WAV file
 }
 \description{
-Generate a WAV file from a numeric vector or 'sound' object.
+Create a WAV file from a numeric vector or 'sound' object.
 }
 \usage{
 writesound (samples, filename = '', fs = 22050)
@@ -24,7 +24,6 @@ https://ccrma.stanford.edu/courses/422/projects/WaveFormat/
 Santiago Barreda <sbarreda@ualberta.ca>
 }
 \examples{
-
 ## generate a sine wave with a frequency of 1000 Hz
 ## sampled at a frequency of 10000 Hz
 x = seq (0,.1, 1/10000)
@@ -36,10 +35,5 @@ writesound (snd, filename = '1khz.wav', fs = 10000)
 
 ## if no filename is provided, this sound will be called 'snd.wav'
 writesound (snd, fs = 10000)
-
 }
-
-
-
-
 

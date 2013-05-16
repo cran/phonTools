@@ -1,3 +1,6 @@
+# Copyright (c) 2013 Santiago Barreda
+# All rights reserved.
+
 print.summary.rcr <-
 function (x, ...){
   cat ("\nSignificance Tests for Individual Coefficients\n")

@@ -4,11 +4,11 @@
 Waveform power track
 }
 \description{
-Display power as a function of time.
+Display signal power as a function of time.
 }
 \usage{
 powertrack (sound, timestep = 2, windowlength = timestep, fs = 22050, 
-smoothing = .03, show = TRUE, output = FALSE, ...)
+smoothing = .03, show = TRUE, ...)
 }
 \arguments{
   \item{sound}{A numeric vector representing a waveform, or a 'sound' object created with the loadsound() or makesound() functions.} 
@@ -17,7 +17,6 @@ smoothing = .03, show = TRUE, output = FALSE, ...)
   \item{fs}{The sampling frequency of the sound. If a 'sound' object is passed, this does not need to be specified.} 
   \item{smoothing}{This is passed to an internal call of lowess() and acts as the 'f' parameter for that function. A larger number will result in greater smoothing. For no smoothing set this to 0 or to a negative number.} 
   \item{show}{If TRUE, the track is plotted.} 
-  \item{output}{If TRUE, a dataframe containing timesteps, and power at each timestep is returned.} 
   \item{... }{Additional parameters are passed to the internal call of plot(), and used to create the figure.} 
 }
 \details{
@@ -28,8 +27,8 @@ If smoothing is set to a value greater than 0, the power track is smoothed using
 \value{
 A dataframe with the following columns:
 
-\item{time }{ the time, in milliseconds, of each point of analysis.}
-\item{power }{ the power, in decibels, at each analysis point.}
+\item{time }{ The time, in milliseconds, of each point of analysis.}
+\item{power }{ The power, in decibels, at each analysis point.}
 }
 \references{
 Lyons, R. G. (2004). Understanding Digital Signal Processing (2nd ed.). Prentice Hall.
@@ -47,10 +46,5 @@ data (sound)
 multiplot (2); par (mar = c(4,4,1,1));
 plot (sound)
 powertrack (sound)
-
 }
-
-
-
-
 

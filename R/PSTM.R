@@ -1,3 +1,6 @@
+# Copyright (c) 2013 Santiago Barreda
+# All rights reserved.
+
 PSTM = function (ffs, f0, template, winner = TRUE){
   ffs = as.matrix(ffs)
   if (length(ffs) == 3 & ncol(ffs) == 1) ffs = t(ffs)
@@ -7,8 +10,8 @@ PSTM = function (ffs, f0, template, winner = TRUE){
   if (nrow(ffs) != length(f0)) stop ('Rows in ffs must equal length of f0.')
     
   if (missing(template)){
-    covariance = matrix (c(0.087386563, -0.031541357, -0.009679384, -0.031541357,
-    0.075037750,  0.014419819, -0.009679384,  0.014419819, 0.004099910), 3, 3)
+    covariance = matrix (c(1.471405e-02,1.042306e-03, -1.011399e-03,  1.042306e-03,
+    1.005482e-02,  5.882612e-06, -1.011399e-03,  5.882612e-06,  5.674205e-03), 3, 3)
     
     means =  matrix (c(-1.4191406,0.62950438,0.8487829,-0.9816006,0.41787938,
     0.7149399,-0.9211756,0.49334438,0.7382749,-0.7035106,0.32145438,0.7001354,-0.4457406,0.22904938,

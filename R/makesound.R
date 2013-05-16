@@ -1,3 +1,6 @@
+# Copyright (c) 2013 Santiago Barreda
+# All rights reserved.
+
 makesound = function (sound, filename, fs = 22050){
   if (missing(filename))filename = paste (deparse(substitute(sound)), '.wav', sep='')
   if (!is.numeric(sound)) stop('The sound must be a numeric vector.')

@@ -1,6 +1,9 @@
+# Copyright (c) 2013 Santiago Barreda
+# All rights reserved.
+
 vowelsynth = function (ffs = c(270, 2200, 2800, 3400, 4400), fbw = 0.06, dur = 300, f0 = c(120,100), 
-fs = 10000, verify = FALSE, returnsound = TRUE){
-  if (dur < 0) stop ('Positive duration must be specified.')
+                       fs = 10000, verify = FALSE, returnsound = TRUE){
+  if (dur < 50) stop ('Duration must be at least 50 ms.')
   if (length (f0) > 2) stop ('Only initial and final f0 may be specified.')
   
   T = 1/fs
@@ -11,23 +14,26 @@ fs = 10000, verify = FALSE, returnsound = TRUE){
   spot = 1
   while (length (vsource) < n*5){
     tmp = f0[spot]
-    cycle = round(fs/tmp) * 2.5
-    
-    tmp = 2*seq (0,1, 1/cycle) - 3*seq (0,1, 1/cycle)^2 
+    cycle = round(fs/tmp)
+    tmp = 2*seq (0,1, 1/(cycle*4)) - 3*seq (0,1, 1/(cycle*4))^2 
     tmp = c(rep (0, cycle), tmp)
     vsource = c(vsource, tmp)
-    spot = spot + cycle/5
+    spot = spot + cycle
   }
-  vsource = FIRfilter(vsource, to = (fs/2)-20, fs = fs*5)
-  vsource = vsource[seq(1, n * 5, 5)]
-  vsource = jitter(vsource)
+  vsource = resample (vsource, fs, fs*5)
+  n = length (vsource)
   
-  x = round (seq (1, n, length.out = 13))
-  power = interpolate (x, y = c(0,7.5,9.5,10.5, 11, 11, 11, 11,11,10.5,9.5,7.5,0)/13, increment = 1)[,2]
+  vsource = jitter(vsource)
+  vsource = preemphasis (vsource, coeff = .94)
+  
+  x = c(1, 10 / (1000/fs), 20 / (1000/fs), n-(30 / (1000/fs)), n)
+  power = interpolate (x, y = c(30,55, 60,55,30), increment = 1, type = 'linear')[,2]
+  power = 10^(power/20)
+    
   power = jitter(power, factor = 0.01)
   vsource = vsource * power
   output = Ffilter (vsource, ffs = ffs, fs = fs, verify = FALSE, bwp = fbw)
-
+  
   output = output * power
   output = output /(max(abs(output)) * 1.05)
   
@@ -41,3 +47,4 @@ fs = 10000, verify = FALSE, returnsound = TRUE){
     output = makesound(output, "sound.wav", fs = fs)
   return(output)
 }
+

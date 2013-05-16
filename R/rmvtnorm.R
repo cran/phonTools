@@ -1,3 +1,6 @@
+# Copyright (c) 2013 Santiago Barreda
+# All rights reserved.
+
 rmvtnorm = function (n = 1, k = 2, means = rep (0, k), sigma = diag (k)){
   if (length(sigma) == 1)
       if (sigma >= -1 & sigma <= 1) sigma = matrix (c(1,sigma,sigma,1),2,2)

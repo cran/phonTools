@@ -14,7 +14,7 @@ normalize(formants, speakers, vowels, method = 'neareyE', corners = NULL)
   \item{speakers}{A vector indicating which speaker produced each vowel in 'formants'. The length of this vector must equal the number of rows in 'formants'.}
   \item{vowels}{A vector indicating the vowel category of each vowel in 'formants'. The length of this vector must equal the number of rows in 'formants'.}
   \item{method}{A string indicating the desired method. Choices are 'neareyE', 'neareyI', 'lobanov' and 'wandf'. See details for more information.}
-  \item{corners}{A vector of two strings indicating the lowest F1-highest F2 vowel, and the highest F1-intermediate F2 vowel for the vowel system. In most vowel systems these are an /i/-like vowel, and an /a/-like vowel, respectively. Vowels must be provided in that order. }
+  \item{corners}{For the 'wandf' method, a vector of two strings indicating the lowest F1-highest F2 vowel, and the highest F1-intermediate F2 vowel for the vowel system. In most vowel systems these are an /i/-like vowel, and an /a/-like vowel, respectively. Vowels must be provided in that order. }
   
 }
 \details{
@@ -26,14 +26,14 @@ Nearey formant-intrinsic log-mean ('neareyI'): This method finds the logarithmic
 
 Lobanov ('lobanov'): This method finds the mean and standard deviation for each formant. FFs are then standardized (in the statistical sense) using these estimated parameters for each speaker, for each formant. 
 
-Watt and Fabricius ('wandf'): This method requires the suer to provided point vowels representing the frontmost and highest vowel, and the lowest (and, ideally central) vowel in a vowel system. An estimate of the centroid of the vowel system is calculated based on these values. Normalized FFs are then expressed as the ratio of observed FFs to the estimated centroids, independently for F1 and F2.  
+Watt and Fabricius ('wandf'): This method requires the user to provided point vowels representing the frontmost and highest vowel, and the lowest (and, ideally central) vowel in a vowel system. An estimate of the centroid of the vowel system is calculated based on these values. Normalized FFs are then expressed as the ratio of observed FFs to the estimated centroids, independently for F1 and F2.  
 
 For both Nearey methods, and the Lobanov method, the average is found for each vowel category within-speaker before calculating the overall mean. As a result, the data from each speaker may contain unequal numbers of each vowel category. However, all speakers must be represented by the same vowel categories or the result will be (possibly) subtle differences in normalized vowel spaces dues to the possibly differing estimates of means and stadard deviations of the different formants. 
 }
 \value{
 A dataframe with the same numbers of rows as the formant data provided and the following columns:
 
-\item{formants}{A column corresponding to each formant provided.}
+\item{formants}{A column corresponding to each formant provided. These are named 'fn' where n corresponds to the formant number.}
 \item{speakers}{A column indicated which speaker produced each vowel.}
 \item{vowels}{A column indicating which vowel is represented in each row.}
 }
@@ -54,7 +54,8 @@ data (pb52)
 neareyE = normalize (pb52[,7:9], pb52$speaker, pb52$vowel, method = 'neareyE')
 neareyI = normalize (pb52[,7:9], pb52$speaker, pb52$vowel, method = 'neareyI')
 lobanov = normalize (pb52[,7:9], pb52$speaker, pb52$vowel, method = 'lobanov')
-wandf = normalize (pb52[,7:9], pb52$speaker, pb52$vowel, method = 'wandf', corners =  c('iy','aa'))
+wandf = normalize (pb52[,7:9], pb52$speaker, pb52$vowel, method = 'wandf', 
+corners =  c('i','A'))
 
 ## compare normalization methods using vowelplot().
 par (mfrow = c(2,2), mar = c(4,4,3,1))
@@ -66,5 +67,4 @@ vowelplot (lobanov[,1], lobanov[,2], lobanov$vowel, alternateAxes = TRUE,
   pointType = 16, main = 'lobanov', ellipses = TRUE)
 vowelplot (wandf[,1], wandf[,2], wandf$vowel, alternateAxes = TRUE, 
   pointType = 16, main = 'wandf', ellipses = TRUE)
-
 }

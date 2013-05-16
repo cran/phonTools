@@ -1,3 +1,6 @@
+# Copyright (c) 2013 Santiago Barreda
+# All rights reserved.
+
 print.hotelling.test <-
 function (x, ...){
 

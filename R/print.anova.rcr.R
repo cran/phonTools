@@ -1,3 +1,6 @@
+# Copyright (c) 2013 Santiago Barreda
+# All rights reserved.
+
 print.anova.rcr <-
 function (x, ...){
   cat ("\nSignificance Tests for Groups of Coefficients\n")

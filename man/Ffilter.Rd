@@ -12,7 +12,7 @@ Ffilter (sound, ffs, bwp = 0.06, fs = 22050, verify = FALSE)
 \arguments{
   \item{sound}{A numeric vector representing a waveform, or a 'sound' object created with the loadsound() or makesound() functions.} 
   \item{ffs}{A list of vectors of initial and final center frequencies for each formant. Each vector should contain formant frequencies in order of lowest to highest frequency. If only a single vector is provided, formants will remain stable throughout.} 
-  \item{bwp}{A vector of formant bandwidths for each formant.} 
+  \item{bwp}{A vector of formant bandwidths, one for each formant.} 
   \item{fs}{The sampling frequency of the sound. If a 'sound' object is passed, this does not need to be specified.} 
   \item{verify}{If TRUE, before and after spectra are plotted to allow the user to visually verify the process.} 
 }
@@ -33,9 +33,9 @@ http://www.fon.hum.uva.nl/praat/manual/Sound__Filter__one_formant____.html
 Santiago Barreda <sbarreda@ualberta.ca>
 }
 \examples{
-
+# uncomment and run
 ## Generate half a second of white noise
-sound = rnorm (11025, 0, 1)
+#sound = rnorm (11025, 0, 1)
 
 ## pass this through one formant filters
 ## two static formants
@@ -50,5 +50,4 @@ sound = rnorm (11025, 0, 1)
 #spectrogram (filtered1, maxfreq = 11025, pause = FALSE)
 #spectrogram (filtered2, maxfreq = 11025, pause = FALSE)
 #spectrogram (filtered3, maxfreq = 11025, pause = FALSE)
-
 }

@@ -1,4 +1,7 @@
-sinusoid = function (freqs, amps = rep(1, length(freqs)), dur = 50, phases = rep(0, length(freqs)), fs = 10000, sum = TRUE, show = TRUE, output = TRUE, colors = NULL){
+# Copyright (c) 2013 Santiago Barreda
+# All rights reserved.
+
+sinusoid = function (freqs, amps = rep(1, length(freqs)), dur = 50, phases = rep(0, length(freqs)), fs = 10000, sum = TRUE, show = FALSE, colors = NULL){
   if (length (freqs) != length (amps)) stop ('Must specify same number of frequencies and amplitudes.')
   if (length (freqs) != length (phases)) stop ('Must specify same number of frequencies and initial phases.')
 
@@ -23,11 +26,9 @@ sinusoid = function (freqs, amps = rep(1, length(freqs)), dur = 50, phases = rep
       abline (h = 0)
     }
   }
-  if (output == TRUE){
-    waves = data.frame (time = t*1000, waves)
-    colnames(waves)[2:(n+1)] = paste (rep('wave',n), 1:n, sep='')
-    if (sum) colnames(waves)[ncol(waves)] = 'sum'
-    return (waves)
-  }
+  waves = data.frame (time = t*1000, waves)
+  colnames(waves)[2:(n+1)] = paste (rep('wave',n), 1:n, sep='')
+  if (sum) colnames(waves)[ncol(waves)] = 'sum'
+  invisible (waves)
 }
 

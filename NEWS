@@ -1,0 +1,19 @@
+###############################################################################
+###                     Version 0.2-0     NEWS                              ###
+###                     May 13, 2013      <santiago barreda>                ###
+###############################################################################
+
+Several new functions have been added, including functionality to easily plot
+IPA vowels 'out of the box', an interactive function that allows the user
+to choose vowels for plotting and a function that converts x-sampa to values
+that can be used to plot using IPA. It might need some tweaking to get IPA
+symbols to export to pdf, however, it works fine when exporting plots as image
+files and has been tested on Linux, Mac and Windows operating systems. At the
+moment only vowels are supported, the rest of the IPA chart is coming soon. 
+
+Several vowel data sets have been added to the package, and all vowel
+categories are now represented using x-sampa. 
+
+A few functions have also been added to allow LPC analysis and formant 
+estimation, and to inspect the frequency response of digital filters. See the 
+change log for a full listing of changes. 

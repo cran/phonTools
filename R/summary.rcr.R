@@ -1,3 +1,6 @@
+# Copyright (c) 2013 Santiago Barreda
+# All rights reserved.
+
 summary.rcr <-
 function (object, ...){
   if (sum(is.na(object$coefficients)) > 0) return (cat ("Error: Null coefficient values. Check individual coefficients and model fits."))

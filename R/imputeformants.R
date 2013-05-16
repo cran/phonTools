@@ -1,3 +1,6 @@
+# Copyright (c) 2013 Santiago Barreda
+# All rights reserved.
+
 imputeformants = function (ffs, speaker, vowel){
   if (!is.numeric (ffs)) stop ('Non-numeric formant frquency values provided.') 
   

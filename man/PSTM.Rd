@@ -16,9 +16,9 @@ PSTM (ffs, f0, template, winner = TRUE)
   \item{winner}{If TRUE, only the winner of each classification is returned. If FALSE, information regarding all candidate vowels is returned. See 'value' subsection for details.}
 }
 \details{
-The Probabilistic Sliding Template Model (PSTM) is an explicit model of vowel normalization. The classic log-mean normalization method of Nearey (1978), finds a speaker-specific reference parameter based on the speaker's entire vowel system. This parameter is related to the range of formant frequencies that a speaker can be expected to produce. The PSTM works by normalizing the formant frequencies of a vowel based on a speaker-specific fisplacement parameter (psi) and then classifying the vowel relative to a normalized vowel space. The 'template' object given to this vowel indicates the average formant frequencies expected for each vowel category, as well information regarding the covariances of these distributions. Using this information, a normalized vowel can be classified by selecting the category with the highest likelihood given the expected mean for that vowel category (Nearey & Assmann, 2007).
+The classic log-mean normalization method of Nearey (1978) helps compare the vowels produced by different speakers by controlling for the log-mean formant frequency (FF) produced by a speaker. This approach to normalization assumes that variation in the vowel spaces of speakers of the same dialect is primarily according to a single multiplicative parameter. When this speaker-specific scaling parameter is controlled for, differences in the vowel spaces of different speakers are minimized. 
 
-'Method 6' of the PSTM (described in Nearey & Assmann, 2007) 'guesses' the speaker-specific reference parameter (psi) for each vowel token. The method guesses a different psi for each candidate vowel category using information regarindg vowel f0, the prior distribution of psi across the human population, and the psi that would be required to make the observed formants a good fit for the candidate vowel category. Each vowel vowel is normalized by its specific psi, and the posterior probability of observing the vowel given the formants is found (based on the information provided in the 'template' object). 
+The Probabilistic Sliding Template Model (PSTM) of Nearey and Assmann (2007) attempts to predict perceived vowel quality by 'guessing' an appropriate speaker-specific scaling parameter and normalizing vowels using this estimated parameter. 'Method 6' of the PSTM (described in Nearey & Assmann, 2007) is used to estimate the necessary parameter. After normalization, vowels are classified by comparing them to a provided reference template, which can be created using the createtemplate() function included in this package. Normalized or unnormalized vowels may be classified, as long as the same transformations are performed on the data used to create the template and the data being classified.  
 
 If no template is passed, the model identifies vowels relative to the vowel system of Edmonton English speakers. For in-depth details regarding the specifics of this model, please see Nearey & Assmann (2007).
 }
@@ -38,7 +38,6 @@ A list of dataframes, each of which contains information for every candidate vow
 \item{vowel}{The label for each candidate vowel category.}
 \item{psi}{The optimal psi determined for each vowel category.}
 \item{postprob}{The posterior probability of observing each vowel category, given the formants and the psi.}
-
 }
 \references{
 Nearey, T. M. (1978). Phonetic Feature Systems for Vowels. PhD thesis, Indiana University Linguistics Club. 
@@ -50,7 +49,6 @@ Nearey, T. M. & P. F. Assmann. (2007). Pobabilistic 'sliding template' models fo
 Santiago Barreda <sbarreda@ualberta.ca>
 }
 \examples{
-
 ## load Peterson & Barney vowel data
 data (pb52)
 
@@ -71,17 +69,11 @@ PSTM (ffs, f0, template)
 PSTM (ffs, f0, template, winner = FALSE)
 
 ## now classify all vowels
-ffs = pb52[,c(7:9)] 
-f0 = pb52[,6]  
-winner = PSTM (ffs, f0, template)
+## uncomment to run
+#ffs = pb52[,c(7:9)] 
+#f0 = pb52[,6]  
+#winner = PSTM (ffs, f0, template)
 ## with a good degree of accuracy
-table (winner$vowel, pb52$vowel)
-
+#table (winner$vowel, pb52$vowel)
 }
-
-
-
-
-
-
 

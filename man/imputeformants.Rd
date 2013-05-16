@@ -11,7 +11,7 @@ imputeformants (ffs, speaker, vowel)
 }
 \arguments{
   \item{ffs}{A numeric vector containing formant frequency measurements for a single formant. Values should be in Hz, and missing values need to be set to 0.} 
-  \item{speaker}{A vector indicating which unique speaker produced each formant.} 
+  \item{speaker}{A vector indicating which speaker produced each formant.} 
   \item{vowel}{A vector indicating which vowel category each formant belongs to.} 
 }
 \details{
@@ -33,7 +33,6 @@ Turner, R. E., Walters, T. C., Monaghan, J. J. M., & Patterson, R. D. (2009). A 
 Santiago Barreda <sbarreda@ualberta.ca>
 }
 \examples{
-
 data (h95)
 
 ## Select F2 values from the tenth speaker in H95 data
@@ -49,7 +48,6 @@ imputedf2 = imputeformants (ffs, speaker, vowel)
 ## resulting in a very close approximation of the original values
 plot (imputedf2[h95$speaker == 10], h95$f2[h95$speaker == 10])
 abline (0, 1, col = 2)
-
 }
 
 

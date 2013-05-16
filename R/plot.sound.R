@@ -1,3 +1,6 @@
+# Copyright (c) 2013 Santiago Barreda
+# All rights reserved.
+
 plot.sound <-
 function (x,y, ...){
   time = 1:length(x$sound) / x$fs * 1000

@@ -14,7 +14,7 @@ Formant frequency and f0 information for vowels collected from 76 speakers in th
     \item{\code{type}}{ - A factor with levels \code{c} \code{m} \code{w} representing speaker type: child, man and woman.}
     \item{\code{sex}}{ - A factor with levels \code{f} \code{m} representing speaker gender: male and female.}
     \item{\code{speaker}}{ - A numeric vector indicating a uniquely identifying speaker number.}
-    \item{\code{vowel}}{ - A factor with levels \code{aa} \code{ae} \code{ah} \code{ao} \code{eh} \code{er} \code{ih} \code{iy} \code{uh} \code{uw} indicating the vowel category produced.}
+    \item{\code{vowel}}{ - The vowel category in x-sampa.}
     \item{\code{repetition}}{ - A numeric vector indicating the repetition number.}
     \item{\code{f0}}{ - A numeric vector indcating the vowel f0 in Hz.}
     \item{\code{f1}}{ - A numeric vector indcating the vowel F1 in Hz.}
@@ -33,8 +33,6 @@ Peterson, G.E. & Barney (1952). Control methods used in a study of the vowels. J
 Boersma, Paul & Weenink, David (2012). Praat: doing phonetics by computer [Computer program]. Version 5.3.19, retrieved 24 June 2012 from http://www.praat.org/
 }
 \examples{
-
 data(pb52)
-vowelplot (pb52$f1, pb52$f2, pb52$vowel, logaxes = 'xy', ellipses = TRUE)
-
+vowelplot (pb52$f1, pb52$f2, pb52$vowel, logaxes = 'xy', ellipses = TRUE, xsampa = TRUE)
 }

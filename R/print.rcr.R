@@ -1,3 +1,6 @@
+# Copyright (c) 2013 Santiago Barreda
+# All rights reserved.
+
 print.rcr <-
 function (x, ...){
   cat ("\nCall:\n")

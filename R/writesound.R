@@ -1,3 +1,6 @@
+# Copyright (c) 2013 Santiago Barreda
+# All rights reserved.
+
 writesound = function (samples, filename = '', fs = 22050){
   if (class(samples) == "sound"){
     if (filename == '') filename = samples$filename

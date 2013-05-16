@@ -1,30 +1,30 @@
-resample = function (sound, newfs, oldfs){
+# Copyright (c) 2013 Santiago Barreda
+# All rights reserved.
+
+resample = function (sound, newfs, oldfs, precision = 50, filterorder = 200){
   soundout = 0
   if (class(sound) == "sound") {
     soundout = 1
     oldsound = sound
     oldfs = sound$fs
     sound = sound$sound
-  }
-  if (oldfs > newfs) if (oldfs %% newfs != 0) stop ('Old sampling frequency must be an integer multiple of new sampling frequency.')
-  if (oldfs < newfs) if (newfs %% oldfs != 0) stop ('New sampling frequency must be an integer multiple of old sampling frequency.')
- 
-  if (oldfs > newfs){
-    ratio = oldfs / newfs
-    sound = FIRfilter (sound, to = ((oldfs/2)/ratio)-20, fs = oldfs, order = 2000)
-    sound = sound[seq(1, length(sound), ratio)]
-  }
+  } 
+  ratio = oldfs / newfs 
+  if (ratio > 1) sound = FIRfilter (sound, to = newfs/2, fs = oldfs, order = filterorder)
 
-  if (oldfs < newfs){
-    ratio = newfs / oldfs    
-    tmp = NULL
-    for (i in 1:length (sound)){
-      tmp = c(tmp, sound[i])
-      tmp = c(tmp, rep (0, ratio-1))
-    }
-    sound = FIRfilter (tmp, to = ((oldfs/2))-20, fs = newfs, order = 2000)
-  }
-  sound = sound / (max(sound) * 1.05) 
+  newtime = seq (1, length(sound)+1, by = ratio)   
+  nearest = round (newtime)                              
+  offset = newtime - nearest                                 
+
+  sound = c(rep(0,precision), sound, rep(0,precision+1))
+  y = newtime * 0
+
+  for (i in -precision:precision)
+    y = y + sound[nearest+precision+i] * sinc(offset - i, normalized = TRUE)
+
+  if (ratio < 1) y = FIRfilter (y, to = oldfs/2, fs = newfs, order = filterorder)
+ 
+  sound = y / (max(y) * 1.05) 
   if (soundout == 1)  sound = makesound (sound, filename = oldsound$filename, fs = newfs)
   return (sound)   
 }

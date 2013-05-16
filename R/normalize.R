@@ -1,8 +1,11 @@
+# Copyright (c) 2013 Santiago Barreda
+# All rights reserved.
+
 normalize = function (formants, speakers, vowels, method = 'neareyE', corners = NULL){
   if (is.null(ncol(formants))) stop("At least two formants must be provided (i.e. F1, F2, ...)")
   if (length(speakers) != nrow (formants)) stop('Speaker vector length does not match formant data length.')
   if (length(vowels) != nrow (formants)) stop('Formant vector length does not match formant data length.')
-  if (!(method %in% c('neareyE', 'neareyI','lobanov','wandf'))) stop ('Invalid method selected. See help file for available methods.')
+  if (!(method %in% c('barreda','neareyE', 'neareyI','lobanov','wandf'))) stop ('Invalid method selected. See help file for available methods.')
   
   speakers = as.factor (speakers) 
   vowels = as.factor (vowels) 
@@ -45,6 +48,20 @@ normalize = function (formants, speakers, vowels, method = 'neareyE', corners = 
       sdffs = matrix (sdff, nrow (formants[temp,]), nffs, byrow = TRUE)
       formants[temp, ] = (formants[temp, ] - mffs) / sdffs
   }}
+  if (method == 'barreda'){
+    if (max(formants) > 30) formants = log (formants)
+    for (j in 1:ns){
+      temp = (speakers == speakersf[j])
+      mff = NULL
+      sdff = NULL
+      for (i in 1:nffs){ 
+         mff = c(mff, sum(range (tapply(formants[temp,i], vowels[temp], mean)))/2)
+         sdff = c(sdff, mean((mff[i] - tapply(formants[temp,i], vowels[temp], mean))^2)^.5)
+      }
+      mffs = matrix (mff, nrow (formants[temp,]), nffs, byrow = TRUE)
+      sdffs = matrix (sdff, nrow (formants[temp,]), nffs, byrow = TRUE)
+      formants[temp, ] = (formants[temp, ] - mffs) / sdffs
+  }}  
   if (method == 'wandf'){
     formants = formants[,1:2]
     for (j in 1:ns){
@@ -64,3 +81,4 @@ normalize = function (formants, speakers, vowels, method = 'neareyE', corners = 
   output = data.frame (formants, speaker = speakers, vowel = vowels)
   return (output)
 }
+

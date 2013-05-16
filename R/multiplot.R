@@ -1,4 +1,7 @@
-multiplot = function (n = 2, type = 'r', sizes = rep (1/n, n), show = TRUE){
+# Copyright (c) 2013 Santiago Barreda
+# All rights reserved.
+
+multiplot = function (n = 2, type = 'r', sizes = rep (1/n, n), show = FALSE){
   if (n < 2) stop ('Must specify at least two panels.')
     if (length(sizes) != n) stop ('Incorrect number of panel sizes specified.')
   sizes = sizes / sum(sizes)

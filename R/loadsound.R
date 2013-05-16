@@ -1,3 +1,6 @@
+# Copyright (c) 2013 Santiago Barreda
+# All rights reserved.
+
 loadsound <-
 function (filename=0){
   if (mode(filename)!="character") filename = file.choose()

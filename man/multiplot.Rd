@@ -7,7 +7,7 @@ Plot with variable panel sizes
 Create plots with columns or rows of unequal sizes.
 }
 \usage{
-multiplot (n = 2, type = 'r', sizes = rep (1/n, n), show = TRUE)
+multiplot (n = 2, type = 'r', sizes = rep (1/n, n), show = FALSE)
 }
 \arguments{
   \item{n}{The number of figure panels to be created.} 
@@ -24,7 +24,6 @@ Pease note that small rows or columns might result in an error related to figure
 Santiago Barreda <sbarreda@ualberta.ca>
 }
 \examples{
-
 data (sound)
 # sound = loadsound ()       ## run this instead to select your own sound for this demo.
 
@@ -34,7 +33,6 @@ data (sound)
 #plot (sound)
 #spectrogram (sound, pause = FALSE, dynamicrange = 50, maxfreq = 7000)
 #powertrack (sound)
-
 }
 
 

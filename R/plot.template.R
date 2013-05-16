@@ -1,3 +1,6 @@
+# Copyright (c) 2013 Santiago Barreda
+# All rights reserved.
+
 plot.template = function (x, ...){
   sigma = x$covariance[1:2,1:2]
   f1range = range(x$means[,1]) + c(-sigma[1]^.5*2, sigma[1]^.5*2)

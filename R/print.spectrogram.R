@@ -1,3 +1,6 @@
+# Copyright (c) 2013 Santiago Barreda
+# All rights reserved.
+
 print.spectrogram <-
 function (x, ...){
   cat ("\nSpectrogram Object")

@@ -15,25 +15,7 @@ makesound (sound, filename, fs = 22050)
   \item{fs}{The desired sampling frequency of the sound object.} 
 }
 \details{
-This function can make a vector into a 'sound' object. If a filename is not set, the filename defaults to 'sound.wav' where 'sound' indicates the name of the sound variable that was passed to the function. The benefit of working with 'sound' objects is that they carry their sampling frequency and filename (as well as some other information) with them. The following functions interact with 'sound' objects:
-
-Ffilter()
-
-FIRfilter()
-
-loadsound()
-
-makesound()
-
-plot()
-
-powertrack()
-
-spectrogram()
-
-vowelsynth()
-
-writesound()
+This function can make a vector into a 'sound' object. If a filename is not set, the filename defaults to 'sound.wav' where 'sound' indicates the name of the sound variable that was passed to the function. The benefit of working with 'sound' objects is that they carry their sampling frequency and filename (as well as some other information) with them. 
 }
 \references{
 https://ccrma.stanford.edu/courses/422/projects/WaveFormat/
@@ -44,7 +26,6 @@ Santiago Barreda <sbarreda@ualberta.ca>
 \examples{
 
 data (sound)
-
 ## take only the first 10000 samples from a 'sound' object
 tmp = sound$sound[1:10000]
 ## and make a new 'sound' object
@@ -55,10 +36,6 @@ tmp
 #multiplot (2); par (mar = c(4,4,1,1));
 #spectrogram (sound, pause = FALSE)       ## and show a spectrogram of the original
 #spectrogram (tmp, pause = FALSE)         ## and the new, truncated version
-
 }
-
-
-
 
 

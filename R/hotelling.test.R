@@ -1,3 +1,6 @@
+# Copyright (c) 2013 Santiago Barreda
+# All rights reserved.
+
 hotelling.test <-
 function (matrix1, matrix2 = NULL){
 

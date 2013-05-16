@@ -1,6 +1,8 @@
+# Copyright (c) 2013 Santiago Barreda
+# All rights reserved.
+
 createtemplate <-
 function (formants, vowels){
-  if (ncol(formants) < 3) stop ('At least three formants must be provided.')
   if (nrow(formants) != length (vowels)) stop ('Formant and vowel dimensions do not match.')
   
   vs = levels(as.factor(vowels))

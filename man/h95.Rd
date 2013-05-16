@@ -13,7 +13,7 @@ Formant frequency, f0 and duration information for vowels collected from 139 spe
   \describe{
     \item{\code{type}}{ - A factor with levels \code{b} \code{g} \code{m} \code{w} representing speaker type: boy, girl, man and woman.}
     \item{\code{speaker}}{ - A numeric vector indicating a uniquely identifying speaker number.}
-    \item{\code{vowel}}{ - A factor with levels \code{ae} \code{ah} \code{aw} \code{eh} \code{ei} \code{er} \code{ih} \code{iy} \code{oa} \code{oo} \code{uh} \code{uw} indicating the vowel category produced.}
+    \item{\code{vowel}}{ - The vowel category in x-sampa}
     \item{\code{dur}}{ - A numeric vector indicating the duration of the vowel in milliseconds.}
     \item{\code{f0}}{ - A numeric vector indcating the vowel f0 in Hz.}
     \item{\code{f1}}{ - A numeric vector indcating the vowel F1 in Hz.}
@@ -30,8 +30,6 @@ http://homepages.wmich.edu/~hillenbr/voweldata.html
 Hillenbrand, J.M., Getty, L.A., Clark, M.J., and Wheeler, K. (1995). "Acoustic characteristics of American English vowels," Journal of the Acoustical Society of America, 97, 3099-3111.
 }
 \examples{
-
 data(h95)
-vowelplot (h95$f1, h95$f2, h95$vowel, logaxes = 'xy', ellipses = TRUE)
-
+vowelplot (h95$f1, h95$f2, h95$vowel, logaxes = 'xy', ellipses = TRUE, xsampa = TRUE)
 }
