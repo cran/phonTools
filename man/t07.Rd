@@ -23,5 +23,6 @@ Thomson, R. (2007). Modeling L1/L2 interactions in the perception and production
 }
 \examples{
 data(t07)
-vowelplot (t07$f1, t07$f2, t07$vowel, logaxes = 'xy', meansOnly = TRUE, xsampa = TRUE)
+vowelplot (t07$f1, t07$f2, t07$vowel, logaxes = 'xy', meansOnly = TRUE, 
+xsampa = TRUE)
 }

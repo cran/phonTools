@@ -1,5 +1,6 @@
-# Copyright (c) 2013 Santiago Barreda
+# Copyright (c) 2014 Santiago Barreda
 # All rights reserved.
+
 
 sdellipse = function (points, stdev = 1.96, density = .1, add = TRUE, show = TRUE, means = NULL, ...){
   if (ncol (points) != 2) stop ('Points input must have exactly two columns.')

@@ -1,5 +1,6 @@
-# Copyright (c) 2013 Santiago Barreda
+# Copyright (c) 2014 Santiago Barreda
 # All rights reserved.
+
 
 preemphasis = function (input, cutoff = 50, fs = 22050, verify = FALSE, coeff = 0){
   soundout = 0

@@ -1,5 +1,6 @@
-# Copyright (c) 2013 Santiago Barreda
+# Copyright (c) 2014 Santiago Barreda
 # All rights reserved.
+
 
 PSTM = function (ffs, f0, template, winner = TRUE){
   ffs = as.matrix(ffs)

@@ -7,7 +7,8 @@ Frequency Response
 Find the frequency response of a digital filter
 }
 \usage{
-freqresponse (b, a, fs = 0, add = FALSE, show = TRUE, steps = 1000,...)
+freqresponse (b, a, fs = 0, add = FALSE, show = TRUE,
+              steps = 1000,...)
 }
 \arguments{
   \item{b}{The feedforward (MA), numerator coefficients of the filter.} 
@@ -34,6 +35,8 @@ Santiago Barreda <sbarreda@ualberta.ca>
 ## make a synthetic vowel with a known set of formant frequencies
 sound = vowelsynth (ffs = c(500,1500,2500,3500,4500), 
 fbw = c(30, 80, 150, 200, 220),f0 = 100, dur = 100)
+
+plot (sound)
 
 ## let the LPC function estimate the filter used to generate the vowel
 coeffs = lpc (sound, show = TRUE)

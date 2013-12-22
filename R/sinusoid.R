@@ -1,7 +1,7 @@
-# Copyright (c) 2013 Santiago Barreda
+# Copyright (c) 2014 Santiago Barreda
 # All rights reserved.
 
-sinusoid = function (freqs, amps = rep(1, length(freqs)), dur = 50, phases = rep(0, length(freqs)), fs = 10000, sum = TRUE, show = FALSE, colors = NULL){
+sinusoid = function (freqs, amps = rep(1, length(freqs)), dur = 50, phases = rep(0, length(freqs)), fs = 10000, sum = FALSE, show = FALSE, colors = NULL){
   if (length (freqs) != length (amps)) stop ('Must specify same number of frequencies and amplitudes.')
   if (length (freqs) != length (phases)) stop ('Must specify same number of frequencies and initial phases.')
 

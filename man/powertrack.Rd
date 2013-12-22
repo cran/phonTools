@@ -7,8 +7,8 @@ Waveform power track
 Display signal power as a function of time.
 }
 \usage{
-powertrack (sound, timestep = 2, windowlength = timestep, fs = 22050, 
-smoothing = .03, show = TRUE, ...)
+powertrack (sound, timestep = 2, windowlength = timestep, 
+            fs = 22050, smoothing = .03, show = TRUE, ...)
 }
 \arguments{
   \item{sound}{A numeric vector representing a waveform, or a 'sound' object created with the loadsound() or makesound() functions.} 

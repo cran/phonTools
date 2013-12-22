@@ -1,8 +1,10 @@
-# Copyright (c) 2013 Santiago Barreda
+# Copyright (c) 2014 Santiago Barreda
 # All rights reserved.
 
-Ffilter = function (sound, ffs, bwp = 0.06, fs = 22050, verify = FALSE){
-if (missing(ffs)) 
+
+Ffilter = function (sound, ffs, bwp = 0.06, fs = 22050, verify = FALSE) 
+{
+    if (missing(ffs)) 
         stop("At least one formant center frequency must be provided.")
     if (class(sound) == "sound") {
         fs = sound$fs
@@ -48,9 +50,8 @@ if (missing(ffs))
     }
     if (verify == TRUE) {
         par(mfrow = c(2, 1))
-        spectralslice(sound, fs = fs, ylim = c(-75, 5), pwr = FALSE)
-        spectralslice(new, fs = fs, ylim = c(-75, 5), pwr = FALSE)
+        spectralslice(sound, fs = fs, ylim = c(-75, 5))
+        spectralslice(new, fs = fs, ylim = c(-75, 5))
     }
-    invisible (new)
+    invisible(new)
 }
-

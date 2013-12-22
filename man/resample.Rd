@@ -27,7 +27,8 @@ Santiago Barreda <sbarreda@ualberta.ca>
 }
 \examples{
 data (sound)
-#downsample and then upsample the sound back to its original sampling frequency
+## downsample and then upsample the sound back to 
+## its original sampling frequency
 downsamped = resample (sound, 11025)
 upsamped = resample (downsamped, 22050)
 

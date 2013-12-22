@@ -1,5 +1,6 @@
-# Copyright (c) 2013 Santiago Barreda
+# Copyright (c) 2014 Santiago Barreda
 # All rights reserved.
+
 
 freqresponse = function (b, a, fs = 0, add = FALSE, show = TRUE, steps = 1000,...){
   if (fs > 0) stepsize = (2/fs)
@@ -11,13 +12,13 @@ freqresponse = function (b, a, fs = 0, add = FALSE, show = TRUE, steps = 1000,..
   for (i in 1:length (b)) numerator = numerator + b[i] * (cos(i*w) - sin(i*w)*j)
   for (i in 1:length (a)) denomenator = denomenator + a[i] * (cos(i*w) - sin(i*w)*j)
   
-  response = log(abs (numerator / (denomenator)), 10) * 10
+  response = log(abs (numerator / (denomenator)), 10) * 20
   response = response - max (response)
   
   if (add == FALSE & show == TRUE){
-    if (fs == 0) plot (w / (pi*2), response, xlab = '(Frequency / Sampling Freq.)', ylab = 'Magnitude (dB)',
+    if (fs == 0) plot (w / (pi*2), response, xlab = '(Frequency / Sampling Freq.)', ylab = 'Power (dB)',
                        type = 'l', lwd = 2, xaxs = 'i', ...)
-    if (fs > 0) plot (w*((fs/2) / pi), response, xlab = 'Hz', ylab = 'Magnitude (dB)',
+    if (fs > 0) plot (w*((fs/2) / pi), response, xlab = 'Hz', ylab = 'Power (dB)',
                       type = 'l', lwd = 2, xaxs = 'i', ...)
   }
   if (add == TRUE & show == TRUE){

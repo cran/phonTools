@@ -1,5 +1,6 @@
-# Copyright (c) 2013 Santiago Barreda
+# Copyright (c) 2014 Santiago Barreda
 # All rights reserved.
+
 
 reduce.fraction = function (ratio){
   if (length (ratio) != 2) stop ('Ratio must contain two numbers.')

@@ -29,9 +29,11 @@ http://en.wikipedia.org/wiki/X-SAMPA
 Santiago Barreda <sbarreda@ualberta.ca>
 }
 \examples{
+
 ## compare x-sampa and IPA vpwel charts
-xsampatoIPA ()
+#xsampatoIPA ()
 ## some examples
-IPA = xsampatoIPA (c('I','3','{','e','Q'))
-plot (1:5, pch = IPA, cex = 2)
+#IPA = xsampatoIPA (c('I','3','e','Q'))
+#plot (1:5, pch = IPA, cex = 2)
+
 }

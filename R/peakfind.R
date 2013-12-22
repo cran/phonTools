@@ -1,5 +1,6 @@
-# Copyright (c) 2013 Santiago Barreda
+# Copyright (c) 2014 Santiago Barreda
 # All rights reserved.
+
 
 peakfind = function (x, show = TRUE){
   rightbig = c(0, (apply(matrix(x), 2, FUN = diff) > 0)^2)

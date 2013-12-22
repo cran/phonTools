@@ -7,8 +7,8 @@ Interpolation
 Piece-wise cubic or linear spline interpolation.
 }
 \usage{
-interpolate (y, x = 1:length(y), steps = 20, increment = -1, show = FALSE, 
-type = 'cubic', ...)
+interpolate (y, x = 1:length(y), steps = 20, increment = -1, 
+show = FALSE, type = 'cubic', ...)
 }
 \arguments{
   \item{y}{A vector of 'knots', between which the function will interpolate points.}
@@ -38,6 +38,7 @@ Santiago Barreda <sbarreda@ualberta.ca>
 ## generate ten random points
 y = rnorm (10, 0, 5)
 interpolate (y, show = TRUE)  ## plot a cubic interpolation
-linear = interpolate (y, type = 'linear')   ## and compare to a linear interpolation
+linear = interpolate (y, type = 'linear')   
+## and compare to a linear interpolation
 lines (linear, col = 2) 
 }

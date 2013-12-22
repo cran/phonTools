@@ -1,5 +1,6 @@
-# Copyright (c) 2013 Santiago Barreda
+# Copyright (c) 2014 Santiago Barreda
 # All rights reserved.
+
 
 ldclassify = function (data, means, covariance){
   if (ncol (data) != ncol (means)) stop ('Data and means must have the same number of columns.')

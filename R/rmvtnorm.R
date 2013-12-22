@@ -1,5 +1,6 @@
-# Copyright (c) 2013 Santiago Barreda
+# Copyright (c) 2014 Santiago Barreda
 # All rights reserved.
+
 
 rmvtnorm = function (n = 1, k = 2, means = rep (0, k), sigma = diag (k)){
   if (length(sigma) == 1)

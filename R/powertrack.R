@@ -1,5 +1,6 @@
-# Copyright (c) 2013 Santiago Barreda
+# Copyright (c) 2014 Santiago Barreda
 # All rights reserved.
+
 
 powertrack = function (sound, timestep = 2, windowlength = timestep, fs = 22050, smoothing = .03, show = TRUE, ...){
   if (class(sound) == "sound") {

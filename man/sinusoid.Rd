@@ -8,7 +8,7 @@ Create and display one or more sinusoids.
 }
 \usage{
 sinusoid (freqs, amps = rep(1, length(freqs)), dur = 50, 
-phases = rep(0, length(freqs)), fs = 10000, sum = TRUE, 
+phases = rep(0, length(freqs)), fs = 10000, sum = FALSE, 
 show = FALSE, colors = NULL)
 }
 \arguments{
@@ -36,8 +36,10 @@ Santiago Barreda <sbarreda@ualberta.ca>
 }
 \examples{
 ## several waves, and the sum
-sum = sinusoid (freqs = c(100,200,300), amps = c(1,3,2))
+sum = sinusoid (freqs = c(100,200,300), amps = c(1,3,2), 
+sum = TRUE, show = TRUE)
 
 ## no sum, different phase shifts
-nosum = sinusoid (freqs = c(100,200,300), amps = c(1,3,2), phases = c(pi/2, 0, pi/4), sum = FALSE)
+nosum = sinusoid (freqs = c(100,200,300), amps = c(1,3,2), 
+phases = c(pi/2, 0, pi/4), sum = FALSE)
 }

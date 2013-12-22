@@ -1,12 +1,15 @@
-# Copyright (c) 2013 Santiago Barreda
+# Copyright (c) 2014 Santiago Barreda
 # All rights reserved.
 
-pickIPA = function (vowels, n = 1, xsampa = FALSE, description = FALSE, vector = FALSE, verify = TRUE){
-  if (!missing(vowels)){
+
+pickIPA = function (vowels, n = 0, xsampa = FALSE, description = FALSE, verify = TRUE){
+  if (missing(vowels) & n == 0) stop ('Please provide either a vowels vector or the number of vowels to select.')
+  vector = FALSE
+  if (!missing(vowels)) vector = TRUE
+  if (vector){
     vowels = as.factor (vowels)
-    nvowels = length (levels(vowels))
-    print (t(t(levels(vowels))))
-    readline("\nPress any key, and then select desired symbols by clicking on them in the plot.\n")
+    vtypes = levels(vowels)
+    nvowels = ntypes (vowels)
     n = nvowels
   }
   IPA = ipainfo()[c(1,4,2,5)]
@@ -17,8 +20,13 @@ pickIPA = function (vowels, n = 1, xsampa = FALSE, description = FALSE, vector =
   axis (side = 2, at = c(1,2,3,4), c('open','open-mid','close-mid','close'), cex.axis = 1.3)
 
   selected = rep(0,n)
-  for (i in 1:n) 
-    selected[i] = identify (IPA[[2]]$frontness+(IPA[[2]]$rounded*.25), IPA[[2]]$height,'', n = 1)
+  for (i in 1:n){ 
+    if (vector) cat ('Please select ->  ', vtypes[i], '\n\n')
+    if (!vector) cat ('Please select vowel ', i, '\n\n')
+    flush.console()
+    selected[i] = identify (IPA[[2]]$frontness+(IPA[[2]]$rounded*.25), IPA[[2]]$height,'', n = 1)  
+  }
+
   if (verify == TRUE) plot (1:n, rep(1,n), pch = IPA[[1]][selected], ylab='',yaxt='n', xlab='Selection',cex = 2)
   if (vector == TRUE) selected = selected[as.numeric(vowels)]
   out = list (IPA = IPA[[1]][selected])

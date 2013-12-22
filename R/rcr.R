@@ -1,8 +1,7 @@
-# Copyright (c) 2013 Santiago Barreda
+# Copyright (c) 2014 Santiago Barreda
 # All rights reserved.
 
-rcr <-
-function (formula, participants, dataframe, ...){
+rcr = function (formula, participants, dataframe, ...){
   if (length (participants) != nrow(dataframe)) return (cat("Error: Dataframe rows and participant vector length do not equal."))
   parts = as.factor(levels (as.factor (participants)))
   nparts = length (parts)

@@ -31,5 +31,6 @@ Hillenbrand, J.M., Getty, L.A., Clark, M.J., and Wheeler, K. (1995). "Acoustic c
 }
 \examples{
 data(h95)
-vowelplot (h95$f1, h95$f2, h95$vowel, logaxes = 'xy', ellipses = TRUE, xsampa = TRUE)
+vowelplot (h95$f1, h95$f2, h95$vowel, logaxes = 'xy', ellipses = TRUE,
+xsampa = TRUE)
 }

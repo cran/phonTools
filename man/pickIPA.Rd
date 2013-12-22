@@ -8,7 +8,7 @@ Pick IPA Symbols
 Select IPA symbols that you wish to include in a plot.
 }
 \usage{
-pickIPA (vowels, n = 1, xsampa = FALSE, description = FALSE, vector = FALSE, 
+pickIPA (vowels, n = 0, xsampa = FALSE, description = FALSE, 
          verify = TRUE)
 }
 \arguments{
@@ -16,7 +16,6 @@ pickIPA (vowels, n = 1, xsampa = FALSE, description = FALSE, vector = FALSE,
   \item{n}{If no vowel vector is provided, the number of symbols desired.} 
   \item{xsampa}{If TRUE, x-sampa versions of the symbols are returned.} 
   \item{description}{If TRUE, description of the place, manner and voicing of the symbols are also returned.} 
-  \item{vector}{If TRUE and a vowels vector is provided, the symbols which should be used to represent each element of vowels is returned as a vector. See details.} 
   \item{verify}{If TRUE, the selected symbols are plotted in the order indicated by the user, allowing visual confirmation of the selected symbols.} 
 }
 \details{
@@ -48,8 +47,10 @@ Santiago Barreda <sbarreda@ualberta.ca>
 #vowels = pickIPA (n = 3)
 #plot (c(1,2,3), c(1,2,3), pch = vowels)
 
-## select vowels in the order displayed in the console to obtain symbols 
-## and descriptions of the vowel categories in the Peterson and Barney data. 
+## select vowels in the order displayed in the console
+## to obtain symbols and descriptions of the vowel categories 
+## in the Peterson and Barney data. 
+
 # data (pb52)
 # tmp = pickIPA (pb52$vowel, description = TRUE, xsampa = TRUE)
 # tmp

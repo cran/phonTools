@@ -39,15 +39,16 @@ Santiago Barreda <sbarreda@ualberta.ca>
 
 ## pass this through one formant filters
 ## two static formants
-#filtered1 = Ffilter (sound, ffs = c(4000,7000), bw = 500, verify = FALSE)
+#filtered1 = Ffilter (sound, ffs = c(4000,7000), bw = 500)
 ## a single moving formant
-#filtered2 = Ffilter (sound, ffs = list(3000,8000), bw = 500, verify = FALSE)
+#filtered2 = Ffilter (sound, ffs = list(3000,8000), bw = 500)
 ## two moving formants
-#filtered3 = Ffilter (sound, ffs = list(c(5000,4000),c(8000,1000)), bw = 500, verify = FALSE)
+#filtered3 = Ffilter (sound, ffs = list(c(5000,4000),c(8000,1000)), 
+#                     bw = 500)
 
 ## inspect the results
 #par (mfrow = c(1,3), mar = c(4,4,1,1))
-#spectrogram (filtered1, maxfreq = 11025, pause = FALSE)
-#spectrogram (filtered2, maxfreq = 11025, pause = FALSE)
-#spectrogram (filtered3, maxfreq = 11025, pause = FALSE)
+#spectrogram (filtered1, maxfreq = 11025)
+#spectrogram (filtered2, maxfreq = 11025)
+#spectrogram (filtered3, maxfreq = 11025)
 }

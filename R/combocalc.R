@@ -1,5 +1,6 @@
-# Copyright (c) 2013 Santiago Barreda
+# Copyright (c) 2014 Santiago Barreda
 # All rights reserved.
+
 
 combocalc = function (objects, choose, order = FALSE, repetition = TRUE){
   if (length(objects) > 1) stop ('Incorrect objects input.')

@@ -1,4 +1,4 @@
-# Copyright (c) 2013 Santiago Barreda
+# Copyright (c) 2014 Santiago Barreda
 # All rights reserved.
 
 vowelsynth = function (ffs = c(270, 2200, 2800, 3400, 4400), fbw = 0.06, dur = 300, f0 = c(120,100), 
@@ -41,7 +41,7 @@ vowelsynth = function (ffs = c(270, 2200, 2800, 3400, 4400), fbw = 0.06, dur = 3
     par (mfrow = c(2,1), mar = c(4,4,1,1))
     plot ((1:n)*T*1000,output, ylab = 'Amplitude', xlab = 'Time (ms)', type = 'l', xaxs = 'i')
     abline (h = 0, lty = 'dotted') 
-    spectrogram (output, fs = fs, pause = FALSE, dynamicrange = 60)
+    spectrogram (output, fs = fs, dynamicrange = 60)
   }
   if (returnsound == TRUE) 
     output = makesound(output, "sound.wav", fs = fs)

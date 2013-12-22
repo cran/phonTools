@@ -1,5 +1,6 @@
-# Copyright (c) 2013 Santiago Barreda
+# Copyright (c) 2014 Santiago Barreda
 # All rights reserved.
+
 
 windowfunc = function (npoints, type = 'hann', parameter = -1){
   if (length (npoints) > 1) npoints = length (npoints) 

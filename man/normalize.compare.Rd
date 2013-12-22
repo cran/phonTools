@@ -29,11 +29,14 @@ Santiago Barreda <sbarreda@ualberta.ca>
 data (pb52)
 
 ## normalize using several different methods
-neareyE = normalize (pb52[,7:9], pb52$speaker, pb52$vowel, method = 'neareyE')
-neareyI = normalize (pb52[,7:9], pb52$speaker, pb52$vowel, method = 'neareyI')
-lobanov = normalize (pb52[,7:9], pb52$speaker, pb52$vowel, method = 'lobanov')
-wandf = normalize (pb52[,7:9], pb52$speaker, pb52$vowel, method = 'wandf', 
-corners =  c('i','A'))
+neareyE = normalize (pb52[,7:9], pb52$speaker, pb52$vowel, 
+method = 'neareyE')
+neareyI = normalize (pb52[,7:9], pb52$speaker, pb52$vowel, 
+method = 'neareyI')
+lobanov = normalize (pb52[,7:9], pb52$speaker, pb52$vowel, 
+method = 'lobanov')
+wandf = normalize (pb52[,7:9], pb52$speaker, pb52$vowel, 
+method = 'wandf', corners =  c('i','A'))
 normd = list (pb52, neareyE, neareyI, lobanov, wandf)
 
 ## compare outcome of methods (and unnormalized vowels)

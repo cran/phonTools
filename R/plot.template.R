@@ -1,5 +1,6 @@
-# Copyright (c) 2013 Santiago Barreda
+# Copyright (c) 2014 Santiago Barreda
 # All rights reserved.
+
 
 plot.template = function (x, ...){
   sigma = x$covariance[1:2,1:2]

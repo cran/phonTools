@@ -1,5 +1,6 @@
-# Copyright (c) 2013 Santiago Barreda
+# Copyright (c) 2014 Santiago Barreda
 # All rights reserved.
+
 
 interpolate = function (y, x = 1:length(y), steps = 20, increment = -1, show = FALSE, type = 'cubic', ...){
   if (length (y) < 3) stop ('Interpolation requires at least three points.')

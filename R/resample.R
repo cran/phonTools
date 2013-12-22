@@ -1,5 +1,6 @@
-# Copyright (c) 2013 Santiago Barreda
+# Copyright (c) 2014 Santiago Barreda
 # All rights reserved.
+
 
 resample = function (sound, newfs, oldfs, precision = 50, filterorder = 200){
   soundout = 0

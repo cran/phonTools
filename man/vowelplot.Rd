@@ -8,9 +8,10 @@ Plot Vowels
 A flexible function that can create a wide variety of vowel plots (including IPA symbols).  
 }
 \usage{
-vowelplot (f1s, f2s, labels = 0, xrange = NULL, yrange = NULL, meansOnly = FALSE, 
-ellipses = FALSE, ellipsesd = 1.96, add = FALSE, pointType = 0, colors = NULL, 
-logaxes = '', defaultPlot = TRUE, alternateAxes = FALSE, xsampa = FALSE, ...)
+vowelplot (f1s, f2s, labels = 0, xrange = NULL, yrange = NULL, 
+meansOnly = FALSE, ellipses = FALSE, ellipsesd = 1.96, add = FALSE, 
+pointType = 0, colors = NULL, logaxes = '', defaultPlot = TRUE, 
+alternateAxes = FALSE, xsampa = FALSE, ...)
 }
 \arguments{
   \item{f1s}{A numeric vector indicating vowel F1 frequencies.}
@@ -44,19 +45,21 @@ Santiago Barreda <sbarreda@ualberta.ca>
 \examples{
 ## A few examples of some vowel plots. 
 
-#data (pb52)
-#par (mfrow = c(1,4), mar = c(4.2,4.2,1,1))
+data (pb52)
+par (mfrow = c(1,4), mar = c(4.2,4.2,1,1))
 
-## standard layout with linear axes
-#vowelplot (pb52$f1, pb52$f2, pb52$vowel, xsampa = TRUE)
+# standard layout with linear axes
+vowelplot (pb52$f1, pb52$f2, pb52$vowel, xsampa = TRUE)
 
-## alternate layout with log axes
-#vowelplot (pb52$f1, pb52$f2, pb52$vowel, logaxes = 'xy', alternateAxes = TRUE, xsampa = TRUE)
+# alternate layout with log axes
+vowelplot (pb52$f1, pb52$f2, pb52$vowel, logaxes = 'xy', 
+alternateAxes = TRUE, xsampa = TRUE)
 
-## category means only 
-#vowelplot (pb52$f1, pb52$f2, pb52$vowel, logaxes = 'xy', meansOnly = TRUE, xsampa = TRUE)
+# category means only 
+vowelplot (pb52$f1, pb52$f2, pb52$vowel, logaxes = 'xy', 
+meansOnly = TRUE, xsampa = TRUE)
 
-## category means only with standard deviation ellipses
-#vowelplot (pb52$f1, pb52$f2, pb52$vowel, logaxes = 'xy', meansOnly = TRUE,
-#           ellipses = TRUE, xsampa = TRUE)
+# category means only with standard deviation ellipses
+vowelplot (pb52$f1, pb52$f2, pb52$vowel, logaxes = 'xy', meansOnly = TRUE,
+           ellipses = TRUE, xsampa = TRUE)
 }

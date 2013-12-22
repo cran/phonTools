@@ -8,7 +8,8 @@ Find formants given a sound or set of LPC coefficients.
 }
 \usage{
 findformants (sound, fs = 10000, coeffs = 0, maxbw = 600, 
-minformant = 200, verify = TRUE, showbws = FALSE, showrejected = TRUE)
+minformant = 200, verify = TRUE, showbws = FALSE, 
+showrejected = TRUE)
 }
 \arguments{
   \item{sound}{A numeric vector representing a waveform, or a 'sound' object created with the loadsound() or makesound() functions.} 
@@ -36,13 +37,14 @@ Snell, R.(1993). "Formant location from LPC analysis data", IEEE Transactions on
 Santiago Barreda <sbarreda@ualberta.ca>
 }
 \examples{
-## make a synthetic vowel with a known set of formant frequencies and bandwidths
+## make a synthetic vowel with a known set of formant frequencies
+## and bandwidths
 sound = vowelsynth (ffs = c(500,1500,2500,3500,4500),
                     fbw = c(30, 90, 150, 210, 270), f0 = 100)
 
 ## compare different plotting options					
-findformants (sound)
-findformants (sound, showrejected = FALSE)
-findformants (sound, showbws = TRUE)
+#findformants (sound)
+#findformants (sound, showrejected = FALSE)
+#findformants (sound, showbws = TRUE)
 }
 

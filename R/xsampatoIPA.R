@@ -1,5 +1,6 @@
-# Copyright (c) 2013 Santiago Barreda
+# Copyright (c) 2014 Santiago Barreda
 # All rights reserved.
+
 
 xsampatoIPA = function (vowels, chart = FALSE, verify = FALSE){
   if (missing(vowels) | chart == TRUE){ 

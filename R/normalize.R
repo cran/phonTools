@@ -1,5 +1,6 @@
-# Copyright (c) 2013 Santiago Barreda
+# Copyright (c) 2014 Santiago Barreda
 # All rights reserved.
+
 
 normalize = function (formants, speakers, vowels, method = 'neareyE', corners = NULL){
   if (is.null(ncol(formants))) stop("At least two formants must be provided (i.e. F1, F2, ...)")

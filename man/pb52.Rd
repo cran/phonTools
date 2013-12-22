@@ -34,5 +34,6 @@ Boersma, Paul & Weenink, David (2012). Praat: doing phonetics by computer [Compu
 }
 \examples{
 data(pb52)
-vowelplot (pb52$f1, pb52$f2, pb52$vowel, logaxes = 'xy', ellipses = TRUE, xsampa = TRUE)
+vowelplot (pb52$f1, pb52$f2, pb52$vowel, logaxes = 'xy', ellipses = TRUE, 
+xsampa = TRUE)
 }

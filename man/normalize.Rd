@@ -7,7 +7,8 @@ Normalize Vowels
 Function to normalize vowels using one of several methods.
 }
 \usage{
-normalize(formants, speakers, vowels, method = 'neareyE', corners = NULL)
+normalize(formants, speakers, vowels, method = 'neareyE', 
+          corners = NULL)
 }
 \arguments{
   \item{formants}{A matrix or dataframe containing formant frequency information for vowels. Each row is assumed to indicate data from a single vowel. At least two columns (indicating information regarding at least two formants) are required.}
@@ -51,11 +52,14 @@ Santiago Barreda <sbarreda@ualberta.ca>
 ## normalize all Peterson & Barney (1952) vowels using each method.
 data (pb52)
 
-neareyE = normalize (pb52[,7:9], pb52$speaker, pb52$vowel, method = 'neareyE')
-neareyI = normalize (pb52[,7:9], pb52$speaker, pb52$vowel, method = 'neareyI')
-lobanov = normalize (pb52[,7:9], pb52$speaker, pb52$vowel, method = 'lobanov')
-wandf = normalize (pb52[,7:9], pb52$speaker, pb52$vowel, method = 'wandf', 
-corners =  c('i','A'))
+neareyE = normalize (pb52[,7:9], pb52$speaker, pb52$vowel,
+method = 'neareyE')
+neareyI = normalize (pb52[,7:9], pb52$speaker, pb52$vowel,
+method = 'neareyI')
+lobanov = normalize (pb52[,7:9], pb52$speaker, pb52$vowel,
+method = 'lobanov')
+wandf = normalize (pb52[,7:9], pb52$speaker, pb52$vowel,
+method = 'wandf', corners =  c('i','A'))
 
 ## compare normalization methods using vowelplot().
 par (mfrow = c(2,2), mar = c(4,4,3,1))

@@ -1,5 +1,6 @@
-# Copyright (c) 2013 Santiago Barreda
+# Copyright (c) 2014 Santiago Barreda
 # All rights reserved.
+
 
 sinc = function (x, normalized = FALSE){ 
   if (normalized == FALSE) output = sin(x)/x  

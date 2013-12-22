@@ -1,5 +1,6 @@
-# Copyright (c) 2013 Santiago Barreda
+# Copyright (c) 2014 Santiago Barreda
 # All rights reserved.
+
 
 findformants = function (sound, fs = 10000, coeffs = 0, maxbw = 600, 
 minformant = 200, verify = TRUE, showbws = FALSE, showrejected = TRUE){
@@ -23,7 +24,7 @@ minformant = 200, verify = TRUE, showbws = FALSE, showrejected = TRUE){
     multiplot (sizes = c(.7,.3), type = 'c', show = FALSE)
     cols = rep (2:6, 10)
     freqresponse (1, coeffs, fs = fs)
-    if (length(sound) > 1) spectralslice (preemphasis(sound,fs=fs), fs = fs, add = TRUE, padding = 0)
+    if (length(sound) > 1) spectralslice (preemphasis(sound,fs=fs), fs = fs, add = TRUE, padding = 0, col = 1, lty = 'dotted')
     for (i in 1:nrow(out)){
       abline (v = out[i,1], lwd = 2, col = cols[i])
       if (showbws == TRUE) abline (v = out[i,1] + out[i,2], lty = 'dotted', col = cols[i])

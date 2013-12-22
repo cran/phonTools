@@ -1,5 +1,6 @@
-# Copyright (c) 2013 Santiago Barreda
+# Copyright (c) 2014 Santiago Barreda
 # All rights reserved.
+
 
 FIRfilter = function (sound, from = 0, to = fs/2, fs = 22050, order = 200, verify = FALSE, repetitions = 1){
   if (repetitions < 1) repetitions = 1

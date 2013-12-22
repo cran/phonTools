@@ -7,8 +7,9 @@ Vowel Synthesis
 Create synthetic vowels using a cascade formant synthesizer. 
 }
 \usage{
-vowelsynth (ffs = c(270, 2200, 2800, 3400, 4400), fbw = 0.06, dur = 300, 
-f0 = c(120,100), fs = 10000, verify = FALSE, returnsound = TRUE) 
+vowelsynth (ffs = c(270, 2200, 2800, 3400, 4400), fbw = 0.06, 
+dur = 300, f0 = c(120,100), fs = 10000, verify = FALSE, 
+returnsound = TRUE) 
 }
 \arguments{
   \item{ffs}{A vector of center frequencies for each formant. For moving formants, a list containing two vectors may be provided, where the first vector indicates intitial values, and the final vector indicates final values. Formant frequencies should be provided in order of lowest to highest frequency.}   
@@ -46,10 +47,14 @@ Santiago Barreda <sbarreda@ualberta.ca>
 
 ## The following examples are based on my vowels 
 #i = vowelsynth (returnsound = FALSE, f0 = c(125,105))
-#a = vowelsynth (ffs = c(700, 1300, 2300, 3400, 4400), returnsound = FALSE, f0 = c(125,105))
-#e = vowelsynth (ffs = c(400, 2000, 2600, 3400, 4400), returnsound = FALSE, f0 = c(125,105))
-#o = vowelsynth (ffs = c(400, 900, 2300, 3400, 4400), returnsound = FALSE, f0 = c(125,105))
-#u = vowelsynth (ffs = c(300, 750, 2300, 3400, 4400), returnsound = FALSE, f0 = c(125,105))
+#a = vowelsynth (ffs = c(700, 1300, 2300, 3400, 4400), 
+#returnsound = FALSE, f0 = c(125,105))
+#e = vowelsynth (ffs = c(400, 2000, 2600, 3400, 4400), 
+#returnsound = FALSE, f0 = c(125,105))
+#o = vowelsynth (ffs = c(400, 900, 2300, 3400, 4400), 
+#returnsound = FALSE, f0 = c(125,105))
+#u = vowelsynth (ffs = c(300, 750, 2300, 3400, 4400), 
+#returnsound = FALSE, f0 = c(125,105))
 
 #silence = rep(0, 1000)
 #vowels = c(a, silence, e, silence, i, silence, o, silence, u)
@@ -57,9 +62,10 @@ Santiago Barreda <sbarreda@ualberta.ca>
 #writesound (vowels, filename = 'vowels.wav', fs = 10000)
 
 ## an example of a synthetic diphthong
-#ei = vowelsynth (ffs = list(c(400, 2000, 2600, 3400, 4400), c(270, 2200, 2800, 3400, 4400)), 
-#f0 = c(125,105))
+#ei = vowelsynth (ffs = list(c(400, 2000, 2600, 3400, 4400), 
+#c(270, 2200, 2800, 3400, 4400)), f0 = c(125,105))
 #writesound (ei)
 #spectrogram (ei, pause = FALSE)
+
 }
 

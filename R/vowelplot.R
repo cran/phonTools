@@ -1,5 +1,6 @@
-# Copyright (c) 2013 Santiago Barreda
+# Copyright (c) 2014 Santiago Barreda
 # All rights reserved.
+
 
 vowelplot = function (f1s, f2s, labels = 0, xrange = NULL, yrange = NULL, 
 meansOnly = FALSE, ellipses = FALSE, ellipsesd = 1.96, add = FALSE, pointType = 0, 

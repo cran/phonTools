@@ -24,8 +24,10 @@ Pease note that small rows or columns might result in an error related to figure
 Santiago Barreda <sbarreda@ualberta.ca>
 }
 \examples{
+
 data (sound)
-# sound = loadsound ()       ## run this instead to select your own sound for this demo.
+## run this instead to select your own sound for this demo.
+# sound = loadsound ()       
 
 #par (mar = c(4,4,1,1))
 #multiplot (n = 3, sizes = c(.25, .5, .25))  
@@ -33,6 +35,7 @@ data (sound)
 #plot (sound)
 #spectrogram (sound, pause = FALSE, dynamicrange = 50, maxfreq = 7000)
 #powertrack (sound)
+
 }
 
 
