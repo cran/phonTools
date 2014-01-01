@@ -1,6 +1,5 @@
 \name{pwelch}
 \alias{pwelch}
-\alias{mscohere}
 \title{
 Welch's Power Spectral Density Estimate
 }

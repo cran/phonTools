@@ -14,13 +14,13 @@ spectralslice = function (sound, padding = length(sound) * 2, fs = 1,
   if (removeDC) sound = sound - mean(sound)
   sound = sound * windowfunc(n, window, windowparameter)
 
+  if ((n + padding)%%2) padding = padding + 1
   N = n + padding
-  if (N%%2) N = N + 1
 
   if (fs > 1) hz = seq (0, fs/2, length.out = (N/2)+1)
   if (fs == 1) hz = seq (0, .5, length.out = (N/2)+1)
   
-  sound = c(sound, rep(0, N-n))
+  sound = c(sound, rep(0, padding))
   power = abs(fft(sound))
   power = power[1:length(hz)] / (n/2)
 
@@ -41,7 +41,7 @@ spectralslice = function (sound, padding = length(sound) * 2, fs = 1,
   
   if (line == TRUE){
     plot(hz, power, ylab = 'Power (dB.)', xlab = xlab, type = 'p', pch = 16, xaxs = "i", ...)
-    segments (hz, rep(-500,length(hz)),hz,power)
+    segments (hz, rep(-5000,length(hz)),hz,power)
   }
   dB = power
   invisible(cbind(hz, dB))

@@ -29,8 +29,8 @@ lpc = function (sound, order = round(fs/1000) + 3, fs = 10000, show = FALSE, add
   if (show == TRUE & add == TRUE) 
     freqresponse(1, coeffs, fs = fs, add = add)
   if (show == TRUE & add == FALSE) {
-    freqresponse(1, coeffs, fs = fs, add = add)
-    spectralslice(sound, fs = fs, col = 4, add = TRUE)
+    spectralslice(sound, fs = fs, col = 4)
+    freqresponse(1, coeffs, fs = fs, add = TRUE)
   }
   coeffs
 }              

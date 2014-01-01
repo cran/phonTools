@@ -9,8 +9,11 @@ freqresponse = function (b, a, fs = 0, add = FALSE, show = TRUE, steps = 1000,..
   numerator = 0
   denomenator = 0
   
-  for (i in 1:length (b)) numerator = numerator + b[i] * (cos(i*w) - sin(i*w)*j)
-  for (i in 1:length (a)) denomenator = denomenator + a[i] * (cos(i*w) - sin(i*w)*j)
+  for (i in 1:length(b)) numerator = numerator + b[i] * (cos((i-1) * w) - sin((i-1) * w) * j)
+  if (length(a) > 1)
+  for (i in 2:length(a)) denomenator = denomenator - a[i] * (cos((i-1) * w) - sin((i-1) * w) * j)
+
+  denomenator = 1 - denomenator
   
   response = log(abs (numerator / (denomenator)), 10) * 20
   response = response - max (response)

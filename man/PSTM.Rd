@@ -1,5 +1,7 @@
 \name{PSTM}
 \alias{PSTM}
+\alias{fastacf}
+\alias{mscohere}
 \title{
 Probabilistic Sliding Template Model
 }

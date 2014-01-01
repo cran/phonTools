@@ -3,6 +3,7 @@
 
 phasor = function (num, scaled = TRUE, add = TRUE, circle = FALSE, xlim,ylim, ...){
   if (!is.complex(num)) stop ('Input must be complex valued.')
+
   num = matrix(cbind(Re(num), Im(num)), length(num), 2)
 
   if (!scaled & missing(xlim)) xlim = max(abs(num[,1]))*c(-1,1) 
@@ -11,6 +12,7 @@ phasor = function (num, scaled = TRUE, add = TRUE, circle = FALSE, xlim,ylim, ..
     tmpnum = num[i,]
     if (scaled) tmpnum = tmpnum / sqrt(tmpnum[1]^2+tmpnum[2]^2)
     
+	if (add & (dev.cur() == 1)) add = FALSE
     if (add | i > 1) arrows (0,0, tmpnum[1], tmpnum[2], ...)
     if (!add & i == 1){
       if (scaled) plot (0,0,type='n',xlim = c(-1.2,1.2), ylim = c(-1.2,1.2),xlab='Real Part', ylab='Imaginary Part')
