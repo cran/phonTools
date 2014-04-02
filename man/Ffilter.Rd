@@ -33,22 +33,22 @@ http://www.fon.hum.uva.nl/praat/manual/Sound__Filter__one_formant____.html
 Santiago Barreda <sbarreda@ualberta.ca>
 }
 \examples{
-# uncomment and run
+
+## uncomment and run
 ## Generate half a second of white noise
 #sound = rnorm (11025, 0, 1)
 
-## pass this through one formant filters
+## pass this through some formant filters
 ## two static formants
 #filtered1 = Ffilter (sound, ffs = c(4000,7000), bw = 500)
 ## a single moving formant
 #filtered2 = Ffilter (sound, ffs = list(3000,8000), bw = 500)
 ## two moving formants
-#filtered3 = Ffilter (sound, ffs = list(c(5000,4000),c(8000,1000)), 
-#                     bw = 500)
+
 
 ## inspect the results
-#par (mfrow = c(1,3), mar = c(4,4,1,1))
+#par (mfrow = c(1,2), mar = c(4,4,1,1))
 #spectrogram (filtered1, maxfreq = 11025)
 #spectrogram (filtered2, maxfreq = 11025)
-#spectrogram (filtered3, maxfreq = 11025)
+
 }

@@ -18,8 +18,8 @@ quality = FALSE)
 }
 \arguments{
   \item{sound}{Either a numeric vector representing a sequence of samples taken from a sound wave or a sound object created with the loadsound() or makesound() functions.}
-  \item{fs}{The sampling frequency in Hz. If a sound object is passed this does not need to be specificed.}
-  \item{windowlength}{The desired analysis windowlength in milliseconds.}
+  \item{fs}{The sampling frequency in Hz. If a sound object is passed this does not need to be specified.}
+  \item{windowlength}{The desired analysis window length in milliseconds.}
   \item{timestep}{If a negative value is given, -N, then N equally-spaced time steps are calculated. If a positive number is given, this is the spacing between adjacent analyses, in milliseconds.}
   \item{padding}{The amount of zero padding for each window, measured in units of window length. For example, if the window is 50 points, and padding = 10, 500 zeros will be appended to each window.}
   \item{preemphasisf}{Preemphasis of 6 dB per octave is added to frequencies above the specified frequency. For no preemphasis, set to a frequency higher than the sampling frequency.}
@@ -31,7 +31,7 @@ quality = FALSE)
   \item{show}{If FALSE, no spectrogram is plotted. This is useful if the user would like to perform an action on an existing spectrogram plot without having to redraw it.}
   \item{window}{the window to be applied to the signal, applied by the windowfunc function in this package.}
   \item{windowparameter}{the parameter for the window to be applied to the signal, if appropriate.}
-  \item{quality}{If TRUE, a countour plot is created, which results in a high-quality image that may be slow to plot. If FALSE, a lower-quality image is created that plots much faster.}
+  \item{quality}{If TRUE, a contour plot is created, which results in a high-quality image that may be slow to plot. If FALSE, a lower-quality image is created that plots much faster.}
 }
 \details{
 This function is used to create and plot spectrograms. The user may specify all analysis parameters, in addition to the colors used to display the spectrogram. 
@@ -54,10 +54,10 @@ Santiago Barreda <sbarreda@ualberta.ca>
 }
 \examples{
 ## uncoment and run. 
-## data (sound)             ## use the example 'sound' object provided
-# sound = loadsound()       ## or run this line to use you own sound
+data (sound)             ## use the example 'sound' object provided
+#sound = loadsound()       ## or run this line to use you own sound
 
-# spectrogram (sound)
+spectrogram (sound)
 # spectrogram (sound, quality = TRUE)
 
 }

@@ -3,10 +3,10 @@
 
 print.anova.rcr <-
 function (x, ...){
-  cat ("\nSignificance Tests for Groups of Coefficients\n")
-  cat ("\nCall:\n")
+  cat ("\nSignificance Tests for Groups of Coefficients\n\n")
+  cat ("\nCall:\n\n")
   print (x$call)
   
-  cat ("\n")
+  cat ("\n\n")
   printCoefmat (x$coefficients, has.Pvalue = TRUE)
 }

@@ -73,7 +73,7 @@ mscohere = function (signal1, signal2, points = 0, overlap = 0, padding = 0,
   p = 1 - 0.05^(1/(length (spots)-1));
   
   tmp = mean (coh[hz < xlim[2] & hz > xlim[1]] > p)
-  #if (pval) cat ('% significant coefficients:', tmp, '\n')
+  #if (pval) cat ('% significant coefficients:', tmp, '\n\n')
   
   if (show == TRUE){
     if (fs > 1 & !add) plot (hz, coh, type = 'l', ylab = 'Coherence', xlab = 'Frequency (Hz.)',xlim = xlim, ylim = ylim,xaxs = 'i', yaxs='i',...)  

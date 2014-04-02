@@ -3,7 +3,7 @@
 
 plot.spectrogram <-function (x, y, ylim,xlim, quality = FALSE, ...){
   if (x$colors[1] == TRUE)
-    zcolors = colorRampPalette (c('dark blue','blue','cyan','yellow',
+    zcolors = colorRampPalette (c('dark blue','blue','cyan','light green','yellow',
                                   'orange','red', 'brown'))
   if (x$colors[1] == FALSE) zcolors = colorRampPalette (c('white','black'))
   if (length(x$colors) > 1) zcolors = colorRampPalette (x$colors)

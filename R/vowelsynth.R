@@ -20,7 +20,7 @@ vowelsynth = function (ffs = c(270, 2200, 2800, 3400, 4400), fbw = 0.06, dur = 3
     vsource = c(vsource, tmp)
     spot = spot + cycle
   }
-  vsource = resample (vsource, fs, fs*5)
+  vsource = resample (vsource, fs, fs*5, synthfilter = TRUE)
   n = length (vsource)
   
   vsource = jitter(vsource)

@@ -4,7 +4,7 @@
 
 summary.rcr <-
 function (object, ...){
-  if (sum(is.na(object$coefficients)) > 0) return (cat ("Error: Null coefficient values. Check individual coefficients and model fits."))
+  if (sum(is.na(object$coefficients)) > 0) return (cat ("Error: Null coefficient values. Check individual coefficients and model fits.\n\n"))
   n = nrow (object$coefficients)
   estimate = colMeans (object$coefficients)
   se = sqrt(diag(var(object$coefficients))) / sqrt(n)

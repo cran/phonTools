@@ -35,10 +35,10 @@ tmp
 ## get ready to make two plots with thin margins
 #multiplot (2); par (mar = c(4,4,1,1));
 ## and show a spectrogram of the original
-#spectrogram (sound, pause = FALSE)       
+#spectrogram (sound)       
 
 ## and the new, truncated version
-#spectrogram (tmp, pause = FALSE)         
+#spectrogram (tmp)         
 
 }
 

@@ -4,7 +4,7 @@
 sinusoid = function (freqs, amps = rep(1, length(freqs)), dur = 50, phases = rep(0, length(freqs)), fs = 10000, sum = FALSE, show = FALSE, colors = NULL){
   if (length (freqs) != length (amps)) stop ('Must specify same number of frequencies and amplitudes.')
   if (length (freqs) != length (phases)) stop ('Must specify same number of frequencies and initial phases.')
-
+  amps = abs(amps)
   t = seq (0, dur/1000, 1/fs)  
   n = length (freqs)
   waves = matrix (0, length (t), n)
@@ -22,7 +22,8 @@ sinusoid = function (freqs, amps = rep(1, length(freqs)), dur = 50, phases = rep
     abline (h = 0)
     if (n > 1) for (i in 2:n) lines (t*1000, waves[,i], type = 'l', col = colors[i], lwd = 2)
     if (sum == TRUE){
-      plot (t*1000,waves[,1+n], col = 1, lwd = 2, type = 'l',xaxs='i', ylab = 'Amplitude', xlab = 'Time (ms)')
+      plot (t*1000,waves[,1+n], col = 1, lwd = 2, type = 'l',xaxs='i', ylab = 'Amplitude', xlab = 'Time (ms)', 
+      ylim = range (waves[,1+n]))
       abline (h = 0)
     }
   }

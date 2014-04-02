@@ -15,7 +15,7 @@ preemphasis = function (input, cutoff = 50, fs = 22050, verify = FALSE, coeff = 
   out[1] = input[1]
   if (verify == TRUE){
     spectralslice (out, fs = fs)
-    spectralslice (input, fs = fs, add = TRUE, color = 3, lty = 'dotted')    
+    spectralslice (input, fs = fs, add = TRUE, col = 3, lty = 'dotted')    
   }
   if (soundout == 1){
     oldsound$sound = out 

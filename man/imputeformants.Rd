@@ -18,7 +18,7 @@ imputeformants (ffs, speaker, vowel)
 This function finds the least-squares approximation for each missing value based on the assumption that each formant for a given vowel differs between-speakers solely on the basis on a speaker-specific multiplicative parameter. This assumption is well supported in the literature (Nearey 1978, Nearey & Assmann 2007, Turner et al. 2009). This parameter would be most closely related to gross speaker vocal-tract length.
 }
 \value{
-A vector containing each orignal formant frequency and imputed formant frequencies where appropriate.
+A vector containing each original formant frequency and imputed formant frequencies where appropriate.
 }
 \references{
 Nearey, T. M. (1978). Phonetic Feature Systems for Vowels. PhD thesis, Indiana University Linguistics Club. 

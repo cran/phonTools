@@ -12,11 +12,13 @@ An example of a sound object, the phrase 'This is a spectrogram', produced by th
 This sound object has the same properties as all sound objects. These may be inspected by using the print() function.
 }
 \examples{
-data (sound)
+
+## uncomment and run
+
+#data (sound)
 #par (mar = c(4,4,1,1))
 #multiplot (n = 3, sizes = c(.25, .5, .25))  
 
 #plot (sound)
-#spectrogram (sound, pause = FALSE, dynamicrange = 50, maxfreq = 7000)
-#powertrack (sound)
+#spectrogram (sound, dynamicrange = 50, maxfreq = 7000)
 }

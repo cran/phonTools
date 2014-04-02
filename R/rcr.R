@@ -2,7 +2,7 @@
 # All rights reserved.
 
 rcr = function (formula, participants, dataframe, ...){
-  if (length (participants) != nrow(dataframe)) return (cat("Error: Dataframe rows and participant vector length do not equal."))
+  if (length (participants) != nrow(dataframe)) return (cat("Error: Dataframe rows and participant vector length do not equal.\n\n"))
   parts = as.factor(levels (as.factor (participants)))
   nparts = length (parts)
   

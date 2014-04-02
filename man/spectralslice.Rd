@@ -4,7 +4,7 @@
 Spectral Slice
 }
 \description{
-A function to plot the spectrum of a vector representing a sound wave. 
+A function to plot the power spectrum of a vector representing a sound wave. 
 }
 \usage{
 spectralslice (sound, padding = length(sound) * 2, fs = 1,  
@@ -27,9 +27,6 @@ line = FALSE, removeDC = TRUE, ...)
   \item{removeDC}{If TRUE, the DC component is removed.}
   \item{\dots}{any additional arguments will be passed to the internal calls of 'plot' or 'lines'.}
 }
-\details{
-This function can be used to calculate and plot short-time discrete spectra for sections of signals.  
-}
 \value{
 A dataframe with the following elements is returned:
 
@@ -40,20 +37,16 @@ A dataframe with the following elements is returned:
 Santiago Barreda <sbarreda@ualberta.ca>
 }
 \examples{
-data (sound)
-par (mfrow = c(2,2))
 
-spectralslice (sound$sound[11000:11200], padding = 0, 
-               main = 'few points, no padding')
-spectralslice (sound$sound[11000:11600], padding = 0, 
-               main = 'many points, no padding')
-
-spectralslice (sound$sound[11000:11200], padding = 5000, 
-               main = 'few points, with padding')
-spectralslice (sound$sound[11000:11600], padding = 5000, 
-               main = 'many points, with padding')
-
+## synthesize schwa-like vowel 
+vowel = vowelsynth (ffs = c(500,1500,2500,3500,4500))$sound
+    
+## compare window lengths
+par (mfrow = c(3,1))
+spectralslice (vowel[500:550], fs = 10000)
+spectralslice (vowel[500:1000], fs = 10000)
+     
 ## line spectrum
-spectralslice (sound$sound[11000:11100], padding = 0, line = TRUE)
+spectralslice (vowel[500:600], padding = 0, line = TRUE, fs = 10000)
 
 }

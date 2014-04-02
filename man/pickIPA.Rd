@@ -21,7 +21,7 @@ pickIPA (vowels, n = 0, xsampa = FALSE, description = FALSE,
 \details{
 This is an interactive function that allows the user to select IPA symbols for plotting using a chart. The values returned by this function may only be passed to the 'pch' parameter within plotting functions. At the moment it has only been implemented for vowel sounds.
 
-If a vowels vector is given, the function finds the number of categories in the vector. The user is then prompted to select the IPA symbol corresponding to each category by clicking on a  
+If a vowels vector is given, the function finds the number of categories in the vector. The user is then prompted to select the IPA symbol corresponding to each category by clicking on the correct location on the plot.  
 
 If a vowels vector is not provided, the function allows the user to select any desired number of symbols, and returns these in the same order as indicated by the user. 
 

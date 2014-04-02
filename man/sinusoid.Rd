@@ -22,7 +22,7 @@ show = FALSE, colors = NULL)
   \item{colors}{An optional vector of colors used to plot the individual sinusoids. If the number of colors given is less than the number of frequencies specified, the colors are repeated.} 
 }
 \details{
-A number of sinusoids are generated, and optionally plotted and/or returned. The number of frequencies specified must equal the number of amplitdes and initial phases. 
+A number of sinusoids are generated, and optionally plotted and/or returned. The number of frequencies specified must equal the number of amplitudes and initial phases. 
 }
 \value{
 A dataframe with the following columns:

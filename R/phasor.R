@@ -1,7 +1,7 @@
 # Copyright (c) 2014 Santiago Barreda
 # All rights reserved.
 
-phasor = function (num, scaled = TRUE, add = TRUE, circle = FALSE, xlim,ylim, ...){
+phasor = function (num, scaled = TRUE, add = FALSE, circle = FALSE, xlim,ylim, ...){
   if (!is.complex(num)) stop ('Input must be complex valued.')
 
   num = matrix(cbind(Re(num), Im(num)), length(num), 2)
@@ -23,4 +23,5 @@ phasor = function (num, scaled = TRUE, add = TRUE, circle = FALSE, xlim,ylim, ..
     }
   }
 }
+
 

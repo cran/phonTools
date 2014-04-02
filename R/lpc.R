@@ -34,3 +34,4 @@ lpc = function (sound, order = round(fs/1000) + 3, fs = 10000, show = FALSE, add
   }
   coeffs
 }              
+

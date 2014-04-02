@@ -26,9 +26,9 @@ normalize.compare = function (normd){
     winners = ldclassify (formants, template$means, template$covariance)
     correct = mean (winners == tmp$vowel)
     
-    cat('\n   Method ', j, '\n')
-    cat('   Average between-category distance: ', d, '\n')
-    cat('   Correct Classification: ', correct*100, '%\n')
+    cat('\n   Method ', j, '\n\n')
+    cat('   Average between-category distance: ', d, '\n\n')
+    cat('   Correct Classification: ', correct*100, '%\n\n')
   }
-  cat ('\n')
+  cat ('\n\n')
 }

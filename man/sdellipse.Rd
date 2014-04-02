@@ -11,7 +11,7 @@ sdellipse (points, stdev = 1.96, density = .1,
 add = TRUE, show = TRUE, means = NULL, ...)
 }
 \arguments{
-  \item{points}{A matrix with two columns in which each row is a different observation from a bivariate normal distribution. Optionally, a 2 by 2 covariance matrix may be specified directly in conjuction with the means parameter.} 
+  \item{points}{A matrix with two columns in which each row is a different observation from a bivariate normal distribution. Optionally, a 2 by 2 covariance matrix may be specified directly in conjunction with the means parameter.} 
   \item{stdev}{The number of standard deviations to be enclosed by the ellipse.} 
   \item{density}{The spacing between sampling points along the ellipse. A higher number results in a coarser sampling.} 
   \item{add}{If TRUE, the ellipse is added to an existing plot. If FALSE, a new plot is created.} 
@@ -20,7 +20,7 @@ add = TRUE, show = TRUE, means = NULL, ...)
   \item{... }{Additional arguments are passed to the internal call of lines() or plot() as appropriate.} 
 }
 \details{
-This function may be used in 2 diffierent ways: 1) To draw standard deviation ellipses around a set of observations (if 'means' is not specified) 2) To draw ellipses and circles on plots (if 'means' is specified).  
+This function may be used in 2 different ways: 1) To draw standard deviation ellipses around a set of observations (if 'means' is not specified) 2) To draw ellipses and circles on plots (if 'means' is specified).  
 }
 \value{
 A matrix is returned where the first column indicate x-axis ellipse coordinates and the second column indicates y-axis ellipse coordinates. 

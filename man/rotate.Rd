@@ -4,18 +4,16 @@
 Rotate 
 }
 \description{
-Rotate 2D and complex-valued observations.
+Rotate 2D and complex-valued observations. The output is of the same kind as the input. 
 }
 \usage{
-rotate (xy, angle, degrees = FALSE)
+rotate (xy, angle, degrees = FALSE, origin = TRUE)
 }
 \arguments{
   \item{xy}{Either, a vector of complex-valued observations, or a matrix with 2 columns and any number of rows.} 
   \item{angle}{The desired angle of rotation, in radians.} 
-  \item{degrees}{If degrees are provided instead of radians, this should be set to TRUE.} 
-}
-\details{
-The output is of the same kind as the input. 
+  \item{degrees}{If angle of rotation is specified in degrees instead of radians, this should be set to TRUE.} 
+  \item{origin}{If TRUE, points are rotated about the origin. If FALSE, points are rotated 'in place' about the mean for each dimension (i.e. the central location of the distribution).} 
 }
 \author{
 Santiago Barreda <sbarreda@ualberta.ca>
@@ -31,8 +29,4 @@ complx = complex (real = mat[,1], imaginary = mat[,2])
 rotate (complx, pi/2)
 
 }
-
-
-
-
 

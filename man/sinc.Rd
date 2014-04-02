@@ -4,7 +4,7 @@
 Sinc Function
 }
 \description{
-Sample the sinc function at gvien points
+Sample the sinc function at given points
 }
 \usage{
 sinc (x, normalized = FALSE)

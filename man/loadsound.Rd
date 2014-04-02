@@ -15,7 +15,7 @@ loadsound (filename)
   \item{filename}{A string indicating the file name of the WAV file to be loaded. If no filename is provided, a dialog box will open allowing the user to select a file.}
 }
 \details{
-The function is only compatible with 8 and 16 bit WAV files. Only mono WAV files are supported. The function returns a 'sound object'. Many of the functions included in this package interact with 'sound' objects, for example, when 'sound' objects are passed to certain functions, sampling frequencies do not need to be specified.
+The function is only compatible with 8 and 16 bit mono WAV files. The function returns a 'sound object'. Many of the functions included in this package interact with 'sound' objects.
 }
 \references{
 https://ccrma.stanford.edu/courses/422/projects/WaveFormat/
@@ -37,5 +37,5 @@ Santiago Barreda <sbarreda@ualberta.ca>
 
 ## sound
 ## plot (sound)
-## spectrogram (sound, pause = FALSE)
+## spectrogram (sound)
 }

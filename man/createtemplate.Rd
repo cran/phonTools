@@ -1,33 +1,40 @@
 \name{createtemplate}
 \alias{createtemplate}
+\alias{print.template}
 \alias{plot.template}
+\alias{territorialmap}
 \title{
-Create a Vowel Template
+Create an LDA Template
 }
 \description{
-Create a template of vowel-category means and expected variation around these means.
+Create a linear discriminant analysis template.
 }
 \usage{
-createtemplate (formants, vowels)
+createtemplate (features, classes)
 }
 \arguments{
-  \item{formants}{A matrix of formant frequencies in which each row represents a single token and each column a formant frequency for a single formant.}
-  \item{vowels}{A vector indicating the vowel category of each vowel in 'formants'. The length of this vector must equal the number of rows in 'formants'.}
+  \item{features}{A matrix of features in which each row represents a single token and each column represents a different 'feature' used to classify the token. For vowel sounds, each column should represent different single formant frequency.}
+  \item{classes}{A vector indicating the category of each token described in each row of 'features'. The length of this vector must equal the number of rows in 'features'.}
 }
 \details{
-This function finds the location of the mean of each vowel category in an n-dimensional formant-space, where each dimension corresponds to one of n formant frequencies. The pooled, within-category covariance matrix of the formant frequencies is also found. The means and covariance matrix are calculated as described in Nearey & Assmann (2007). The name for each vowel category is stored as the rownames of the 'means' element. These are determined by treating the elements of 'vowels' as a factor and finding the levels of the factor. The function plot() is defined for template objects and allows the user to view the location of and expected variation around the different vowel categories in the formant space.
+This function finds the location of the mean of each class in an n-dimensional space, where each dimension corresponds to one of n columns in 'features'. In addition, the pooled, within-category covariance matrix is found. 
+ 
+The name for each vowel category is stored as the rownames of the 'means' element. 
+
+The function plot() is defined for template objects and allows the user to view the location of and expected variation around the different vowel categories in the formant space.
 
 This information may be used in conjunction with the PSTM() function, included in this package. The mean and covariance matrices provided by this function may also be useful for the ldclassify() function provided in this package. 
+
 }
 \value{
 A 'template' object, a list containing the elements:
+\item{classes}{The category labels.}
 \item{means}{A matrix containing the mean location for each vowel category within the formant-space. Each row represents a different category while each column represents a different formant.}
 \item{covariance}{The pooled, within-category covariance matrix for the formant frequencies provided.}
+\item{ranges}{A matrix of dimension ranges, one row for each dimension.}
 }
+
 \references{
-Nearey, T. M. (1978). Phonetic Feature Systems for Vowels. PhD thesis, Indiana University Linguistics Club. 
-
-
 Nearey, T. M. & P. F. Assmann. (2007). Pobabilistic 'sliding template' models for indirect vowel normalization. in Experimental Approaches to Phonology, edited by M.J. Sole, P. S., Beddor, and M. Ohala (Oxford University Press, Oxford), pp. 246-269.
 }
 \author{
@@ -45,6 +52,6 @@ vowels = pb52$vowel
 template = createtemplate (formants, vowels)
 
 ## and inspect with plot()
-plot (template)
+plot (template, xsampa = TRUE)
 }
 

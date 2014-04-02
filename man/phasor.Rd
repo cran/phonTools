@@ -7,7 +7,7 @@ Plot Phasors
 Plot phasors representing one or more complex-valued variables.
 }
 \usage{
-phasor (num, scaled = TRUE, add = TRUE, circle = FALSE, 
+phasor (num, scaled = TRUE, add = FALSE, circle = FALSE, 
         xlim, ylim, ...)
 }
 \arguments{
