@@ -24,7 +24,7 @@ Inspired by a similar function first seen here:
 http://monkeysuncle.stanford.edu/?p=485
 }
 \author{
-Santiago Barreda <sbarreda@ualberta.ca>
+Santiago Barreda <sbarreda@ucdavis.edu>
 }
 
 \examples{

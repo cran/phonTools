@@ -21,7 +21,7 @@ A window function is generated, of the type and length specified by the user. Th
 http://en.wikipedia.org/wiki/Window_function
 }
 \author{
-Santiago Barreda <sbarreda@ualberta.ca>
+Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
 par (mfrow = c(1,4))

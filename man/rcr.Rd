@@ -52,7 +52,7 @@ Gumpertz, M., & Pantula, S. G. (1989). A Simple Approach to Inference in Random 
 Lorch, T. F. & Myers, J. L. (1990). Regression analyses of repeated measures data in cognitive research. J. Exp. Psychol. Learn. Mem. Cogn. 16: 149-157.
 }
 \author{
-Santiago Barreda <sbarreda@ualberta.ca>
+Santiago Barreda <sbarreda@ucdavis.edu>
 }
 
 \examples{

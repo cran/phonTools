@@ -16,7 +16,7 @@ ntypes (vector)
 A simple function that converts a vector to a factor, and finds the number of levels. This provides the number of unique elements in a vector, something I find I frequently need. 
 }
 \author{
-Santiago Barreda <sbarreda@ualberta.ca>
+Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
 data (pb52)

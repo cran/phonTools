@@ -38,7 +38,7 @@ A list with the following columns (some of which are optional):
 http://en.wikipedia.org/wiki/X-SAMPA
 }
 \author{
-Santiago Barreda <sbarreda@ualberta.ca>
+Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
 ##uncomment to run

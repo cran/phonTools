@@ -21,7 +21,7 @@ This function generates single channel (mono), 16-bit WAV sound files at a desir
 https://ccrma.stanford.edu/courses/422/projects/WaveFormat/
 }
 \author{
-Santiago Barreda <sbarreda@ualberta.ca>
+Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
 ## generate a sine wave with a frequency of 1000 Hz

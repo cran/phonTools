@@ -30,7 +30,7 @@ Nearey, T. M. & P. F. Assmann. (2007). Pobabilistic 'sliding template' models fo
 Turner, R. E., Walters, T. C., Monaghan, J. J. M., & Patterson, R. D. (2009). A statistical, formant-pattern model for segregating vowel type and vocal-tract length in developmental formant data. The Journal of the Acoustical Society of America, 125(4), 2374. doi:10.1121/1.3079772
 }
 \author{
-Santiago Barreda <sbarreda@ualberta.ca>
+Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
 data (h95)

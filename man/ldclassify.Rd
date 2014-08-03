@@ -22,7 +22,7 @@ This function classifies the items described in the data matrix by comparing the
 A vector of winning categories is returned. If the means matrix provided had rownames, these are used to indicate winners. If not, the number of the row indicating the winning category in the means matrix is used. If posterior = TRUE, a dataframe is returned that also includes posterior probabilities.
 }
 \author{
-Santiago Barreda <sbarreda@ualberta.ca>
+Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
 ## load Peterson & Barney vowel data

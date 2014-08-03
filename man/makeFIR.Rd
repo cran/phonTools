@@ -29,7 +29,7 @@ If output = TRUE, the impulse response of the filter specified by the user is re
 Lyons, R. G. (2004). Understanding Digital Signal Processing (2nd ed.). Prentice Hall.
 }
 \author{
-Santiago Barreda <sbarreda@ualberta.ca>
+Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
 

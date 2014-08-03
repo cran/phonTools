@@ -37,7 +37,7 @@ Klatt, D. H. (1988). Klattalk: The conversion of English text to speech. Unpubli
 
 }
 \author{
-Santiago Barreda <sbarreda@ualberta.ca>
+Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
 

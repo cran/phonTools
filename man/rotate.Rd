@@ -16,7 +16,7 @@ rotate (xy, angle, degrees = FALSE, origin = TRUE)
   \item{origin}{If TRUE, points are rotated about the origin. If FALSE, points are rotated 'in place' about the mean for each dimension (i.e. the central location of the distribution).} 
 }
 \author{
-Santiago Barreda <sbarreda@ualberta.ca>
+Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
 

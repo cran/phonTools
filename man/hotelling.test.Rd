@@ -34,7 +34,7 @@ Hotelling, H. (1931). The generalization of Student's ratio. Annals of Mathemati
 http://en.wikipedia.org/wiki/Hotelling's_T-squared_distribution
 }
 \author{
-Santiago Barreda <sbarreda@ualberta.ca>
+Santiago Barreda <sbarreda@ucdavis.edu>
 }
 
 \examples{

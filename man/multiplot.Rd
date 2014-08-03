@@ -21,7 +21,7 @@ This function is essentially a wrapper for the layout() function, which allows t
 Please note that small rows or columns might result in an error related to figure margins being too large when you try to create a plot. These may be reduced with the 'mar' parameter for the par() function, which sometimes solves the problem. 
 }
 \author{
-Santiago Barreda <sbarreda@ualberta.ca>
+Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
 

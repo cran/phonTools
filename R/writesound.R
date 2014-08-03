@@ -7,6 +7,10 @@ writesound = function (samples, filename = '', fs = 22050){
     fs = samples$fs
     samples = samples$sound
   }
+  if (class(samples) == "ts"){
+    fs = frequency (samples)
+    samples = samples$sound
+  }
   if (!is.numeric(samples)) stop("Non-numeric sample values given.")
   if (filename == '') filename = paste (deparse(substitute(samples)), '.wav', sep='')
 

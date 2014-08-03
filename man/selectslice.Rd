@@ -22,7 +22,7 @@ This function allows the user to select a given number of time points on a spect
 A dataframe with one column for each spectral slice selected. Row names indicate frequencies, column names indicate times in milliseconds. Values are decibels below peak. 
 }
 \author{
-Santiago Barreda <sbarreda@ualberta.ca>
+Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
 

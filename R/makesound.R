@@ -7,7 +7,7 @@ makesound = function (sound, filename, fs = 22050){
 
   numSamples = length(sound)
   output = list(filename = filename, fs = fs, numSamples = numSamples, 
-  duration = numSamples/fs * 1000, sound = sound)
+  duration = numSamples/fs * 1000, sound = ts(sound, frequency = fs, start=0))
   class(output) = "sound"
   output
 }

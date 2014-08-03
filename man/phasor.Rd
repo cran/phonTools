@@ -23,7 +23,7 @@ phasor (num, scaled = TRUE, add = FALSE, circle = FALSE,
 Complex-valued variables may be created using the complex() function.
 }
 \author{
-Santiago Barreda <sbarreda@ualberta.ca>
+Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
 

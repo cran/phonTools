@@ -19,7 +19,7 @@ This function is a wrapper for read.table() for those times when you just don't 
 Returns the output of read.table().
 }
 \author{
-Santiago Barreda <sbarreda@ualberta.ca>
+Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
 ## uncomment and run

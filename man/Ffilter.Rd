@@ -30,7 +30,7 @@ Klatt, D. H. (1980). Software for a cascade/parallel formant synthesizer. Journa
 http://www.fon.hum.uva.nl/praat/manual/Sound__Filter__one_formant____.html
 }
 \author{
-Santiago Barreda <sbarreda@ualberta.ca>
+Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
 

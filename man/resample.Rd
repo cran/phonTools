@@ -21,7 +21,7 @@ resample (sound, newfs, oldfs, precision = 50, filterorder = 200, synthfilter = 
 The resampled vector is returned. If a 'sound' object is passed, the resampled sound is returned as an object. 
 }
 \author{
-Santiago Barreda <sbarreda@ualberta.ca>
+Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
 data (sound)

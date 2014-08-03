@@ -3,12 +3,13 @@
 
 
 lpc = function (sound, order = round(fs/1000) + 3, fs = 10000, show = FALSE, add = FALSE, preemph = TRUE){
+  if (class(sound) == "ts") fs = frequency(sound)
   if (class(sound) == "sound"){
     fs = sound$fs
     sound = sound$sound
   }
-  if (!is.numeric(sound)) 
-    stop("Input must be numeric.")
+
+  if (!is.numeric(sound)) stop("Input must be numeric.")
   if (preemph == TRUE) sound = preemphasis(sound, fs = fs)
   n = length (sound)              
   sound = sound - mean(sound)

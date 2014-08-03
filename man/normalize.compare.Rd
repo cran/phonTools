@@ -22,7 +22,7 @@ This function provides two measures to compare the performance of normalization 
 2) The percentage of correct classifications using a linear discriminant model trained on the normalized formant-frequencies using the given category-labels. 
 }
 \author{
-Santiago Barreda <sbarreda@ualberta.ca>
+Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
 ## load the Peterson and Barney vowels

@@ -26,7 +26,7 @@ http://www.fon.hum.uva.nl/praat/manual/Sound__Filter__pre-emphasis____.html
 
 }
 \author{
-Santiago Barreda <sbarreda@ualberta.ca>
+Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
 signal = sinusoid (c(100, 200, 400, 800, 1600), fs = 4000, 

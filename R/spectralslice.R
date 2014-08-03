@@ -2,12 +2,14 @@
 # All rights reserved.
 spectralslice = function (sound, padding = length(sound) * 2, fs = 1, show = TRUE, 
     add = FALSE, window = "kaiser", windowparameter = 3, zeromax = TRUE, 
-    preemphasisf = 0, type, line = FALSE, removeDC = TRUE, ...) 
-{
-    if (class(sound) == "sound") {
+    preemphasisf = 0, type, line = FALSE, removeDC = TRUE, ...){
+	
+   if (class(sound) == "ts") fs = frequency (sound)
+   if (class(sound) == "sound") {
         fs = sound$fs
         sound = sound$sound
     }
+	
     if (preemphasisf > 0) 
         sound = preemphasis(sound, preemphasisf, fs)
     n = length(sound)

@@ -33,3 +33,11 @@ sinusoid = function (freqs, amps = rep(1, length(freqs)), dur = 50, phases = rep
   invisible (waves)
 }
 
+
+sinusoids = function (freqs, amps = rep(1, length(freqs)), dur = 50, phases = rep(0, length(freqs)), fs = 10000, sum = FALSE, show = FALSE, colors = NULL){
+  cl = match.call()
+  args = sapply (2:length(cl), function(x) cl[[x]])
+  names(args) = names(cl)[-1]
+  do.call (sinusoid, args)
+}
+

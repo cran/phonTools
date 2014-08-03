@@ -32,7 +32,7 @@ A dataframe with columns corresponding to the x and y dimensions of the interpol
 http://en.wikipedia.org/wiki/Spline_interpolation
 }
 \author{
-Santiago Barreda <sbarreda@ualberta.ca>
+Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
 ## generate ten random points

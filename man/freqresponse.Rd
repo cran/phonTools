@@ -29,7 +29,7 @@ A dataframe with two columns (frequency and response) that can be used to redraw
 Lyons, R. G. (2004). Understanding Digital Signal Processing (2nd ed.). Prentice Hall.
 }
 \author{
-Santiago Barreda <sbarreda@ualberta.ca>
+Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
 

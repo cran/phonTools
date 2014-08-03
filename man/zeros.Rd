@@ -21,7 +21,7 @@ If a vector is given, a vector of zeros of the same length is returned.
 If a 2D matrix or dataframe is given, a matrix of zeros with the name number of rows and columns is returned.
 }
 \author{
-Santiago Barreda <sbarreda@ualberta.ca>
+Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
 

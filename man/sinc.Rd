@@ -27,7 +27,7 @@ http://en.wikipedia.org/wiki/Sinc_function
 Lyons, R. G. (2004). Understanding Digital Signal Processing (2nd ed.). Prentice Hall.
 }
 \author{
-Santiago Barreda <sbarreda@ualberta.ca>
+Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
 x = seq(-20,20,.1)

@@ -2,14 +2,18 @@
 # All rights reserved.
 
 
-findformants = function (sound, fs = 10000, coeffs = 0, maxbw = 600, 
+findformants = function (sound, fs = 10000, coeffs = NULL, maxbw = 600, 
 minformant = 200, verify = TRUE, showbws = FALSE, showrejected = TRUE){
   if (missing (sound)) sound = 1
+
+  if (class(sound) == "ts") fs = frequency(sound)
   if (class(sound) == "sound") {
     fs = sound$fs
     sound = sound$sound
-  }  
-  if (length(coeffs) == 1) coeffs = lpc (sound, fs = fs)
+  } 
+
+  if (is.null(coeffs)) coeffs = lpc (sound, fs = fs)
+  if (length(coeffs) == 1) coeffs = lpc (sound, fs = fs, order = coeffs)
   
   roots = polyroot (rev(coeffs))
   angs = atan2 (Im(roots), Re(roots))

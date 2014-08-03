@@ -22,7 +22,7 @@ If means and sigma are not specified, a standard normal distribution is assumed 
 A matrix with rows equal to n and columns equal to k, where each row indicates a single observation, and each column represents a different dimension.
 }
 \author{
-Santiago Barreda <sbarreda@ualberta.ca>
+Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
 ## Examples of draws from different bivariate normal distributions

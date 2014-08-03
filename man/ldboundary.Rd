@@ -26,7 +26,7 @@ http://en.wikipedia.org/wiki/Linear_discriminant_analysis
 https://onlinecourses.science.psu.edu/stat557/book/export/html/35
 }
 \author{
-Santiago Barreda <sbarreda@ualberta.ca>
+Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
 

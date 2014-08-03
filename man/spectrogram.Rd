@@ -50,7 +50,7 @@ If output is set to TRUE, an object of class 'spectrogram', a list containing th
 \item{maxfreq}{the maximum desired frequency when plotting.}
 }
 \author{
-Santiago Barreda <sbarreda@ualberta.ca>
+Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
 ## uncoment and run. 

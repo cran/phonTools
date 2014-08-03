@@ -7,7 +7,7 @@ Standard deviation Ellipse
 Draw standard deviation ellipses around a group of observations.
 }
 \usage{
-sdellipse (points, stdev = 1.96, density = .1,  
+sdellipse (points, stdev = 1.96, density = .01,  
 add = TRUE, show = TRUE, means = NULL, ...)
 }
 \arguments{
@@ -16,7 +16,7 @@ add = TRUE, show = TRUE, means = NULL, ...)
   \item{density}{The spacing between sampling points along the ellipse. A higher number results in a coarser sampling.} 
   \item{add}{If TRUE, the ellipse is added to an existing plot. If FALSE, a new plot is created.} 
   \item{show }{If FALSE, no ellipse is drawn.} 
-  \item{means}{A vector of 2 means, one for each dimension. If these are specified, points is assumed to be a covariance matrix rahter than a sequence of observations.} 
+  \item{means}{A vector of 2 means, one for each dimension. If these are specified, points is assumed to be a covariance matrix rather than a sequence of observations.} 
   \item{... }{Additional arguments are passed to the internal call of lines() or plot() as appropriate.} 
 }
 \details{
@@ -26,7 +26,7 @@ This function may be used in 2 different ways: 1) To draw standard deviation ell
 A matrix is returned where the first column indicate x-axis ellipse coordinates and the second column indicates y-axis ellipse coordinates. 
 }
 \author{
-Santiago Barreda <sbarreda@ualberta.ca>
+Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
 ## Examples of draws from different bivariate normal distributions

@@ -21,7 +21,7 @@ This function can make a vector into a 'sound' object. If a filename is not set,
 https://ccrma.stanford.edu/courses/422/projects/WaveFormat/
 }
 \author{
-Santiago Barreda <sbarreda@ualberta.ca>
+Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
 

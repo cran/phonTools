@@ -1,6 +1,5 @@
 \name{vowelplot}
 \alias{vowelplot}
-\alias{IPA}
 \title{
 Plot Vowels
 }
@@ -32,15 +31,17 @@ alternateAxes = FALSE, xsampa = FALSE, ...)
   \item{\dots}{Additional arguments are passed to the internal call of 'plot'.}
 }
 \details{
+*** This function has been deprecated and is no longer being developed. I recommend using vplot() instead, which is more flexible and gives the user more control over plotting. ***
+
 This function now includes functionality to easily generate vowel plots using IPA symbols. This relies on category labels being specified in x-sampa. Alternatively, the required plotting values for IPA symbols may be selected using the pickIPA() function included in this package, and then passed to the 'pointType' parameter.
 
-**There may be issues when exporting figures to PDF using IPA font. Exporting plots directly as images works 'out of the box'**
+There may be issues when exporting figures to PDF using IPA font. Exporting plots directly as images works 'out of the box'.
 }
 \references{
 http://en.wikipedia.org/wiki/X-SAMPA
 }
 \author{
-Santiago Barreda <sbarreda@ualberta.ca>
+Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
 ## A few examples of some vowel plots. 

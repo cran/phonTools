@@ -34,7 +34,7 @@ The following columns:
 \item{dB}{The dB magnitude/power for the analysis bin.}
 }
 \author{
-Santiago Barreda <sbarreda@ualberta.ca>
+Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
 

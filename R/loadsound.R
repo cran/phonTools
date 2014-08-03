@@ -2,8 +2,7 @@
 # All rights reserved.
 
 
-loadsound <-
-function (filename=0){
+loadsound = function (filename=0){
   if (mode(filename)!="character") filename = file.choose()
 
   soundfile = file(filename,"rb")
@@ -40,7 +39,7 @@ function (filename=0){
   fs = sampleRate
 
   output = list (filename = filename, fs = fs, numSamples = numSamples,
-  duration = numSamples/fs * 1000, sound = sound)
+  duration = numSamples/fs * 1000, sound = ts(sound, frequency = fs, start=0))
   class(output) = "sound"
   output  
 }

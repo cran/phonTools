@@ -46,7 +46,7 @@ Nearey, T. M. (1978). Phonetic Feature Systems for Vowels. PhD thesis, Indiana U
 Watt, D. and Fabricius, A. (2002). Evaluation of a technique for improving the mapping of multiple speakers' vowel spaces in the F1 ~ F2 plane. In D. Nelson, Leeds Working Papers in Linguistics and Phonetics 9:159-73.
 }
 \author{
-Santiago Barreda <sbarreda@ualberta.ca>
+Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
 ## normalize all Peterson & Barney (1952) vowels using each method.

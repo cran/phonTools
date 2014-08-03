@@ -20,7 +20,7 @@ The input object is plotted and the user must click on two points on the plot. I
 A 'sound' or 'spectrogram' object which interacts with several functions included in this package.
 }
 \author{
-Santiago Barreda <sbarreda@ualberta.ca>
+Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
 data (sound)

@@ -1,7 +1,7 @@
 # Copyright (c) 2014 Santiago Barreda
 # All rights reserved.
 
-plot.spectrogram <-function (x, y, ylim,xlim, quality = FALSE, ...){
+plot.spectrogram = function (x, y, ylim,xlim, quality = FALSE, ...){
   if (x$colors[1] == TRUE)
     zcolors = colorRampPalette (c('dark blue','blue','cyan','light green','yellow',
                                   'orange','red', 'brown'))
@@ -20,18 +20,18 @@ plot.spectrogram <-function (x, y, ylim,xlim, quality = FALSE, ...){
   
   if (missing (ylim)) ylim = range (0, x$maxfreq)
   if (missing (xlim)) xlim = range (times)
-  
-  plot.new()
+ 
   if (quality){  
+    plot.new()
     plot.window(ylim = ylim, xlim = xlim, xaxs = 'i', yaxs = 'i', ...)
     .filled.contour(as.double(times), as.double(hz), x$spectrogram, as.double(levels), col = zcolors)
-    box ()
     Axis(times, side = 1)
     Axis(hz, side = 2)
     title(xlab = "Time (ms)", ylab = "Frequency (Hz)")
   }
   if (!quality){
     image (as.double(times), as.double(hz), x$spectrogram, useRaster = FALSE, col = zcolors, xlab = 'Time (ms)', ylab = "Frequency (Hz)", ylim = ylim, xlim = xlim,...)
-  }
+ }
+ box()
 }
 

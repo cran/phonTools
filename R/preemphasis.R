@@ -4,6 +4,11 @@
 
 preemphasis = function (input, cutoff = 50, fs = 22050, verify = FALSE, coeff = 0){
   soundout = 0
+  tsout = 0
+  if (class(input) == "ts"){
+    fs = frequency(input)
+    tsout = 1
+  }
   if (class(input) == "sound") {
     soundout = 1
     oldsound = input
@@ -20,6 +25,10 @@ preemphasis = function (input, cutoff = 50, fs = 22050, verify = FALSE, coeff = 
   if (soundout == 1){
     oldsound$sound = out 
     invisible (oldsound)
+  }
+  else if (tsout == 1){
+    out = ts (out, frequency = fs, start = 0)
+    invisible (out)
   }
   else invisible (out)
 }

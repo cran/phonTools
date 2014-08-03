@@ -26,7 +26,7 @@ A vector of the same length as 'vowels', with the values required to plot the de
 http://en.wikipedia.org/wiki/X-SAMPA
 }
 \author{
-Santiago Barreda <sbarreda@ualberta.ca>
+Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
 

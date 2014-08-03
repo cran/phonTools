@@ -21,7 +21,7 @@ This function plots filter poles (x) and zeros (o) based on the given coefficien
 http://en.wikipedia.org/wiki/Pole%E2%80%93zero_plot
 }
 \author{
-Santiago Barreda <sbarreda@ualberta.ca>
+Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
 ## example of a typical single-zero preemphasis filter

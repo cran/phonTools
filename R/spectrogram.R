@@ -6,11 +6,12 @@ padding = 10, preemphasisf = 50, maxfreq = 5000, colors = TRUE,
 dynamicrange = 50, nlevels = dynamicrange, maintitle = "", show = TRUE, 
 window = 'kaiser', windowparameter = 3, quality = FALSE){
 
+  if (class(sound) == "ts") fs = frequency(sound)
   if (class(sound) == "sound"){
     fs = sound$fs
     sound = sound$sound
   }
-    
+   
   n = ceiling((fs/1000) * windowlength)     
   if (n%%2) n = n + 1
 
@@ -18,7 +19,7 @@ window = 'kaiser', windowparameter = 3, quality = FALSE){
   if (timestep <= 0) timestep = floor (length(sound) / -timestep)
   if (preemphasisf > 0) sound = preemphasis (sound, preemphasisf, fs)
 
-  sound = c(rep(0, floor(n / 2)), sound, rep(0, floor(n / 2)))
+  #sound = c(rep(0, floor(n / 2)), sound, rep(0, floor(n / 2)))
   spots = seq (floor(n / 2), length(sound)-n, timestep)
     
   padding = n*padding
@@ -34,10 +35,9 @@ window = 'kaiser', windowparameter = 3, quality = FALSE){
     tmp = log(tmp, 10) * 10;
   })
   spect = t(spect)
-	for (i in 1:nrow(spect)) spect[i,1] = min(spect[i,-1])
+  for (i in 1:nrow(spect)) spect[i,1] = min(spect[i,-1])
 	
   hz = (0:(N/2)) * (fs/N)
-  spots = spots - min(spots)
   times = spots * (1000/fs)
   rownames(spect) = as.numeric (round(times, 2))
   colnames(spect) = as.numeric (round(hz, 2))

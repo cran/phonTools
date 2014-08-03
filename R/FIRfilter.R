@@ -4,8 +4,12 @@
 
 FIRfilter = function (sound, from = 0, to = fs/2, fs = 22050, order = 200, 
                       verify = FALSE, impulse = NULL, pad = TRUE){
-  soundout = 0
+  soundout = 0; tsout = 0;	
   if (order%%2) order = order +1
+  if (class(sound) == "ts"){
+    fs = frequency(sound)
+    tsout = 1
+  }
   if (class(sound) == "sound") {
     soundout = 1
     tmp = sound
@@ -34,7 +38,7 @@ FIRfilter = function (sound, from = 0, to = fs/2, fs = 22050, order = 200,
   toh = toh * windowfunc(length(toh), type ='blackman')
   fromh2 = fromh2 * windowfunc(length(fromh2), type ='blackman')
   
-  if (pad) sound = c(zeros(order/2), sound, zeros(order/2))
+  if (pad) sound = c(rep(sound[1], order/2), sound, rep(tail(sound,1),order/2))
   if (from!=0 & to==fs/2) output = filter (sound, fromh, method = 'convolution')
   if (from==0 & to!=fs/2) output = filter (sound, toh, method = 'convolution')
   if (from!=0 & to!=fs/2) output = filter (sound, fromh2-toh, method = 'convolution')
@@ -50,7 +54,10 @@ FIRfilter = function (sound, from = 0, to = fs/2, fs = 22050, order = 200,
   }  
   if (soundout == 1){
     tmp$sound = output
-    invisible (tmp)
+    output = tmp
+  }
+  else if (tsout == 1){
+    output = ts (output, frequency = fs, start = 0)
   }
   invisible (output)
 }

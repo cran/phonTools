@@ -7,6 +7,8 @@ pwelch = function (sound, points = 0, overlap = 0, padding = 0, window = 'hammin
     fs = sound$fs
     sound = sound$sound
   }
+  if (class(sound) == "ts") fs = frequency(sound)
+
   if (preemphasisf > 0) sound = preemphasis (sound, preemphasisf, fs)
   
   n = length (sound)

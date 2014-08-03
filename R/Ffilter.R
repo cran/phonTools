@@ -6,10 +6,19 @@ Ffilter = function (sound, ffs, bwp = 0.06, fs = 22050, verify = FALSE)
 {
     if (missing(ffs)) 
         stop("At least one formant center frequency must be provided.")
-    if (class(sound) == "sound") {
-        fs = sound$fs
-        sound = sound$sound
+		
+	soundout = 0; tsout = 0;	
+	if (class(sound) == "ts"){
+      fs = frequency(sound)
+      tsout = 1
     }
+    if (class(sound) == "sound") {
+      fs = sound$fs
+	  oldsound = sound
+      sound = sound$sound
+	  soundout = 1
+    }
+
     if (is.numeric(ffs)) 
         ffs = list(ffs, ffs)
     nffs = length(ffs[[1]])
@@ -49,9 +58,18 @@ Ffilter = function (sound, ffs, bwp = 0.06, fs = 22050, verify = FALSE)
         old = new
     }
     if (verify == TRUE) {
-        par(mfrow = c(2, 1))
-        spectralslice(sound, fs = fs, ylim = c(-75, 5))
-        spectralslice(new, fs = fs, ylim = c(-75, 5))
+      par(mfrow = c(2, 1))
+      spectralslice(sound, fs = fs, ylim = c(-75, 5))
+      spectralslice(new, fs = fs, ylim = c(-75, 5))
     }
-    invisible(new)
+	
+	if (soundout == 1){
+      oldsound$sound = new 
+      invisible (oldsound)
+    }
+    else if (tsout == 1){
+      out = ts (new, frequency = fs, start = 0)
+      invisible (out)
+    }
+    else invisible (new)
 }

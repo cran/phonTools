@@ -16,7 +16,7 @@ combocalc (objects, choose, order = FALSE, repetition = TRUE)
   \item{repetition}{If TRUE, a sequence such as bbb is permissible.} 
 }
 \author{
-Santiago Barreda <sbarreda@ualberta.ca>
+Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
 # combinations, no repetition

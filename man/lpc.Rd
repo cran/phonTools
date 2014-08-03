@@ -25,7 +25,7 @@ LPC coefficients are estimated using the autocorrelation method. The signal is w
 A vector containing the LPC coefficients is returned.
 }
 \author{
-Santiago Barreda <sbarreda@ualberta.ca>
+Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
 ## make a synthetic vowel with a known set of formant frequencies

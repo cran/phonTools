@@ -1,5 +1,6 @@
 \name{sinusoid}
 \alias{sinusoid}
+\alias{sinusoids}
 \title{
 Create Sinusoids
 }
@@ -32,7 +33,7 @@ A dataframe with the following columns:
 \item{sum}{A column indicating the sum of all of the sinusoids.}
 }
 \author{
-Santiago Barreda <sbarreda@ualberta.ca>
+Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
 ## several waves, and the sum

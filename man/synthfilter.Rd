@@ -25,7 +25,7 @@ If a vector is given, the filtered vector is returned. If a 'sound' object is gi
 }
 
 \author{
-Santiago Barreda <sbarreda@ualberta.ca>
+Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
 

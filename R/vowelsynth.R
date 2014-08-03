@@ -43,8 +43,8 @@ vowelsynth = function (ffs = c(270, 2200, 2800, 3400, 4400), fbw = 0.06, dur = 3
     abline (h = 0, lty = 'dotted') 
     spectrogram (output, fs = fs, dynamicrange = 60)
   }
-  if (returnsound == TRUE) 
-    output = makesound(output, "sound.wav", fs = fs)
+  if (returnsound == TRUE) output = makesound(output, "sound.wav", fs = fs)
+  else output = ts (output, frequency = fs, start = 0)  
   return(output)
 }
 

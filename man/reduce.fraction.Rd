@@ -16,7 +16,7 @@ reduce.fraction (ratio)
 A vector containing the elements of the reduced fraction. The first element is the numerator of a ratio, and the second element is the denominator. 
 }
 \author{
-Santiago Barreda <sbarreda@ualberta.ca>
+Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
 ## an easy one

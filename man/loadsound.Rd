@@ -29,7 +29,7 @@ An object of class 'sound', a list containing the elements:
 \item{sound}{A vector of numeric values representing the sampled sound. }
 }
 \author{
-Santiago Barreda <sbarreda@ualberta.ca>
+Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
 ## Use the command below to select a WAV file to load into R
