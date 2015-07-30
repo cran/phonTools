@@ -1,4 +1,4 @@
-# Copyright (c) 2014 Santiago Barreda
+# Copyright (c) 2015 Santiago Barreda
 # All rights reserved.
 
 sinusoid = function (freqs, amps = rep(1, length(freqs)), dur = 50, phases = rep(0, length(freqs)), fs = 10000, sum = FALSE, show = FALSE, colors = NULL){
@@ -17,6 +17,7 @@ sinusoid = function (freqs, amps = rep(1, length(freqs)), dur = 50, phases = rep
   if (sum == TRUE) waves = cbind (waves, rowSums (waves))
   
   if (show == TRUE){
+    oldpar = par()
     if (sum == TRUE) par (mfrow = c(2,1))
     plot (t*1000,waves[,1], type = 'l', ylab = 'Amplitude', xlab = 'Time (ms)', ylim = c(-max(amps),max(amps)), lwd = 2,xaxs='i')
     abline (h = 0)
@@ -26,6 +27,7 @@ sinusoid = function (freqs, amps = rep(1, length(freqs)), dur = 50, phases = rep
       ylim = range (waves[,1+n]))
       abline (h = 0)
     }
+	suppressWarnings (par (oldpar))
   }
   waves = data.frame (time = t*1000, waves)
   colnames(waves)[2:(n+1)] = paste (rep('wave',n), 1:n, sep='')

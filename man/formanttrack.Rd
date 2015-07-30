@@ -9,7 +9,7 @@ Create a formant track for a sound.
 \usage{
 formanttrack (sound, timestep = 5, windowlength = 30, 
 formants = 5, cutoff = 5000, minformant = 200, maxbw = 600, 
-fs = 22050, show = TRUE, periodicity = .5)
+fs = 22050, show = TRUE, periodicity = .5, returnbw = FALSE)
 }
 \arguments{
   \item{sound}{A numeric vector representing a waveform, or a 'sound' object created with the loadsound() or makesound() functions.} 
@@ -22,6 +22,7 @@ fs = 22050, show = TRUE, periodicity = .5)
   \item{fs}{ The sampling frequency of the sound. If a 'sound' or 'ts' object is passed, this does not need to be specified.} 
   \item{show}{If TRUE, a plot is created which allows the user to visually inspect the process.}
   \item{periodicity}{A value between 0 and 1. Signal sections with corrected ACF values lower than this are not analyzed. Allows voiceless sections to be excluded from analysis.} 
+  \item{returnbw}{If TRUE, estimated formant bandwidths are returned.}   
 }
 \details{
 This function works by repeatedly calling findformants(), and periodicity is established using pitchtrack(), both of which are included in this package. When no formants are found, or if less than the desired number of formants are found, a value of zero is returned for that formant, at that time point. 
@@ -43,7 +44,7 @@ data (sound)
 
 par (mfrow = c(2,1), mar = c(4,4,1,1))
 formanttrack (sound)
-formanttrack (sound, periodicity = 0)
+#formanttrack (sound, periodicity = 0)
 
 }
 

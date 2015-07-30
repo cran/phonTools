@@ -8,8 +8,8 @@ Create synthetic vowels using a cascade formant synthesizer.
 }
 \usage{
 vowelsynth (ffs = c(270, 2200, 2800, 3400, 4400), fbw = 0.06, 
-dur = 300, f0 = c(120,100), fs = 10000, verify = FALSE, 
-returnsound = TRUE) 
+dur = 300, f0 = c(120,100),fs = 10000, verify = FALSE, 
+returnsound = TRUE, noise1 = .001, noise2 = .01, power = NULL)
 }
 \arguments{
   \item{ffs}{A vector of center frequencies for each formant. For moving formants, a list containing two vectors may be provided, where the first vector indicates intitial values, and the final vector indicates final values. Formant frequencies should be provided in order of lowest to highest frequency.}   
@@ -18,10 +18,13 @@ returnsound = TRUE)
   \item{f0}{The desired f0 (pitch) of the sound. Optionally, a vector with initial and final f0 values may be provided.}   
   \item{fs}{The desired sampling frequency of the output sound.}   
   \item{verify}{If TRUE, the waveform and spectrogram of the created sound are plotted to allow the user to visually verify the process.}   
-  \item{returnsound}{If TRUE, the sound is returned as a sound object, which can be used with several other functions included in this package. If FALSE, only a vector representing the sound wave is returned.}   
+  \item{returnsound}{If TRUE, the sound is returned as a sound object, which can be used with several other functions included in this package. If FALSE, only a vector representing the sound wave is returned.} 
+  \item{noise1}{Noise to be added to the source, before formant filtering, as a proportion of the source RMS amplitude.}  
+  \item{noise2}{Noise to be added to the output, as a proportion of the signal RMS amplitude.}  
+  \item{power}{A desired power contour can be specified. Must be of the same length as the output sound, or the sound is truncated to the length of this vector.}     
 }
 \details{
-This function is a relatively bare-bones Klatt-style cascade formant synthesizer that is intended to create synthetic vowel sounds. The voice source is generated using the KLGLOTT88 method described in Klatt (1988).
+This function is a Klatt-style cascade formant synthesizer that is intended to create synthetic vowel sounds. The voice source is generated using the KLGLOTT88 method described in Klatt (1988).
 
 If the vowels sound too 'robotic', there may be formants too close to the Nyquist frequency. Conversely, if the vowels sound too 'muffled', you may need to add more formants, and make sure they extend closer to the Nyquist frequency. Vowels sound more natural when f0 is not static.  
 

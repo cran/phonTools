@@ -12,8 +12,8 @@ writesound (samples, filename = '', fs = 22050)
 \arguments{
   \item{samples}{A numeric vector representing a sound wave.} 
   \item{filename}{A string indicating the desired output file name.} 
-  \item{fs}{The desired output sampling frequency.} 
-}
+  \item{fs}{The desired output sampling frequency. If a sound object is passed this does not need to be specified.}
+} 
 \details{
 This function generates single channel (mono), 16-bit WAV sound files at a desired sampling frequency. If a 'sound' object is passed, the filename and sampling frequency do not need to be set. If a filename is not set, the filename defaults to 'samples.wav' where 'samples' indicates the name of the samples variable that was passed to the function.
 }

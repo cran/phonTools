@@ -1,4 +1,4 @@
-# Copyright (c) 2014 Santiago Barreda
+# Copyright (c) 2015 Santiago Barreda
 # All rights reserved.
 
 writesound = function (samples, filename = '', fs = 22050){
@@ -7,10 +7,8 @@ writesound = function (samples, filename = '', fs = 22050){
     fs = samples$fs
     samples = samples$sound
   }
-  if (class(samples) == "ts"){
-    fs = frequency (samples)
-    samples = samples$sound
-  }
+  if (class(samples) == "ts") fs = frequency (samples)
+  
   if (!is.numeric(samples)) stop("Non-numeric sample values given.")
   if (filename == '') filename = paste (deparse(substitute(samples)), '.wav', sep='')
 
@@ -34,3 +32,4 @@ writesound = function (samples, filename = '', fs = 22050){
   writeBin(as.integer(samples * 2), soundfile, size = 4, endian = "little")
   writeBin(as.integer(sound), soundfile, size = 2, endian = "little")
 }
+

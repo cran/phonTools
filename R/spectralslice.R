@@ -1,4 +1,4 @@
-# Copyright (c) 2014 Santiago Barreda
+# Copyright (c) 2015 Santiago Barreda
 # All rights reserved.
 spectralslice = function (sound, padding = length(sound) * 2, fs = 1, show = TRUE, 
     add = FALSE, window = "kaiser", windowparameter = 3, zeromax = TRUE, 
@@ -32,19 +32,30 @@ spectralslice = function (sound, padding = length(sound) * 2, fs = 1, show = TRU
     if (missing(type)) 
         type = "l"
     if (fs > 1) 
-        xlab = "Frequency (Hz.)"
+        xlab = "Frequency (Hz)"
     if (fs == 1) 
         xlab = "Frequency / Sampling Freq."
     if (add == FALSE & show == TRUE & line == FALSE) 
-        plot(hz, power, ylab = "Power (dB.)", xlab = xlab, type = type, 
+        plot(hz, power, ylab = "Power (dB)", xlab = xlab, type = type, 
             xaxs = "i", ...)
     if (add == TRUE & show == TRUE & line == FALSE) 
         lines(hz, power, type = type, ...)
     if (line == TRUE) {
-        plot(hz, power, ylab = "Power (dB.)", xlab = xlab, type = "p", 
+        plot(hz, power, ylab = "Power (dB)", xlab = xlab, type = "p", 
             pch = 16, xaxs = "i", ...)
         segments(hz, rep(-5000, length(hz)), hz, power)
     }
     dB = power
     invisible(cbind(hz, dB))
 }
+
+
+slice = function (sound, padding = length(sound) * 2, fs = 1, show = TRUE, 
+    add = FALSE, window = "kaiser", windowparameter = 3, zeromax = TRUE, 
+    preemphasisf = 0, type, line = FALSE, removeDC = TRUE, ...){
+  cl = match.call()
+  args = sapply (2:length(cl), function(x) cl[[x]])
+  names(args) = names(cl)[-1]
+  do.call (spectralslice, args)
+}
+

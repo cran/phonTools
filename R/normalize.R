@@ -1,4 +1,4 @@
-# Copyright (c) 2014 Santiago Barreda
+# Copyright (c) 2015 Santiago Barreda
 # All rights reserved.
 
 
@@ -8,8 +8,8 @@ normalize = function (formants, speakers, vowels, method = 'neareyE', corners = 
   if (length(vowels) != nrow (formants)) stop('Formant vector length does not match formant data length.')
   if (!(method %in% c('barreda','neareyE', 'neareyI','lobanov','wandf'))) stop ('Invalid method selected. See help file for available methods.')
   
-  speakers = as.factor (speakers) 
-  vowels = as.factor (vowels) 
+  speakers = as.factor (as.character(speakers))
+  vowels = as.factor (as.character(vowels))
   speakersf = levels (speakers)
   vowelsf = levels (vowels)
   if (method == 'wandf') 

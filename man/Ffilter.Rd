@@ -7,12 +7,13 @@ Formant Filtering
 Perform cascade formant filtering of sounds.
 }
 \usage{
-Ffilter (sound, ffs, bwp = 0.06, fs = 22050, verify = FALSE)
+Ffilter (sound, ffs, bwp = 0.06, minbw = 60, fs = 22050, verify = FALSE)
 }
 \arguments{
   \item{sound}{A numeric vector representing a waveform, or a 'sound' object created with the loadsound() or makesound() functions.} 
   \item{ffs}{A list of vectors of initial and final center frequencies for each formant. Each vector should contain formant frequencies in order of lowest to highest frequency. If only a single vector is provided, formants will remain stable throughout.} 
   \item{bwp}{A vector of formant bandwidths, one for each formant.} 
+  \item{minbw}{The minimum permissible formant bandwidth, in Hertz.} 
   \item{fs}{The sampling frequency of the sound. If a 'sound' object is passed, this does not need to be specified.} 
   \item{verify}{If TRUE, before and after spectra are plotted to allow the user to visually verify the process.} 
 }

@@ -1,4 +1,4 @@
-# Copyright (c) 2014 Santiago Barreda
+# Copyright (c) 2015 Santiago Barreda
 # All rights reserved.
 
 
@@ -28,6 +28,7 @@ function (matrix1, matrix2 = NULL){
     f.value = t(mus1 - mus2) %*% covar %*% (mus1 - mus2) * ((n1*n2) / (n1+n2)) 
     f.value = f.value * ((n1 + n2 - p - 1) / (p*(n1 + n2 - 2)))  
   }
+  print (paste(f.value,df1,df2))
   p.value = 1 - pf (f.value, df1, df2)
 
   output = list (f.value = f.value, df1 = df1, df2 = df2, p.value = p.value, samples = samples)

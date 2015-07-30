@@ -1,6 +1,8 @@
 \name{PSTM}
 \alias{PSTM}
 \alias{mscohere}
+\alias{iplot}
+\alias{outlier.plot}
 \title{
 Probabilistic Sliding Template Model
 }

@@ -7,12 +7,13 @@ Filtering by Synthesis
 Use Fourier synthesis to recreate signal without undesired frequency components.  
 }
 \usage{
-synthfilter (sound, band = c(0,fs/4), fs = 1, verify = FALSE)
+synthfilter (sound, band = c(0,fs/4), fs = 1, verify = FALSE, attenuation = 0)
 }
 \arguments{
   \item{sound}{A numeric vector representing a waveform, or a 'sound' object created with the loadsound() or makesound() functions.} 
   \item{band}{A vector with exactly two elements, the first specifying the lowest frequency to be passed (must be > 0), and the second specifying the highest frequency to be passed (must be < fs/2).} 
   \item{fs}{The sampling frequency of the sound. If a 'sound' object is passed, this does not need to be specified.} 
+  \item{attenuation}{Attenuation of stop band, in dBs. If left as 0, stopband frequency components are completely omitted.}
   \item{verify}{If TRUE, a plot comparing the spectrum of the input sound is compared the the filtered sound.} 
 }
 \details{

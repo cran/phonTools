@@ -1,13 +1,13 @@
-# Copyright (c) 2014 Santiago Barreda
+# Copyright (c) 2015 Santiago Barreda
 # All rights reserved.
 
 
-plot.rcr <-
-function (x, y, arrangement = NULL, ...){
+plot.rcr = function (x, y, arrangement = NULL, ...){
   coeffs = x$coefficients
   cols = ncol (coeffs) 
   if (is.null (arrangement)) arrangement = c(ceiling(cols/ 5), 5)
   
+  oldpar = par()
   par (mfrow = arrangement, mar = c(4,4,2,1))
   for (i in 1:cols){
     mu = mean (coeffs[,i])
@@ -22,4 +22,5 @@ function (x, y, arrangement = NULL, ...){
     abline (h = 0, v = 0)
     lines (xs, ys, col = 2, lty = 'dashed', lwd = 2)
   }  
+  suppressWarnings (par (oldpar))
 }

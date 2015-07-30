@@ -1,15 +1,13 @@
-# Copyright (c) 2014 Santiago Barreda
+# Copyright (c) 2015 Santiago Barreda
 # All rights reserved.
 
 
-ldclassify = function (data, means, covariance, posterior = FALSE){
-  if (class(means) == 'template'){
-    covariance = means$covariance
-    means = means$means
+ldclassify = function (data, means, covariance, template = NULL, posterior = 'no'){
+  
+  if (class(template) == 'template'){
+    covariance = template$covariance
+    means = template$means
   }
-  if (ncol (data) != ncol (means)) stop ('Data and means must have the same number of columns.')
-  if (ncol (data) != ncol (covariance)) stop ('Innapropriate covariance matrix.')
-  if (ncol (covariance) != nrow (covariance)) stop ('Innapropriate covariance matrix.')
   
   data = as.matrix(data)
   means = as.matrix(means)
@@ -24,12 +22,19 @@ ldclassify = function (data, means, covariance, posterior = FALSE){
   })
   if (!is.null(rownames (means))) winner = as.factor (rownames(means)[winner])
   
-  if (posterior){
-    posterior = sapply (1:nrow(data), function (i){
+  if (posterior=='winner'){
+    tmppost = sapply (1:nrow(data), function (i){
       tmp = exp(-sort(distances[,i])[1]/2) / sum (exp(-distances[,i]/2))
     })
-    winner = data.frame (winner, posterior)
-  }
+    winner = data.frame (winner, tmppost)
+  }  
+  if (posterior=='all'){
+    tmppost = sapply (1:nrow(data), function (i){
+      tmp = exp(-distances[,i]/2) / sum (exp(-distances[,i]/2))
+    })
+    winner = data.frame (winner, t(tmppost))
+    colnames (winner)[-1] = labels
+  }  
   return (winner)  
 }
 

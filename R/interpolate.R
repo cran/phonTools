@@ -1,11 +1,10 @@
-# Copyright (c) 2014 Santiago Barreda
+# Copyright (c) 2015 Santiago Barreda
 # All rights reserved.
 
 
 interpolate = function (y, x = 1:length(y), steps = 20, increment = -1, show = FALSE, type = 'cubic', ...){
   if (length (y) < 3) stop ('Interpolation requires at least three points.')
   if (!is.numeric (y) | !is.numeric (x)) stop ('Non-numeric arguments provided')
-
   if (type == 'cubic'){
     n = length(y)
     h = x[2:n] - x[1:(n - 1)]

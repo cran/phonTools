@@ -2,7 +2,7 @@
 # All rights reserved.
 
 
-synthfilter = function (sound, band = c(0,fs/4), fs = 1, verify = FALSE){
+synthfilter = function (sound, band = c(0,fs/4), fs = 1, verify = FALSE, attenuation = 0){
   soundout = 0; tsout = 0;	
   if (class(sound) == "ts"){
     fs = frequency(sound)
@@ -16,9 +16,10 @@ synthfilter = function (sound, band = c(0,fs/4), fs = 1, verify = FALSE){
   } 
   sdin = sd (sound)
   n = length (sound)
+  if (attenuation != 0) attenuation = 10^(-abs(attenuation)/10) * 2
   
-  freqs = seq (0, fs, length.out = n+1)[-(n+1)]
-  pass = rep (0, length(freqs))
+  freqs = seq (attenuation, fs, length.out = n+1)[-(n+1)]
+  pass = rep (attenuation, length(freqs))
   pass[freqs >= band[1] & freqs <= band[2]] = 1
   pass[freqs <= (fs-band[1]) & freqs >= (fs-band[2])] = 1
     

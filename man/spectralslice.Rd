@@ -1,5 +1,6 @@
 \name{spectralslice}
 \alias{spectralslice}
+\alias{slice}
 \title{
 Spectral Slice
 }

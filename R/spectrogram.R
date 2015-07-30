@@ -1,7 +1,7 @@
-# Copyright (c) 2014 Santiago Barreda
+# Copyright (c) 2015 Santiago Barreda
 # All rights reserved.
 
-spectrogram = function (sound, fs = 22050, windowlength = 5, timestep = -500,
+spectrogram = function (sound, fs = 22050, windowlength = 5, timestep = -1000,
 padding = 10, preemphasisf = 50, maxfreq = 5000, colors = TRUE, 
 dynamicrange = 50, nlevels = dynamicrange, maintitle = "", show = TRUE, 
 window = 'kaiser', windowparameter = 3, quality = FALSE){

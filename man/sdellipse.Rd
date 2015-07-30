@@ -8,7 +8,7 @@ Draw standard deviation ellipses around a group of observations.
 }
 \usage{
 sdellipse (points, stdev = 1.96, density = .01,  
-add = TRUE, show = TRUE, means = NULL, ...)
+add = TRUE, show = TRUE, means = NULL, se = FALSE, ...)
 }
 \arguments{
   \item{points}{A matrix with two columns in which each row is a different observation from a bivariate normal distribution. Optionally, a 2 by 2 covariance matrix may be specified directly in conjunction with the means parameter.} 
@@ -17,6 +17,7 @@ add = TRUE, show = TRUE, means = NULL, ...)
   \item{add}{If TRUE, the ellipse is added to an existing plot. If FALSE, a new plot is created.} 
   \item{show }{If FALSE, no ellipse is drawn.} 
   \item{means}{A vector of 2 means, one for each dimension. If these are specified, points is assumed to be a covariance matrix rather than a sequence of observations.} 
+  \item{se}{If TRUE, a standard error (rather than standard deviation) ellipse is plotted.} 
   \item{... }{Additional arguments are passed to the internal call of lines() or plot() as appropriate.} 
 }
 \details{

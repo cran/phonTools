@@ -1,4 +1,4 @@
-# Copyright (c) 2014 Santiago Barreda
+# Copyright (c) 2015 Santiago Barreda
 # All rights reserved.
 
 ldboundary = function (mean1, mean2, covariance, prior1 = .5, prior2 = .5, add = F, ...){

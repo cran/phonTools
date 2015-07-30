@@ -1,9 +1,8 @@
-# Copyright (c) 2014 Santiago Barreda
+# Copyright (c) 2015 Santiago Barreda
 # All rights reserved.
 
 
-anova.rcr <-
-function (object, ...){
+anova.rcr = function (object, ...){
   if (sum(is.na(object$coefficients)) > 0) return (cat ("Error: Null coefficient values. Check individual coefficients and model fits.\n\n"))
   
   nfactors = length (levels (object$factors))
@@ -34,3 +33,5 @@ function (object, ...){
   class(output) = "anova.rcr"
   output
 }
+
+

@@ -1,5 +1,6 @@
 \name{errorbars}
 \alias{errorbars}
+\alias{errorbar}
 \title{
 Error bars.
 }

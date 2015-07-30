@@ -1,4 +1,4 @@
-# Copyright (c) 2014 Santiago Barreda
+# Copyright (c) 2015 Santiago Barreda
 # All rights reserved.
 
 
@@ -22,11 +22,10 @@ pitchtrack = function (sound, f0range = c(60,400), timestep = 2, fs = 22050, min
   maxlag = round (1 / (T * f0range[1] ))
 
   if (timestep>0){
-    half = round( ceiling (windowlength/1000 * 22050)/ 2)
+    half = round( ceiling (windowlength/1000 * fs)/ 2)
     spots = seq (1+half, length(sound)-half, stepsize)
     corr = rep (0, length(spots))
     lag = rep (0, length(spots))
-
     for (i in 1:length(spots)){
       section = sound[(spots[i]-half):(spots[i]+half)] 
       acf = fastacf (section, lag.max = maxlag, show = F, correct = correction)    
@@ -37,7 +36,7 @@ pitchtrack = function (sound, f0range = c(60,400), timestep = 2, fs = 22050, min
       if (lag[i]==0) corr[i] = 0
     }
     lag[lag < minlag | lag > maxlag] = 0
-    spots = (spots - maxlag) * T * 1000
+    spots = spots * T * 1000
     f0 = 1 / (lag * T)
     f0 [f0 == Inf] = 0
     f0 [f0 == fs] = 0

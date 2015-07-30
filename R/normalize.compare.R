@@ -1,4 +1,4 @@
-# Copyright (c) 2014 Santiago Barreda
+# Copyright (c) 2015 Santiago Barreda
 # All rights reserved.
 
 normalize.compare = function (normd){
@@ -23,7 +23,7 @@ normalize.compare = function (normd){
     d = (d / (gamma (n+1) / (gamma (n-1) * 2)))^.5
 
     template = createtemplate (formants, tmp$vowel)
-    winners = ldclassify (formants, template$means, template$covariance)
+    winners = ldclassify (formants, vowels)
     correct = mean (winners == tmp$vowel)
     
     cat('\n   Method ', j, '\n\n')

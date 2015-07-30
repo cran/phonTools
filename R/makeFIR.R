@@ -1,4 +1,4 @@
-# Copyright (c) 2014 Santiago Barreda
+# Copyright (c) 2015 Santiago Barreda
 # All rights reserved.
 
 
@@ -31,29 +31,34 @@ makeFIR = function (frequency, dB, order = 200, signal = NULL, window = 'hann', 
   
   if (!is.null(signal)) output = FIRfilter (signal, impulse = response) 
   
-  if (verify & is.null(signal)){
-    par (mfrow = c(2,1), mar = c(4.5,4.5,3,1))
-    plot (response, main = 'Filter Impulse Response', xlab = 'Tap', 
-          ylab = 'Amplitude', xaxs='i', type = 'b')
-    spectralslice (response, fs = max(frequency)*2, padding = 15000, main = 'Filter Frequency Response', 
-                   ylim = ylim, window = window)
-    points (frequency, dB, cex = 1.3, col = 4, pch = 16)
-  }  
-  if (verify & !is.null(signal)){
-    par (mfrow = c(2,2), mar = c(4.5,4.5,3,1))
-    plot (response, main = 'Filter Impulse Response', xlab = 'Tap', 
-          ylab = 'Amplitude', xaxs='i', type = 'b')
-    spectralslice (response, fs = max(frequency)*2, padding = 15000, main = 'Filter Frequency Response', 
-                   ylim = ylim, window = window)
-    points (frequency, dB, cex = 1.3, col = 4, pch = 16)
-    spectralslice (signal, fs = max(frequency)*2, padding = 5000, main = 'Pre-Filtering', 
-                   ylim = ylim, window = window)
-    spectralslice (output, fs = max(frequency)*2, padding = 5000, main = 'Post-Filtering', 
-                   ylim = ylim, window = window)
-    spectralslice (response, fs = max(frequency)*2, padding = 15000, main = 'Filter Frequency Response', 
-                   ylim = ylim, window = window, add = TRUE, lty = 'dotted', col = 4)
-  }
-  
+  oldpar = par()
+  if (verify){
+    oldpar = par()
+	if(is.null(signal)){
+		par (mfrow = c(2,1), mar = c(4.5,4.5,3,1))
+		plot (response, main = 'Filter Impulse Response', xlab = 'Tap', 
+			  ylab = 'Amplitude', xaxs='i', type = 'b')
+		spectralslice (response, fs = max(frequency)*2, padding = 15000, main = 'Filter Frequency Response', 
+					   ylim = ylim, window = window)
+		points (frequency, dB, cex = 1.3, col = 4, pch = 16)
+	}  
+    if (verify & !is.null(signal)){
+		par (mfrow = c(2,2), mar = c(4.5,4.5,3,1))
+		plot (response, main = 'Filter Impulse Response', xlab = 'Tap', 
+			  ylab = 'Amplitude', xaxs='i', type = 'b')
+		spectralslice (response, fs = max(frequency)*2, padding = 15000, main = 'Filter Frequency Response', 
+					   ylim = ylim, window = window)
+		points (frequency, dB, cex = 1.3, col = 4, pch = 16)
+		spectralslice (signal, fs = max(frequency)*2, padding = 5000, main = 'Pre-Filtering', 
+					   ylim = ylim, window = window)
+		spectralslice (output, fs = max(frequency)*2, padding = 5000, main = 'Post-Filtering', 
+					   ylim = ylim, window = window)
+		spectralslice (response, fs = max(frequency)*2, padding = 15000, main = 'Filter Frequency Response', 
+					   ylim = ylim, window = window, add = TRUE, lty = 'dotted', col = 4)
+		par(mfrow=c(1,1),mar=c(5.1,4.1,4.1,2.1));
+	  }
+	suppressWarnings (par (oldpar)) 
+  } 
   if (is.null(signal)) return (response)
   if (!is.null(signal)) return (signal)
 }

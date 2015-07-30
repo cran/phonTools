@@ -1,10 +1,9 @@
-# Copyright (c) 2014 Santiago Barreda
+# Copyright (c) 2015 Santiago Barreda
 # All rights reserved.
 
 
 vplot = function (x, y, labels = NULL, colors = NULL, points = NULL, meansonly = FALSE, ellipsesd = 0, 
                   add = FALSE, alternateaxes = FALSE, xsampa = FALSE, logaxes = FALSE, ...){
-  
   if (min(table (labels)) < 2 & ellipsesd>0) 
     stop ('At least 3 tokens per category are required to plot ellipses.')
   if (logaxes & min(x,y) <= 0) stop ('Log axes are incompatible with negative plotting values.')
@@ -77,6 +76,7 @@ vplot = function (x, y, labels = NULL, colors = NULL, points = NULL, meansonly =
   
   if (is.null(colors)) colors = rep(colors()[c(24,506,118,610,30,124,556,258,290,151,84,657,404)],10)
   if (!meansonly) cols = colors[vnums]
+  if (!meansonly & length(colors)==length(x)) cols = colors
   if (meansonly) cols = colors
   args$col = call ('[', cols)
   
@@ -85,7 +85,6 @@ vplot = function (x, y, labels = NULL, colors = NULL, points = NULL, meansonly =
     args$pch = call ('(', quote(points[vnums]))
   }
   if (xsampa) args$pch = call ('xsampatoIPA', quote(labels))
-  
   if (!add) do.call ('plot', args)
   if (add) do.call ('points', args)
   
@@ -97,6 +96,6 @@ vplot = function (x, y, labels = NULL, colors = NULL, points = NULL, meansonly =
       if (logaxes){ tmp = sdellipse (log(cbind (allx[alllabels==vlevels[i]],ally[alllabels==vlevels[i]])), 
                                      stdev = ellipsesd, show = F); lines (exp(tmp), col = colors[i],lwd=lwd)}
     }
-  } 
+  }   
 }
 

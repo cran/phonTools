@@ -10,7 +10,7 @@ Create and display spectrograms.
 }
 \usage{
 spectrogram (sound, fs = 22050, windowlength = 5, 
-timestep = -500, padding = 10, 
+timestep = -1000, padding = 10, 
 preemphasisf = 50, maxfreq = 5000, colors = TRUE, 
 dynamicrange = 50, nlevels = dynamicrange, maintitle = "", 
 show = TRUE, window = 'kaiser', windowparameter = 3, 

@@ -14,7 +14,7 @@ snip  (object, show = TRUE)
   \item{show}{If TRUE, the selected subsection is displayed, resulting in zoom functionality.} 
 }
 \details{
-The input object is plotted and the user must click on two points on the plot. If show = TRUE, this function allows the user to zoom in on a subsection of the object. If output = TRUE, a new object is then created and returned that contains only the data in between the two designated points. 
+The input object is plotted and the user must click on two points on the plot. If show = TRUE, this function allows the user to zoom in on a subsection of the object. If the output is assigned to a variable, a new object is created and returned that contains only the data in between the two designated points. 
 }
 \value{
 A 'sound' or 'spectrogram' object which interacts with several functions included in this package.
