@@ -21,6 +21,6 @@ Formant frequency information for vowels averaged across 5 male speakers.
 Fourakis, M., Botinis, A. & Katsaiti, M. (1999). Acoustic characteristics of Greek vowels. Phonetica, 56. 28-43.
 }
 \examples{
-data(f99)
-vowelplot (f99$f1, f99$f2, f99$vowel, logaxes = 'xy', xsampa = TRUE)
+#data(f99)
+#vowelplot (f99$f1, f99$f2, f99$vowel, logaxes = 'xy', xsampa = TRUE)
 }

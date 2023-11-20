@@ -40,10 +40,9 @@ Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
 
-data (sound)
-
-par (mfrow = c(2,1), mar = c(4,4,1,1))
-formanttrack (sound)
+#data (sound)
+#par (mfrow = c(2,1), mar = c(4,4,1,1))
+#formanttrack (sound)
 #formanttrack (sound, periodicity = 0)
 
 }

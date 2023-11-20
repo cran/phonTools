@@ -23,6 +23,6 @@ Pols, L. C. W., Tromp, H. R. C., & Plomp, R. (1973). Frequency analysis of Dutch
 }
 \examples{
 data(p73)
-vowelplot (p73$f1, p73$f2, p73$vowel, logaxes = 'xy', ellipses = TRUE, 
-xsampa = TRUE)
+#vowelplot (p73$f1, p73$f2, p73$vowel, logaxes = 'xy', ellipses = TRUE, 
+#xsampa = TRUE)
 }

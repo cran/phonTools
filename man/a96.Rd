@@ -23,6 +23,6 @@ Formant frequency information for vowels averaged across 6 male speakers.
 Aronson, L., Rosenhouse, J. Rosenhouse, G. & Podoshin, L. (1996). An acoustic analysis of modern Hebrew vowels and voiced consonants. Journal of Phonetics 24. 283-193. 
 }
 \examples{
-data(a96)
-vowelplot (a96$f1, a96$f2, a96$vowel, logaxes = 'xy', xsampa = TRUE)
+#data(a96)
+#vowelplot (a96$f1, a96$f2, a96$vowel, logaxes = 'xy', xsampa = TRUE)
 }

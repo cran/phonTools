@@ -24,5 +24,5 @@ Contains a brief description and listing of all vowel data sets included in this
 At the moment 9 vowel data sets are included in this package. See individual data set pages for citation information.
 }
 \examples{
-data(voweldata)
+#data(voweldata)
 }

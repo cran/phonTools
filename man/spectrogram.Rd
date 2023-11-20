@@ -54,10 +54,10 @@ Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
 ## uncoment and run. 
-data (sound)             ## use the example 'sound' object provided
+#data (sound)             ## use the example 'sound' object provided
 #sound = loadsound()       ## or run this line to use you own sound
 
-spectrogram (sound)
+#spectrogram (sound)
 # spectrogram (sound, quality = TRUE)
 
 }

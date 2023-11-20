@@ -3,7 +3,7 @@
 
 
 playsound = function (sound, path = 'default', fs = 10000, erase = TRUE){
-  if (class (sound) != 'sound' & class (sound) != 'ts'){
+  if (inherits(sound,'sound') & !inherits(sound,'ts')){
     sound = sound / (max(sound)*1.05)
     sound = makesound (sound, 'play_tmp.wav', fs = fs)
   }

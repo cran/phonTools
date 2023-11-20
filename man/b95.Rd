@@ -21,6 +21,6 @@ Formant frequency information for vowels averaged across 4 male speakers.
 Bradlow, A. R. (1995). A comparative acoustic study of English and Spanish vowels. Journal of the Acoustical Society of America 97. 1916-1924.
 }
 \examples{
-data(b95)
-vowelplot (b95$f1, b95$f2, b95$vowel, logaxes = 'xy', xsampa = TRUE)
+#data(b95)
+#vowelplot (b95$f1, b95$f2, b95$vowel, logaxes = 'xy', xsampa = TRUE)
 }

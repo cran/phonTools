@@ -29,8 +29,8 @@ http://www.fon.hum.uva.nl/praat/manual/Sound__Filter__pre-emphasis____.html
 Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
-signal = sinusoid (c(100, 200, 400, 800, 1600), fs = 4000, 
-dur = 100, sum = TRUE)[,7]
+#signal = sinusoid (c(100, 200, 400, 800, 1600), fs = 4000, 
+#dur = 100, sum = TRUE)[,7]
 
-preemphasis (signal, verify = TRUE, fs = 4000, cutoff = 50)
+#preemphasis (signal, verify = TRUE, fs = 4000, cutoff = 50)
 }

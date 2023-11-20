@@ -23,7 +23,7 @@ A 'sound' or 'spectrogram' object which interacts with several functions include
 Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
-data (sound)
+#data (sound)
 ## the example below is commented because examples cannot 
 ## require user interaction. simply uncomment the lines below
 ## and select two points on the plot. 

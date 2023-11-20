@@ -30,7 +30,7 @@ http://homepages.wmich.edu/~hillenbr/voweldata.html
 Hillenbrand, J.M., Getty, L.A., Clark, M.J., and Wheeler, K. (1995). "Acoustic characteristics of American English vowels," Journal of the Acoustical Society of America, 97, 3099-3111.
 }
 \examples{
-data(h95)
-vowelplot (h95$f1, h95$f2, h95$vowel, logaxes = 'xy', ellipses = TRUE,
-xsampa = TRUE)
+#data(h95)
+#vowelplot (h95$f1, h95$f2, h95$vowel, logaxes = 'xy', ellipses = TRUE,
+#xsampa = TRUE)
 }

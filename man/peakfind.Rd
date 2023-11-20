@@ -22,8 +22,8 @@ A vector indicating the location (position in the vector) of peaks in the vector
 Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
-data (sound)
-sound2 = sound$sound[10000:11000] 
-spectrum = spectralslice (sound2, padding = 0, output = TRUE, show = TRUE)
-peakfind (spectrum[,2])
+#data (sound)
+#sound2 = sound$sound[10000:11000] 
+#spectrum = spectralslice (sound2, padding = 0, output = TRUE, show = TRUE)
+#peakfind (spectrum[,2])
 }

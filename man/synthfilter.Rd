@@ -32,13 +32,13 @@ Santiago Barreda <sbarreda@ucdavis.edu>
 
 ## uncomment and run
 ##  white noise
-noise = rnorm(5000)
+#noise = rnorm(5000)
 
 ## low-pass filter
 #synthfilter (noise, band = c(0, .25), verify = TRUE)
 
 ##  band-pass filter
-synthfilter (noise, band = c(.15, .25), verify = TRUE)
+#synthfilter (noise, band = c(.15, .25), verify = TRUE)
 
 ##  high-pass filter
 #synthfilter (noise, band = c(.35, .5), verify = TRUE)

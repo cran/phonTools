@@ -53,23 +53,23 @@ Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
 ## load Peterson & Barney vowel data
-data (pb52)
+#data (pb52)
 
 ## normalize vowel formant frequencies
-normdvowels = normalize (pb52[,7:9], pb52$speaker, pb52$vowel)
-formants = normdvowels[,1:3]
-vowels = pb52$vowel
+#normdvowels = normalize (pb52[,7:9], pb52$speaker, pb52$vowel)
+#formants = normdvowels[,1:3]
+#vowels = pb52$vowel
 
 ## make a vowel template based on these frequencies
-template = createtemplate (formants, vowels) 
+#template = createtemplate (formants, vowels) 
 
 ## first classify only the first three vowels
-ffs = pb52[1:3,c(7:9)] 
-f0 = pb52[1:3,6]
+#ffs = pb52[1:3,c(7:9)] 
+#f0 = pb52[1:3,6]
 
 ## outputting only the winners, and then the full posterior probabilities
-PSTM (ffs, f0, template)
-PSTM (ffs, f0, template, winner = FALSE)
+#PSTM (ffs, f0, template)
+#PSTM (ffs, f0, template, winner = FALSE)
 
 ## now classify all vowels
 ## uncomment to run

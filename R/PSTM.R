@@ -24,7 +24,7 @@ PSTM = function (ffs, f0, template, winner = TRUE){
     template = list (means = means, covariance = covariance)
     class (template) = 'template'
   }
-  if (class(template) != 'template') stop ('Innapropriate template provided.')
+  if (!inherits(template,'template')) stop ('Innapropriate template provided.')
 
   f0weight=2; covarweight=1; psiprioweight=1;  
 

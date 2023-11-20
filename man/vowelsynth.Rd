@@ -47,7 +47,7 @@ Santiago Barreda <sbarreda@ucdavis.edu>
 ## uncomment to run
 
 ## The following examples are based on my vowels 
-i = vowelsynth (returnsound = FALSE, f0 = c(125,105))
+#i = vowelsynth (returnsound = FALSE, f0 = c(125,105))
 #a = vowelsynth (ffs = c(700, 1300, 2300, 3400, 4400), 
 #returnsound = FALSE, f0 = c(125,105))
 #e = vowelsynth (ffs = c(400, 2000, 2600, 3400, 4400), 

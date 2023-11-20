@@ -22,7 +22,7 @@ Mean formant frequency information for the vowels of male and female speakers fr
 Thomson, R. (2007). Modeling L1/L2 interactions in the perception and production of English vowels by Mandarin L1 speakers: A training study. PhD dissertation, University of Alberta.
 }
 \examples{
-data(t07)
-vowelplot (t07$f1, t07$f2, t07$vowel, logaxes = 'xy', meansOnly = TRUE, 
-xsampa = TRUE)
+#data(t07)
+#vowelplot (t07$f1, t07$f2, t07$vowel, logaxes = 'xy', meansOnly = TRUE, 
+#xsampa = TRUE)
 }

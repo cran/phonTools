@@ -24,10 +24,10 @@ http://en.wikipedia.org/wiki/Window_function
 Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
-par (mfrow = c(1,4))
-plot (windowfunc (100, 'hann'))
-plot (windowfunc (100, 'bartlett'))
-plot (windowfunc (100, 'kaiser', parameter = 2))
-plot (windowfunc (100, 'kaiser', parameter = 6))
+#par (mfrow = c(1,4))
+#plot (windowfunc (100, 'hann'))
+#plot (windowfunc (100, 'bartlett'))
+#plot (windowfunc (100, 'kaiser', parameter = 2))
+#plot (windowfunc (100, 'kaiser', parameter = 6))
 }
 

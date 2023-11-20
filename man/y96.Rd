@@ -22,6 +22,6 @@ Formant frequency information for vowels averaged across 60 male and female spea
 Yang, B. (1996). A comparative study of American English and Korean vowels produced by male and female speakers. Journal of Phonetics, 24. 245-261.
 }
 \examples{
-data(y96)
-vowelplot (y96$f1, y96$f2, y96$vowel, logaxes = 'xy', xsampa = TRUE)
+#data(y96)
+#vowelplot (y96$f1, y96$f2, y96$vowel, logaxes = 'xy', xsampa = TRUE)
 }

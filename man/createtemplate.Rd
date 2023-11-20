@@ -41,17 +41,17 @@ Nearey, T. M. & P. F. Assmann. (2007). Pobabilistic 'sliding template' models fo
 Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
-data (pb52)            ## load the Peterson and Barney vowels.
+#data (pb52)            ## load the Peterson and Barney vowels.
 ## normalize them.
-normdvowels = normalize (pb52[,7:9], pb52$speaker, pb52$vowel)  
-formants = normdvowels[,1:3]
-vowels = pb52$vowel
+#normdvowels = normalize (pb52[,7:9], pb52$speaker, pb52$vowel)  
+#formants = normdvowels[,1:3]
+#vowels = pb52$vowel
 
 ## create a vowel template with the normalized formant frequencies
 ## and information about the vowel category.
-template = createtemplate (formants, vowels)
+#template = createtemplate (formants, vowels)
 
 ## and inspect with plot()
-plot (template, xsampa = TRUE)
+#plot (template, xsampa = TRUE)
 }
 

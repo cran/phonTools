@@ -24,7 +24,7 @@ The resampled vector is returned. If a 'sound' object is passed, the resampled s
 Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
-data (sound)
+#data (sound)
 ## downsample and then upsample the sound back to 
 ## its original sampling frequency
 #downsamped = resample (sound, 11025)

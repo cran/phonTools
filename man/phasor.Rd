@@ -27,13 +27,13 @@ Santiago Barreda <sbarreda@ucdavis.edu>
 }
 \examples{
 
-noise = rnorm (100)
-phasors = fft(noise)
+#noise = rnorm (100)
+#phasors = fft(noise)
 
-par (mfrow = c(1,3))
-phasor (phasors)
-phasor (phasors, circle = TRUE)
-phasor (phasors, scaled = FALSE)
+#par (mfrow = c(1,3))
+#phasor (phasors)
+#phasor (phasors, circle = TRUE)
+#phasor (phasors, scaled = FALSE)
 
 }
 

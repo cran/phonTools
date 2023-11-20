@@ -4,11 +4,11 @@
 
 synthfilter = function (sound, band = c(0,fs/4), fs = 1, verify = FALSE, attenuation = 0){
   soundout = 0; tsout = 0;	
-  if (class(sound) == "ts"){
+  if (inherits(sound,"ts")){
     fs = frequency(sound)
     tsout = 1
   }
-  if (class(sound) == "sound") {
+  if (inherits(sound,"sound")) {
     soundout = 1
     fs = sound$fs
     oldsound = sound

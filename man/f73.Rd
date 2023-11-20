@@ -23,6 +23,6 @@ Formant frequency information for vowels averaged across 50 male speakers.
 Fant, G. (1973). Speech sounds and features. Cambridge, MA: MIT Press.
 }
 \examples{
-data(f73)
-vowelplot (f73$f1, f73$f2, f73$vowel, logaxes = 'xy', xsampa = TRUE)
+#data(f73)
+#vowelplot (f73$f1, f73$f2, f73$vowel, logaxes = 'xy', xsampa = TRUE)
 }
